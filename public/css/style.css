@@ -41,7 +41,7 @@ body {
 
 .hero {
   position: relative; /* Ensure proper positioning for the pseudo-element */
-  background-image: url('Banner.png');
+  background-image: url("http://localhost:3300/images/Banner.png");
   background-size: cover;
   background-position: center;
   height: 100vh;
