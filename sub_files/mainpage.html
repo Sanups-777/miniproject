@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Style for header */
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 6.6px 11px; /* Increased padding */
+        background-color: white; /* Navbar background color */
+        color: black; /* Header text color */
+      }
+      /* Style for logo */
+      
+
+      /* Style for search container */
+      .search-container {
+        display: flex;
+        align-items: center;
+        flex: 0 0 30%; /* Consume 30% of the width */
+        background-color: white; /* White background */
+        padding: 0 11px; /* Increased padding */
+      }
+
+      /* Style for search input */
+      .search-input {
+        flex: 1; /* Take up remaining space */
+        padding: 11px 16.5px; /* Increased padding */
+        border: 2px solid #ccc;
+        border-radius: 22px; /* 10% bigger */
+        font-size: 15.4px; /* 10% bigger */
+        outline: none;
+        transition: all 0.3s ease;
+      }
+
+      /* Style for search button */
+      .search-button {
+        background-color: #4d1434; /* Updated color */
+        color: white;
+        border: none;
+        border-radius: 22px; /* 10% bigger */
+        padding: 11px 16.5px; /* Increased padding */
+        margin-left: 5.5px; /* Increased margin */
+        font-size: 15.4px; /* 10% bigger */
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      /* Hover effect for search button */
+      .search-button:hover {
+        background-color: #3c0f29; /* Adjusted hover color */
+      }
+
+      /* Focus effect for search input */
+      .search-input:focus {
+        border-color: #4d1434;
+        box-shadow: 0 0 4.4px 0 #4d1434;
+      }
+
+      /* Style for signup and login buttons */
+      .signup-login-buttons {
+        display: flex;
+        align-items: center;
+      }
+
+      .signup-login-buttons button {
+        border: 2.2px solid transparent; /* Transparent border */
+        border-radius: 22px; /* Rounded border */
+        padding: 11px 16.5px; /* Increased padding */
+        margin-right: 5.5px; /* Increased margin */
+        font-size: 15.4px; /* 10% bigger */
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .signup-login-buttons .signup-button {
+        background-color: #4d1434; /* Signup button background color */
+        color: white; /* Signup button text color */
+      }
+
+      .signup-login-buttons .login-button {
+        background-color: white; /* Login button background color */
+        color: black; /* Login button text color */
+      }
+
+      .signup-login-buttons .login-button:hover {
+        border-color: #4d1434; /* Hover border color */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search..." />
+        <button class="search-button">Search</button>
+      </div>
+      <div class="signup-login-buttons">
+        <button> <a href="login.html" style="color: #851752;text-decoration: none;">login</a></button><!--fix double click-->
+        <button class="signup-button"><a href="reg.html" style="color: #ffffff;text-decoration: none;">Signup</a></button>
+      </div>
+    </div>
+    
+  </body>
+</html>

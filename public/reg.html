@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signup Form</title>
+<script src="myscripts.js"></script>
+<style>
+    /* CSS for styling the form */
+    body {
+        font-family: Arial, sans-serif;
+    }
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    input[type=text], input[type=email], input[type=tel], input[type=password] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        box-sizing: border-box;
+    }
+    input[type=submit] {
+        background-color: #903163;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+    input[type=submit]:hover {
+        background-color: #4D1434;
+    }
+    span{
+        color: red;
+        
+    }
+
+</style>
+</head>
+<body>
+  <a href="mainpage.html" style="color: #ffffff;text-decoration: none;">
+    <img src="http://localhost:3300/images/Logo.png" alt="Logo" class="logo">
+  </a>
+    <form action="/reg" method="post" autocomplete="off" onsubmit="return validation()">
+        <h2>Sign Up Form</h2>
+        <label for="name">Name:</label>
+        <input type="text" placeholder="Enter Name" id="name" name="name" required>
+        <span id="namee"> </span>
+        
+        <label for="username">Username:</label>
+        <input type="text" placeholder="Enter Username" id="username" name="username" required>
+        <span id="usernamee"> </span>
+
+        <label for="email">Email:</label>
+        <input type="email"  placeholder="Enter Email Address" id="email" name="email" required>
+        <span id="emaill"> </span>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" placeholder="Enter Phone number"id="phno" name="phno" required>
+        <span id="phnoo"> </span>
+
+        <label for="password">Password:</label>
+        <input type="password" placeholder="Enter Password" id="password" name="password" required>
+        <span id="passs"> </span>
+        <label for="conpassword">Confirm Password:</label>
+        <input
+              id="conpassword"
+              placeholder="Enter Password"
+              name="conpassword"
+              type="password"
+            />
+        <span id="conpasss"> </span>
+        <input name="Submit" type="submit" value="Sign Up"/><a href="reg.html" style="color: #ffffff;">Sign up here</a>
+    </form>
+    <script>
+        function validation() {
+          var user = document.getElementById("username").value;
+          var pass = document.getElementById("password").value;
+          var conpass = document.getElementById("conpassword").value;
+          var name = document.getElementById("name").value;
+          var email = document.getElementById("email").value;
+          var mobile = document.getElementById("phno").value;
+  
+          if (user == "") {
+            document.getElementById("usernamee").innerHTML =
+              "**Please write username**";
+            return false;
+          }
+          if (user.length < 2) {
+            document.getElementById("usernamee").innerHTML =
+              "**username must be more than 2 characters**";
+            return false;
+          }
+          if (!isNaN(user)) {
+            document.getElementById("usernamee").innerHTML =
+              "**username cannot include numbers**";
+            return false;
+          } else {
+            document.getElementById("usernamee").innerHTML = "";
+          }
+          if (pass == "") {
+            document.getElementById("passs").innerHTML =
+              "**Please write password**";
+            return false;
+          }
+          if (pass.length < 8) {
+            document.getElementById("passs").innerHTML =
+              "**Please write password of atleast 8 characters**";
+            return false;
+          }
+          if (pass.search(/[0-9]/) == -1) {
+            document.getElementById("passs").innerHTML =
+              "**Please write password with atleast 1 numeric**";
+            return false;
+          }
+          if (pass.search(/[a-z]/) == -1) {
+            document.getElementById("passs").innerHTML =
+              "**Please write password with atleast 1 lowercase character**";
+            return false;
+          }
+          if (pass.search(/[A-Z]/) == -1) {
+            document.getElementById("passs").innerHTML =
+              "**Please write password with atleast 1 uppercase character**";
+            return false;
+          }
+          if (pass.search(/[!\@\#\$\%\^\&\*\_\+\,\-\.\<\>\?]/) == -1) {
+            document.getElementById("passs").innerHTML =
+              "**Please write password with atleast 1 special character**";
+            return false;
+          } else {
+            document.getElementById("passs").innerHTML = "";
+          }
+          if (conpass == "") {
+            document.getElementById("conpasss").innerHTML =
+              "**Please write password again**";
+            return false;
+          }
+          if (conpass != pass) {
+            document.getElementById("conpasss").innerHTML =
+              "**Passwords don't match**";
+            return false;
+          } else {
+            document.getElementById("conpasss").innerHTML = "";
+          }
+  
+          if (name == "") {
+            document.getElementById("namee").innerHTML = "**Please write name**";
+            return false;
+          }
+          let regex = /^[a-zA-Z]+$/;
+          if (regex.test(name) == false) {
+            document.getElementById("namee").innerHTML =
+              "**Name cannot include numbers**";
+            return false;
+          } else {
+            document.getElementById("namee").innerHTML = "";
+          }
+          if (email == "") {
+            document.getElementById("emaill").innerHTML =
+              "**Please write email**";
+          }
+          if (mobile == "") {
+            document.getElementById("phnoo").innerHTML =
+              "**Please write mobile no**";
+          }
+          if (isNaN(mobile)) {
+            document.getElementById("phnoo").innerHTML =
+              "**Please write numbers only**";
+            return false;
+          }
+          if (mobile.length < 10 || mobile.length > 10) {
+            document.getElementById("phnoo").innerHTML =
+              "**Please write 10-digit no**";
+            return false;
+          } else {
+            document.getElementById("phnoo").innerHTML = "";
+          }
+        }
+      </script>
+</body>
+</html>
