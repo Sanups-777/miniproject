@@ -1,39 +1,28 @@
-/* Reset default browser styles */
-body, h1, h2, p, ul, li {
+body {
   margin: 0;
   padding: 0;
+  font-family: Arial, sans-serif;
 }
 
-/* Global Styles */
-body {
-  font-family: Arial, sans-serif;
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-}
-
-/* Navigation Styles */
-.navbar {
-  background-color: #851752;
-  color: #fff;
-  padding: 20px 0;
-}
-
-.navbar .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.navbar .logo {
-  font-size: 24px;
-}
-
 .nav-links {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li {
@@ -41,40 +30,64 @@ body {
   margin-right: 20px;
 }
 
-.nav-links li a {
+.nav-links li:last-child {
+  margin-right: 0;
+}
+
+.nav-links a {
   color: #fff;
   text-decoration: none;
 }
 
-/* Hero Section Styles */
 .hero {
-  background-color: #f4f4f4;
-  padding: 100px 0;
+  position: relative; /* Ensure proper positioning for the pseudo-element */
+  background-image: url('Banner.png');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
   text-align: center;
 }
 
+/* Add a pseudo-element to overlay black shade */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Adjust the transparency as needed */
+}
+
 .hero h2 {
-  font-size: 36px;
+  font-size: 3em;
   margin-bottom: 20px;
 }
 
 .hero p {
-  font-size: 18px;
+  font-size: 1.2em;
   margin-bottom: 40px;
 }
 
-.cta-buttons .btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #851752;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-right: 10px;
+.cta-buttons {
+  display: flex;
+  justify-content: center;
 }
 
-.logop {
-  color: #ffffff;
-  width: 80px; /* 10% bigger */
-  height: auto; /* 10% bigger */
+.btn {
+  background-color: #ff6600;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin: 0 10px;
+  border-radius: 5px;
+  font-size: 1.1em;
+}
+
+.btn:hover {
+  background-color: #cc5500;
 }
