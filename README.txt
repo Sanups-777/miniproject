@@ -10,7 +10,7 @@ mongodb+srv://mongodb:gr74mongo@cluster0.mg8xlkx.mongodb.net/userdata
 
 
 
-test
+sanu update 
 
 
 
@@ -20,6 +20,7 @@ DOWNLOAD -: https://www.youtube.com/watch?v=jT9QEUOX00w
             https://git-scm.com/download/win
 
 LINK BTW VS & GIT-: https://www.youtube.com/watch?v=jT9QEUOX00w
+https://www.youtube.com/watch?v=Ab6Xjl3LECE
 __________________________________________________________________
 git commit -m
 git remote add origin https://github.com/Sanups-777/miniproject.git

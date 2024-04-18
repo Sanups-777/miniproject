@@ -1,7 +1,14 @@
 body {
+body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
 }
 
 .navbar {
@@ -37,6 +44,8 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li {
@@ -49,11 +58,25 @@ body {
 }
 
 .nav-links a {
+.nav-links li:last-child {
+  margin-right: 0;
+}
+
+.nav-links a {
   color: #fff;
   text-decoration: none;
 }
 
 .hero {
+  position: relative; /* Ensure proper positioning for the pseudo-element */
+  background-image: url("http://localhost:3300/images/Banner.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
   position: relative; /* Ensure proper positioning for the pseudo-element */
   background-image: url("http://localhost:3300/images/Banner.png");
   background-size: cover;
@@ -79,10 +102,12 @@ body {
 
 .hero h2 {
   font-size: 3em;
+  font-size: 3em;
   margin-bottom: 20px;
 }
 
 .hero p {
+  font-size: 1.2em;
   font-size: 1.2em;
   margin-bottom: 40px;
 }
@@ -100,8 +125,14 @@ body {
   padding: 10px 20px;
   text-decoration: none;
   margin: 0 10px;
+  margin: 0 10px;
   border-radius: 5px;
   font-size: 1.1em;
+  font-size: 1.1em;
+}
+
+.btn:hover {
+  background-color: #cc5500;
 }
 
 .btn:hover {
