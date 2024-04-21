@@ -23,6 +23,7 @@ const login = require("./local_modules/login.js");
 const signup = require("./local_modules/signup.js");
 const admin = require("./local_modules/admin_modules/admin.js");
 const users = require("./local_modules/user_modules/user.js");
+//const details = require("./local_modules/detail.js");
 
 // Connect to MongoDB
 const mongoose = require("mongoose");
@@ -34,6 +35,7 @@ mongoose.connect('mongodb+srv://mongodb:gr74mongo@cluster0.mg8xlkx.mongodb.net/u
     signup.init(db);
     admin.init(db);
     users.init(db);
+    //details.init(db);
   })
   .catch((err) => console.error('Error connecting to MongoDB:', err));
 
@@ -47,6 +49,8 @@ app.use('/login', login.router);
 app.use('/reg', signup.router);
 app.use('/admin', admin.router);
 app.use('/users', users.router);
+//app.use('/details', details.router);
+
 
 // Start the server
 const PORT = 3300;

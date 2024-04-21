@@ -10,11 +10,9 @@ function init(dbConnection) {
 
 
 async function verification(email,password,res) {
-  if (email == "admin") 
-    {
       if (password === "password") 
       {
-        console.log(verify);
+        console.log("verify");
         let a = "Admin";
         res.render("adminp", {name: a});
       } 
@@ -23,8 +21,7 @@ async function verification(email,password,res) {
         console.log("INVALID PASSWORD");
         return res.redirect("login.html");
       }
-    }
-  else{console.log("autentication",email,password)}
+  
 }
 
 router.post('/user', async(req, res) => {
@@ -32,7 +29,9 @@ router.post('/user', async(req, res) => {
   console.log("User login attempt:", email, password);
   if(email==='Admin')
   {console.log("welcome admin", email, password);
-    verification(email,password,res)}
+    verification(email,password,res)
+  return 0;
+  }
   try {
     var result = await db.collection("users").findOne({ email: email });
   } catch (err) {
