@@ -26,6 +26,7 @@ router.post("/user", async (req, res) => {
     verification(email, password, res);
     return 0;
   }
+  else{
   try {
     var result = await db.collection("users").findOne({ email: email });
   } catch (err) {
@@ -44,7 +45,7 @@ router.post("/user", async (req, res) => {
     }
   } else {
     console.log("incorrect email");
-  }
+  }}
 });
 
 router.post("/business", async (req, res) => {
