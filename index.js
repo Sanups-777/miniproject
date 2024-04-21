@@ -23,7 +23,7 @@ const login = require("./local_modules/login.js");
 const signup = require("./local_modules/signup.js");
 const admin = require("./local_modules/admin_modules/admin.js");
 const users = require("./local_modules/user_modules/user.js");
-//const details = require("./local_modules/detail.js");
+const html = require("./local_modules/html.js");
 
 // Connect to MongoDB
 const mongoose = require("mongoose");
@@ -57,7 +57,7 @@ app.use("/login", login.router);
 app.use("/signup", signup.router);
 app.use("/admin", admin.router);
 app.use("/users", users.router);
-//app.use('/details', details.router);
+app.use('/html', html.router);
 
 // Start the server
 const PORT = 3300;
