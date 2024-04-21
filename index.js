@@ -48,16 +48,13 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/mainpage.html");
 });
 
-app.get("/loginpage", (req, res) => {
-  res.sendFile(__dirname + "/public/login.html");
-});
 
 // Mount routes
 app.use("/login", login.router);
 app.use("/signup", signup.router);
 app.use("/admin", admin.router);
 app.use("/users", users.router);
-app.use('/html', html.router);
+app.use('/homesaver', html.router);
 
 // Start the server
 const PORT = 3300;

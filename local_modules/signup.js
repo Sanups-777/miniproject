@@ -46,7 +46,7 @@ router.post("/users", (req, res) => {
       return res.status(500).json({ error: "Internal server error" });
     }
     console.log("Record Inserted Successfully:", result.insertedId);
-    res.redirect("/loginpage");
+    res.redirect("/homesaver/login");
   });
 });
 

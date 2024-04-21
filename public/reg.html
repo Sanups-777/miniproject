@@ -43,14 +43,12 @@
         box-sizing: border-box;
       }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style_login.css" />
   </head>
   <body>
-    <a href="mainpage.html" style="color: #ffffff; text-decoration: none">
-      <img
-        src="http://localhost:3300/images/Logo.png"
-        alt="Logo"
-        class="logo"
-      />
+    <a href="/homesaver/mainpage" style="color: #ffffff;text-decoration: none; ">
+      <img src="http://localhost:3300/images/Logo.png" alt="Logo" style="width: 80px;height: auto;top: 10px;left: 10px;">
     </a>
     <form
       action="/signup/users"
@@ -122,12 +120,10 @@
         type="password"
       />
       <span id="conpasss"> </span>
-      <input name="Submit" type="submit" value="Sign Up" /><a
-        href="reg.html"
-        style="color: #ffffff"
-        >Sign up here</a
-      >
+      <input type="" class="btn mt-4" value="Sign Up">
+      <button type="button" class="btn mt-4" onclick="window.location.href='/homesaver/login'">Login</button>
     </form>
+
     <script>
       function changeFormAction() {
         var userType = document.getElementById("user-type").value;
@@ -244,4 +240,4 @@
       }
     </script>
   </body>
-</html>
+</homesaver>
