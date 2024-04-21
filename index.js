@@ -27,9 +27,13 @@ const users = require("./local_modules/user_modules/user.js");
 
 // Connect to MongoDB
 const mongoose = require("mongoose");
-mongoose.connect('mongodb+srv://mongodb:gr74mongo@cluster0.mg8xlkx.mongodb.net/userdata', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose
+  .connect(
+    "mongodb+srv://mongodb:gr74mongo@cluster0.mg8xlkx.mongodb.net/userdata",
+    { useNewUrlParser: true, useUnifiedTopology: true }
+  )
   .then(() => {
-    console.log('Connected to MongoDB');
+    console.log("Connected to MongoDB");
     const db = mongoose.connection;
     login.init(db); // Pass the MongoDB connection to login module
     signup.init(db);
@@ -37,25 +41,26 @@ mongoose.connect('mongodb+srv://mongodb:gr74mongo@cluster0.mg8xlkx.mongodb.net/u
     users.init(db);
     //details.init(db);
   })
-  .catch((err) => console.error('Error connecting to MongoDB:', err));
+  .catch((err) => console.error("Error connecting to MongoDB:", err));
 
 // Define routes
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/mainpage.html");
 });
 
-// Mount routes
-app.use('/login', login.router);
-app.use('/reg', signup.router);
-app.use('/admin', admin.router);
-app.use('/users', users.router);
-//app.use('/details', details.router);
+app.get("/loginpage", (req, res) => {
+  res.sendFile(__dirname + "/public/login.html");
+});
 
+// Mount routes
+app.use("/login", login.router);
+app.use("/signup", signup.router);
+app.use("/admin", admin.router);
+app.use("/users", users.router);
+//app.use('/details', details.router);
 
 // Start the server
 const PORT = 3300;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
-
-

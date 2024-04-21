@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Signup Form</title>
+    <script src="myscripts.js"></script>
     <style>
       /* CSS for styling the form */
       body {
@@ -36,12 +37,6 @@
       span {
         color: red;
       }
-      select {
-        width: 100%;
-        padding: 10px;
-        margin: 5px 0;
-        box-sizing: border-box;
-      }
     </style>
   </head>
   <body>
@@ -59,12 +54,6 @@
       onsubmit="return validation()"
     >
       <h2>Sign Up Form</h2>
-      <label for="user-type">Select User Type:</label>
-      <select id="user-type" name="user-type" onchange="changeFormAction()">
-        <option value="users">User</option>
-        <option value="business">Business</option>
-      </select>
-
       <label for="name">Name:</label>
       <input
         type="text"
@@ -129,16 +118,6 @@
       >
     </form>
     <script>
-      function changeFormAction() {
-        var userType = document.getElementById("user-type").value;
-        var form = document.querySelector("form");
-        if (userType === "users") {
-          form.action = "/signup/users";
-        } else if (userType === "business") {
-          form.action = "/signup/buisness";
-        }
-      }
-
       function validation() {
         var user = document.getElementById("username").value;
         var pass = document.getElementById("password").value;
