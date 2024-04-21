@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Signup Form</title>
-    <script src="myscripts.js"></script>
     <style>
       /* CSS for styling the form */
       body {
@@ -37,14 +36,25 @@
       span {
         color: red;
       }
+      select {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        box-sizing: border-box;
+      }
     </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/css/style_login.css" />
   </head>
   <body>
-    <a href="mainpage.html" style="color: #ffffff; text-decoration: none">
+    <a href="/homesaver/mainpage" style="color: #ffffff; text-decoration: none">
       <img
         src="http://localhost:3300/images/Logo.png"
         alt="Logo"
-        class="logo"
+        style="width: 80px; height: auto; top: 10px; left: 10px"
       />
     </a>
     <form
@@ -54,6 +64,12 @@
       onsubmit="return validation()"
     >
       <h2>Sign Up Form</h2>
+      <label for="user-type">Select User Type:</label>
+      <select id="user-type" name="user-type" onchange="changeFormAction()">
+        <option value="users">User</option>
+        <option value="buisness">Business</option>
+      </select>
+
       <label for="name">Name:</label>
       <input
         type="text"
@@ -111,13 +127,27 @@
         type="password"
       />
       <span id="conpasss"> </span>
-      <input name="Submit" type="submit" value="Sign Up" /><a
-        href="reg.html"
-        style="color: #ffffff"
-        >Sign up here</a
+      <input type="" class="btn mt-4" value="Sign Up" />
+      <button
+        type="button"
+        class="btn mt-4"
+        onclick="window.location.href='/homesaver/login'"
       >
+        Login
+      </button>
     </form>
+
     <script>
+      function changeFormAction() {
+        var userType = document.getElementById("user-type").value;
+        var form = document.querySelector("form");
+        if (userType === "users") {
+          form.action = "/signup/users";
+        } else if (userType === "business") {
+          form.action = "/signup/buisness";
+        }
+      }
+
       function validation() {
         var user = document.getElementById("username").value;
         var pass = document.getElementById("password").value;
@@ -223,4 +253,4 @@
       }
     </script>
   </body>
-</homesaver>
+</html>

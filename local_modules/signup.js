@@ -5,7 +5,7 @@ function init(db) {
 const express = require("express");
 const router = express.Router();
 
-router.post("/buisness", (req, res) => {
+router.post("/business", (req, res) => {
   var name = req.body.name;
   var username = req.body.username;
   var email = req.body.email;
@@ -24,7 +24,7 @@ router.post("/buisness", (req, res) => {
       return res.status(500).json({ error: "Internal server error" });
     }
     console.log("Record Inserted Successfully:", result.insertedId);
-    res.redirect("/loginpage");
+    res.redirect("/homesaver/login");
   });
 });
 router.post("/users", (req, res) => {
