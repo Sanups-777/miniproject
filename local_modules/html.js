@@ -23,7 +23,7 @@ router.get("/homepage", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/homepage.html"));
 });
 router.get("/mainpage", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/mainpage.html"));
+    res.sendFile(path.join(__dirname, "../public/reset.html"));
 });
 router.get("/mainpage", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/mainpage.html"));
