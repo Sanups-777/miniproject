@@ -1,0 +1,11 @@
+TASKS                                name            completed(X)
+
+service page                        
+search engine                        sanu
+form validation (signup page)        janice
+business profie(ejs)
+    |->business_module(js)
+frontend
+    |-->mainpage(sync with the theme)
+    
+
