@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transparent Navbar</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      html,
+      body {
+        display: grid;
+        height: 100%;
+        width: 100%;
+        place-items: center;
+        background: -webkit-linear-gradient(
+          left,
+          rgba(33, 8, 28, 1),
+          #4d1434,
+          rgba(77, 20, 52, 1)
+        );
+      }
+      /* Style for the navbar */
+      .navbar {
+        overflow: hidden;
+        background-color: transparent; /* Set background color to transparent */
+        transition: background-color 0.3s ease; /* Add transition effect */
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000; /* Ensure it's above other content */
+      }
+
+      /* Style for navbar links */
+      .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+      }
+
+      /* Change background color on scroll */
+      .scroll {
+        background-color: rgba(0, 0, 0, 0.7); /* Set a semi-transparent color */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar" id="navbar">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <script>
+      // Change navbar background color on scroll
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 50 ||
+          document.documentElement.scrollTop > 50
+        ) {
+          document.getElementById("navbar").classList.add("scroll");
+        } else {
+          document.getElementById("navbar").classList.remove("scroll");
+        }
+      }
+    </script>
+
+    <!-- Add some content to make scrolling possible -->
+    <div style="height: 1500px; background-color: #f0f0f0"></div>
+  </body>
+</html>
