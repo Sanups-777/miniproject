@@ -12,3 +12,7 @@ admin(ejs)
     |->business profile
     |->editing in table 
     |->
+
+logo(login,signup)
+
+multer??
