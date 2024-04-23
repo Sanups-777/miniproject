@@ -6,6 +6,9 @@ form validation (signup page)        janice
 business profie(ejs)
     |->business_module(js)
 frontend
-    |-->mainpage(sync with the theme)
+    |-->mainpage,homepage(sync with the theme)
     
-
+admin(ejs)
+    |->business profile
+    |->editing in table 
+    |->
