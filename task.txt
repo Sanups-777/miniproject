@@ -16,4 +16,3 @@ admin(ejs)
 logo(login,signup)
 
 multer??
-skdaksdk
