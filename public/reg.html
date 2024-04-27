@@ -229,7 +229,7 @@
           <div class="slider-tab"></div>
         </div>
         <div class="form-inner">
-          <form>
+          <form id="signupForm">
             <div class="field">
               <input
                 type="text"
@@ -238,7 +238,7 @@
                 placeholder="Name"
                 required
               />
-              <span  class="error-messages"></span>
+              <span  class="error-messages" id=""namee></span>
             </div>
             <div class="field">
               <input
@@ -248,7 +248,7 @@
                 placeholder="Username"
                 required
               />
-              <span  class="error-messages"></span>
+              <span  class="error-messages" id="usernamee"></span>
             </div>
             <div class="field">
               <input
@@ -258,7 +258,7 @@
                 placeholder="Email Address"
                 required
               />
-              <span  class="error-messages"></span>
+              <span  class="error-messages" id="emaill"></span>
             </div>
             <div class="field">
               <input
@@ -268,7 +268,7 @@
                 placeholder="Phone Number"
                 required
               />
-              <span  class="error-messages"></span>
+              <span  class="error-messages" id="phnoo"></span>
             </div>
             <div class="field">
               <input
@@ -278,7 +278,7 @@
                 placeholder="Password"
                 required
               />
-              <span  class="error-messages"></span>
+              <span  class="error-messages" id="passwordd"></span>
             </div>
             <div class="field">
               <input
@@ -288,7 +288,7 @@
                 placeholder="Confirm Password"
                 required
               />
-              <span  class="error-messages"></span>
+              <span  class="error-messages" id="conpasswordd"></span>
             </div>
             <div class="field btn">
               <div class="btn-layer"></div>
@@ -307,8 +307,8 @@
     </div>
     <script>
 
-     const form = document.querySelector('form')
-     const errorMessages = document.querySelector(".error-messages")
+     const form = document.getElementById('signupForm')
+     const errorMessages = document.querySelectorAll(".error-messages")
      const success = document.getElementById('success')
 
       form.addEventListener('submit',(e) => {
@@ -322,7 +322,7 @@
           headers:{
             'Content-Type':'application/json'
           },
-          body:JSON.stringify({
+          body:JSON.stringify(Object.fromEntries({
             name:formData.get('name'),
             userame:formData.get('username'),
             email:formData.get('email'),
@@ -330,9 +330,18 @@
             password:formData.get('password'),
             conpassword:formData.get('conpassword')
 
-          })
+          }))
+
         })
-        .then((res) => res.json())
+        .then((res) =>
+        {
+          if(!res.ok)
+          {
+            throw new Error('Network response was not ok');
+          }
+          return res.json()
+        }
+       )
         .then((data) => {
           console.log(data)
         })
