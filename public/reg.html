@@ -229,13 +229,7 @@
           <div class="slider-tab"></div>
         </div>
         <div class="form-inner">
-          <form
-            action="/signup/users"
-            class="business"
-            method="post"
-            autocomplete="off"
-            onsubmit="return validation()"
-          >
+          <form>
             <div class="field">
               <input
                 type="text"
@@ -244,7 +238,7 @@
                 placeholder="Name"
                 required
               />
-              <span id="namee" class="validation-message"></span>
+              <span  class="error-messages"></span>
             </div>
             <div class="field">
               <input
@@ -254,46 +248,47 @@
                 placeholder="Username"
                 required
               />
-              <span id="usernamee" class="validation-message"></span>
+              <span  class="error-messages"></span>
             </div>
             <div class="field">
               <input
-                type="email"
+                type="text"
                 id="email"
                 name="email"
                 placeholder="Email Address"
                 required
               />
-              <span id="emaill" class="validation-message"></span>
+              <span  class="error-messages"></span>
             </div>
             <div class="field">
               <input
-                type="tel"
+                type="text"
                 id="phno"
                 name="phno"
                 placeholder="Phone Number"
                 required
               />
-              <span id="phnoo" class="validation-message"></span>
+              <span  class="error-messages"></span>
             </div>
             <div class="field">
               <input
-                type="password"
+                type="text"
                 id="password"
                 name="password"
                 placeholder="Password"
                 required
               />
-              <span id="passs" class="validation-message"></span>
+              <span  class="error-messages"></span>
             </div>
             <div class="field">
               <input
-                type="password"
+                type="text"
                 id="conpassword"
+                name="conpassword"
                 placeholder="Confirm Password"
                 required
               />
-              <span id="conpasss" class="validation-message"></span>
+              <span  class="error-messages"></span>
             </div>
             <div class="field btn">
               <div class="btn-layer"></div>
@@ -306,106 +301,51 @@
         </div>
       </div>
     </div>
-    <script>
-      function validation() {
-        var user = document.getElementById("username").value;
-        var pass = document.getElementById("password").value;
-        var conpass = document.getElementById("conpassword").value;
-        var name = document.getElementById("name").value;
-        var email = document.getElementById("email").value;
-        var mobile = document.getElementById("phno").value;
-        if (user == "") {
-          document.getElementById("usernamee").innerHTML =
-            "Please write a username";
-          return false;
-        }
-        if (user.length < 2) {
-          document.getElementById("usernamee").innerHTML =
-            "username must be more than 2 characters";
-          return false;
-        }
-        if (!isNaN(user)) {
-          document.getElementById("usernamee").innerHTML =
-            "username cannot include numbers";
-          return false;
-        } else {
-          document.getElementById("usernamee").innerHTML = "";
-        }
-        if (pass == "") {
-          document.getElementById("passs").innerHTML = "Please write password";
-          return false;
-        }
-        if (pass.length < 8) {
-          document.getElementById("passs").innerHTML =
-            "Password should contain 8 characters";
-          return false;
-        }
-        if (pass.search(/[0-9]/) == -1) {
-          document.getElementById("passs").innerHTML =
-            "Password should contain a number";
-          return false;
-        }
-        if (pass.search(/[a-z]/) == -1) {
-          document.getElementById("passs").innerHTML =
-            "Password should contain a lowercase character";
-          return false;
-        }
-        if (pass.search(/[A-Z]/) == -1) {
-          document.getElementById("passs").innerHTML =
-            "Password should contain an uppercase character";
-          return false;
-        }
-        if (pass.search(/[!\@\#\$\%\^\&\*\_\+\,\-\.\<\>\?]/) == -1) {
-          document.getElementById("passs").innerHTML =
-            "Password should contain a special character";
-          return false;
-        } else {
-          document.getElementById("passs").innerHTML = "";
-        }
-        if (conpass == "") {
-          document.getElementById("conpasss").innerHTML =
-            "Please write password again";
-          return false;
-        }
-        if (conpass != pass) {
-          document.getElementById("conpasss").innerHTML =
-            "Passwords don't match";
-          return false;
-        } else {
-          document.getElementById("conpasss").innerHTML = "";
-        }
+    
+    <div id="success">
 
-        if (name == "") {
-          document.getElementById("namee").innerHTML = "Please write name";
-          return false;
-        }
-        let regex = /^[a-zA-Z]+$/;
-        if (regex.test(name) == false) {
-          document.getElementById("namee").innerHTML =
-            "Name cannot include numbers";
-          return false;
-        } else {
-          document.getElementById("namee").innerHTML = "";
-        }
-        if (email == "") {
-          document.getElementById("emaill").innerHTML = "Please write email";
-        }
-        if (mobile == "") {
-          document.getElementById("phnoo").innerHTML = "Please write mobile no";
-        }
-        if (isNaN(mobile)) {
-          document.getElementById("phnoo").innerHTML =
-            "Please write numbers only";
-          return false;
-        }
-        if (mobile.length < 10 || mobile.length > 10) {
-          document.getElementById("phnoo").innerHTML =
-            "Please write 10-digit no";
-          return false;
-        } else {
-          document.getElementById("phnoo").innerHTML = "";
-        }
-      }
+    </div>
+    <script>
+
+     const form = document.querySelector('form')
+     const errorMessages = document.querySelector(".error-messages")
+     const success = document.getElementById('success')
+
+      form.addEventListener('submit',(e) => {
+        e.preventDefault()
+        errorMessages.innerHTML = ''
+        success.innerHTML= ''
+        const formData = new FormData(form)
+
+        fetch("/submit",{
+          method:'POST',
+          headers:{
+            'Content-Type':'application/json'
+          },
+          body:JSON.stringify({
+            name:formData.get('name'),
+            userame:formData.get('username'),
+            email:formData.get('email'),
+            phno:formData.get('phno'),
+            password:formData.get('password'),
+            conpassword:formData.get('conpassword')
+
+          })
+        })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data)
+        })
+      })
+
+
+
+
+
+
+
+
+
       function changeFormAction() {
         var userType;
         var radios = document.getElementsByName("slide");

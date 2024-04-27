@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const {body,validationResult} = require('express-validator');
 const app = express();
 
 // Set the view engine to use EJS
@@ -47,6 +48,42 @@ mongoose
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/mainpage.html");
 });
+
+app.post('/submit',[
+  body('name')
+  .trim()
+  .notEmpty()
+  .withMessage("Please enter the name"),
+  body('username')
+  .trim()
+  .notEmpty()
+  .withMessage("Please enter username"),
+  body('email')
+  .trim()
+  .notEmpty()
+  .withMessage("Please enter the email"),
+  body('phno')
+  .trim()
+  .notEmpty()
+  .withMessage("Please enter the phone number"),
+  body('password')
+  .trim()
+  .notEmpty()
+  .withMessage("Please enter the password"),
+  body('conpassword')
+  .trim()
+  .notEmpty()
+  .withMessage("Please enter the password again"),
+],
+(req,res)=>{
+  const errors = validationResult(req)
+
+  if(!errors.isEmpty()){
+    return res.status(422).json({errors:errors.array()})
+  }
+
+  res.status(200).json({msg:"Form is validated"})
+})
 
 
 // Mount routes
