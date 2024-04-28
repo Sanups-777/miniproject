@@ -24,7 +24,7 @@ const signup = require("./local_modules/signup.js");
 const admin = require("./local_modules/admin_modules/admin.js");
 const users = require("./local_modules/user_modules/user.js");
 const html = require("./local_modules/html.js");
-
+const Usersdata = require('./local_modules/model');
 // Connect to MongoDB
 const mongoose = require("mongoose");
 mongoose
@@ -39,10 +39,9 @@ mongoose
     signup.init(db);
     admin.init(db);
     users.init(db);
-    //details.init(db);
+    //search.init(db);
   })
   .catch((err) => console.error("Error connecting to MongoDB:", err));
-
 // Define routes
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/mainpage.html");
@@ -55,7 +54,7 @@ app.use("/signup", signup.router);
 app.use("/admin", admin.router);
 app.use("/users", users.router);
 app.use('/homesaver', html.router);
-
+app.use('/services', users.router);
 // Start the server
 const PORT = 3300;
 app.listen(PORT, () => {
