@@ -27,6 +27,9 @@
                         <td><%= Usersdata.username%></td>
                         <td><%= Usersdata.email%></td>
                         <td><%= Usersdata.phno%></td>
+                        <td> <form action='/admin/remuser' method='post'>
+                            <button type="submit" name="Usersdata.email">Remove User</button>
+                        </form></td>
                     </tr>
                 <% }) %>
               

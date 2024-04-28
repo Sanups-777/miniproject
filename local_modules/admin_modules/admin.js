@@ -25,21 +25,18 @@ router.get('/details', (req, res) => {
 
 router.post("/remuser", async (req, res) => {
   
-    var name = req.body.nrem;
+    var email = req.body.nrem;
     var result;
     try {
-    result = await Usersdata.findOne({ username: name }); // Use Usersdata model
+    result = await Usersdata.findOne({ email: email }); // Use Usersdata model
     } catch (err) {
     console.log("User does not exist");
     }
     console.log(result);
 
-    await Usersdata.deleteOne({ username: name }); // Use Usersdata model and await the deletion
+    await Usersdata.deleteOne({ email: email}); // Use Usersdata model and await the deletion
     console.log("user deleted");
-    let a = "Admin";
-    res.render("adminp", {
-    name: a,
-    });
+    res.redirect("/details");
 });
 
 module.exports = { init, router };
