@@ -2,22 +2,13 @@ const express = require('express');
 const { ObjectId } = require('mongodb');
 const { default: mongoose } = require('mongoose');
 const router = express.Router();
+const Usersdata = require('../model');
 
-let db;
+let mongooseConnection; // Change db to mongooseConnection
 function init(dbConnection) {
-  db = dbConnection;
+  mongooseConnection = dbConnection;
   // console.log("connected succesfully")
 }
-
-const udetailSchema = new mongoose.Schema({
-  id:ObjectId,
-  name: String,
-  username: String,
-  email: String,
-  phno: String
-});
-
-const Usersdata = mongoose.model('users', udetailSchema);
 
 router.get('/details', (req, res) => {
   Usersdata.find({})
@@ -37,13 +28,13 @@ router.post("/remuser", async (req, res) => {
     var name = req.body.nrem;
     var result;
     try {
-    result = await db.collection("users").findOne({ username: name });
+    result = await Usersdata.findOne({ username: name }); // Use Usersdata model
     } catch (err) {
     console.log("User does not exist");
     }
     console.log(result);
 
-    db.collection("users").deleteOne({ username: name });
+    await Usersdata.deleteOne({ username: name }); // Use Usersdata model and await the deletion
     console.log("user deleted");
     let a = "Admin";
     res.render("adminp", {
