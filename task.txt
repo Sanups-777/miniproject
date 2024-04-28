@@ -1,10 +1,12 @@
-TASKS                                name            completed(X)
+TASKS                                                           name            completed(X)
 
 service page                        
-search engine                        sanu
-form validation (signup page)        janice
+search engine                                                   sanu                X
+form validation (signup page)                                   janice              
+
 business profie(ejs)
     |->business_module(js)
+
 frontend
     |-->mainpage,homepage(sync with the theme)
     
@@ -15,4 +17,4 @@ admin(ejs)
 
 logo(login,signup)
 
-multer??
+
