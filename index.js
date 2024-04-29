@@ -61,7 +61,8 @@ app.post('/submit',[
   body('email')
   .trim()
   .notEmpty()
-  .withMessage("Please enter the email"),
+  .isEmail()
+  .withMessage("Please enter a valid email"),
   body('phno')
   .trim()
   .notEmpty()
