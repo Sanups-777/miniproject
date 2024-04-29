@@ -2,7 +2,7 @@ const express = require('express');
 const { ObjectId } = require('mongodb');
 const mongoose = require('mongoose');
 const router = express.Router();
-const Usersdata = require('../model');
+const { Usersdata, Buisnessdata } = require('./models');
 
 let db; // Change db to mongooseConnection
 function init(dbConnection) {

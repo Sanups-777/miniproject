@@ -2,8 +2,8 @@ const express = require('express');
 const { ObjectId } = require('mongodb');
 const { default: mongoose } = require('mongoose');
 const router = express.Router();
-const Usersdata = require('../model');
-
+const { Usersdata, Buisnessdata } = require('./models');
+const buisnessdata=require('../model');
 let mongooseConnection; // Change db to mongooseConnection
 function init(dbConnection) {
   mongooseConnection = dbConnection;
@@ -23,7 +23,7 @@ router.get('/details', (req, res) => {
     });
 });
 
-router.post("/remuser", async (req, res) => {
+router.post("/uremove", async (req, res) => {
   
     var email = req.body.nrem;
     var result;
@@ -32,11 +32,15 @@ router.post("/remuser", async (req, res) => {
     } catch (err) {
     console.log("User does not exist");
     }
-    console.log(result);
+    if (!result) {
+      console.log("User not found");
+  } else {
+      await Usersdata.deleteOne({ email: email });
+      console.log("User deleted");
+      res.redirect("/admin/details");
+  }
 
-    await Usersdata.deleteOne({ email: email}); // Use Usersdata model and await the deletion
-    console.log("user deleted");
-    res.redirect("/details");
+    
 });
 
 module.exports = { init, router };
