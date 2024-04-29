@@ -1,78 +1,72 @@
-const express = require('express');
-const { ObjectId } = require('mongodb');
-const { default: mongoose } = require('mongoose');
+const express = require("express");
+const { ObjectId } = require("mongodb");
+const { default: mongoose } = require("mongoose");
 const router = express.Router();
-const { Usersdata, Buisnessdata } = require('../model');
+const { Usersdata, Buisnessdata } = require("../model");
 let mongooseConnection; // Change db to mongooseConnection
 function init(dbConnection) {
   mongooseConnection = dbConnection;
   // console.log("connected succesfully")
 }
 
-router.get('/details', (req, res) => {
+router.get("/details", (req, res) => {
   Usersdata.find({})
     .then((data) => {
-      res.render('details', {
-        userlist: data
+      res.render("details", {
+        userlist: data,
       });
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).send('Internal Server Error');
+      res.status(500).send("Internal Server Error");
     });
 });
 
 router.post("/uremove", async (req, res) => {
-  
-    var email = req.body.nrem;
-    var result;
-    try {
+  var email = req.body.nrem;
+  var result;
+  try {
     result = await Usersdata.findOne({ email: email }); // Use Usersdata model
-    } catch (err) {
+  } catch (err) {
     console.log("User does not exist");
-    }
-    if (!result) {
-      console.log("User not found");
-  } else {
-      await Usersdata.deleteOne({ email: email });
-      console.log("User deleted");
-      res.redirect("/admin/details");
   }
-
-    
+  if (!result) {
+    console.log("User not found");
+  } else {
+    await Usersdata.deleteOne({ email: email });
+    console.log("User deleted");
+    res.redirect("/admin/details");
+  }
 });
 
-router.get('/bdetails', (req, res) => {
+router.get("/bdetails", (req, res) => {
   Buisnessdata.find({})
     .then((data) => {
-      res.render('details', {
-        userlist: data
+      res.render("details", {
+        userlist: data,
       });
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).send('Internal Server Error');
+      res.status(500).send("Internal Server Error");
     });
 });
 
-router.post("/uremove", async (req, res) => {
-  
-    var email = req.body.nrem;
-    var result;
-    try {
-    result = await Buisnessdata.findOne({ email: email }); // Use Usersdata model
-    } catch (err) {
+router.post("/bremove", async (req, res) => {
+  var email = req.body.nrem;
+  var result;
+  try {
+    result = await Buisnessdata.findOne({ email: email }); // Use Buisnessdata model
+  } catch (err) {
     console.log("User does not exist");
-    }
-    if (!result) {
-      console.log("User not found");
-  } else {
-      await Buisnessdata.deleteOne({ email: email });
-      console.log("User deleted");
-      res.redirect("/admin/bdetails");
   }
-
-    
+  if (!result) {
+    console.log("User not found");
+  } else {
+    await Buisnessdata.deleteOne({ email: email });
+    console.log("User deleted");
+    res.redirect("/admin/bdetails");
+  }
 });
 
 module.exports = { init, router };
