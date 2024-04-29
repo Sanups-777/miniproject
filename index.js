@@ -48,33 +48,60 @@ mongoose
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/mainpage.html");
 });
-
 app.post('/submit',[
   body('name')
-  .trim()
-  .notEmpty()
-  .withMessage("Please enter the name"),
+      .trim()
+      .notEmpty()
+      .withMessage("Please enter the name")
+      .custom(value => !/\d/.test(value))
+      .withMessage("Name cannot include numbers"),
+
   body('username')
-  .trim()
-  .notEmpty()
-  .withMessage("Please enter username"),
+      .trim()
+      .notEmpty()
+      .withMessage("Please enter username")
+      .isLength({ min: 3 })
+      .withMessage("Username must be more than 2 characters")
+      .custom(value => !/\d/.test(value))
+      .withMessage("Username cannot include numbers"),
+
   body('email')
-  .trim()
-  .notEmpty()
-  .isEmail()
-  .withMessage("Please enter a valid email"),
+      .trim()
+      .notEmpty()
+      .withMessage("Please enter the email")
+      .isEmail()
+      .withMessage("Please enter a valid email"),
+
   body('phno')
-  .trim()
-  .notEmpty()
-  .withMessage("Please enter the phone number"),
+      .trim()
+      .notEmpty()
+      .withMessage("Please enter the phone number")
+      .isNumeric()
+      .withMessage("Phone number must be only numbers")
+      .isLength({ min: 10, max: 10 })
+      .withMessage("Phone number must be 10 digits"),
+
   body('password')
-  .trim()
-  .notEmpty()
-  .withMessage("Please enter the password"),
+      .trim()
+      .notEmpty()
+      .withMessage("Please enter the password")
+      .isLength({ min: 8 })
+      .withMessage("Password must be at least 8 characters")
+      .matches(/\d/)
+      .withMessage("Password must contain at least 1 numeric character")
+      .matches(/[a-z]/)
+      .withMessage("Password must contain at least 1 lowercase character")
+      .matches(/[A-Z]/)
+      .withMessage("Password must contain at least 1 uppercase character")
+      .matches(/[^a-zA-Z0-9]/)
+      .withMessage("Password must contain at least 1 special character"),
+
   body('conpassword')
-  .trim()
-  .notEmpty()
-  .withMessage("Please enter the password again"),
+      .trim()
+      .notEmpty()
+      .withMessage("Please enter the password again")
+      .custom((value, { req }) => value === req.body.password)
+      .withMessage("Passwords don't match"),
 ],
 (req,res)=>{
   const errors = validationResult(req)
