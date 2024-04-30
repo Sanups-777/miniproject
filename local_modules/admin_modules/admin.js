@@ -3,16 +3,17 @@ const { ObjectId } = require('mongodb');
 const { default: mongoose } = require('mongoose');
 const router = express.Router();
 const { Usersdata, Buisnessdata } = require('../model');
+
 let mongooseConnection; // Change db to mongooseConnection
 function init(dbConnection) {
   mongooseConnection = dbConnection;
   // console.log("connected succesfully")
 }
 
-router.get('/details', (req, res) => {
+router.get('/udetails', (req, res) => {
   Usersdata.find({})
     .then((data) => {
-      res.render('details', {
+      res.render('user_details', {
         userlist: data
       });
     })
@@ -55,7 +56,7 @@ router.get('/bdetails', (req, res) => {
     });
 });
 
-router.post("/uremove", async (req, res) => {
+router.post("/bremove", async (req, res) => {
   
     var email = req.body.nrem;
     var result;
