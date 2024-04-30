@@ -24,7 +24,8 @@ router.get('/udetails', (req, res) => {
 });
 
 router.post("/uremove", async (req, res) => {
-  var email = req.body.nrem;
+  var email = req.body.email;
+  console.log(email);
   var result;
   try {
     result = await Usersdata.findOne({ email: email }); // Use Usersdata model
