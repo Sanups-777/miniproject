@@ -45,7 +45,7 @@ router.get("/bdetails", (req, res) => {
   Buisnessdata.find({})
     .then((data) => {
       res.render("business_details", {
-        userlist: data,
+        blist: data,
       });
     })
     .catch((err) => {
