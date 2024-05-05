@@ -21,14 +21,19 @@ router.get("/mainpage", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/mainpage.html"));
 });
 router.get("/homepage", async (req, res) => {
+    const page = req.query.page || 1;
+    const limit = 20;
+    const skip = (page - 1) * limit;
+  
     try {
-        const businesses = await Buisnessdata.find({});
-        if(!businesses){
-            res.render('homepage', { blist: businesses});}
-        else{ console.log("empty??",businesses);}
+      const data = await Buisnessdata.find({})
+        .skip(skip)
+        .limit(limit);
+  
+      res.render("homepage", { blist: data });
     } catch (err) {
-        console.error(err);
-        res.status(500).send('Internal Server Error');
+      console.error('Error fetching Buisnessdata collection:', err);
+      res.status(500).send("Internal Server Error");
     }
 });
 router.get("/mainpage", (req, res) => {
