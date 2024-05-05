@@ -41,25 +41,37 @@ router.post("/uremove", async (req, res) => {
   }
 });
 
-router.get("/bdetails", (req, res) => {
-  Buisnessdata.find({})
-    .then((data) => {
-      res.render("business_details", {
-        blist: data,
-      });
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send("Internal Server Error");
-    });
+router.get("/bdetails", async (req, res) => {
+  const page = req.query.page || 1;
+  const limit = 20;
+  const skip = (page - 1) * limit;
+
+  try {
+    const data = await Buisnessdata.find({})
+      .skip(skip)
+      .limit(limit);
+
+    // if (data.length === 0) {
+    //   console.log('No data found in Buisnessdata collection');
+    // } else {
+    //   console.log('Data found in Buisnessdata collection');
+    // }
+
+    res.render("business_details", { blist: data });
+  } catch (err) {
+    console.error('Error fetching Buisnessdata collection:', err);
+    res.status(500).send("Internal Server Error");
+  }
 });
+
 
 router.post("/bremove", async (req, res) => {
   
-    var email = req.body.nrem;
+    var email = req.body.email;
+    console.log(email); 
     var result;
     try {
-    result = await Buisnessdata.findOne({ email: email }); // Use Usersdata model
+    result = await Buisnessdata.findOne({ email: email });// Use Usersdata model
     } catch (err) {
     console.log("User does not exist");
   }
