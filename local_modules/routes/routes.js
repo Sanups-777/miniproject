@@ -1,13 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const path = require("path");
-const { Usersdata, Buisnessdata } = require("../models/model.js");
-
-let db;
-function init(dbConnection) {
-  db = dbConnection;
-  // console.log("connected succesfully")
-}
+const path = require('path');
+const { Usersdata, Buisnessdata } = require('../models/model.js');
+const{mail}=require('../feedback_modules/feedback.js');
 
 router.get("/login", (req, res) => {
   res.sendFile(path.join(__dirname, "../../public/login.html"));
@@ -59,4 +54,7 @@ router.get("/mainpage", (req, res) => {
   res.sendFile(path.join(__dirname, "../../public/mainpage.html"));
 });
 
-module.exports = { init, router };
+
+router.post('/send-email', mail);
+
+module.exports = { router };

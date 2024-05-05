@@ -9,9 +9,6 @@ business profie(ejs)
 
 frontend (sync with the theme)
     |-->mainpage(button should be in the same color as login form loginpage)
-    |--homepage
-        |-->nav bar to white and font to black
-        |-->table decoration
     |--details(button should be in the same color as login form loginpage)
     |--
     |
@@ -20,6 +17,11 @@ admin(ejs)
     |->business profile                                          
     |->editing in table                                                                                                                 X
     |->
+
+|--homepage
+        |-->nav bar to white and font to black
+        |-->table decoration
+        |-->button to acces buisness viewpage
 
 logo(login,signup)
   
