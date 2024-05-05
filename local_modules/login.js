@@ -7,7 +7,7 @@ function init(dbConnection) {
   // console.log("connected succesfully")
 }
 
-async function verification(email, password, res) {
+async function verification(password, res) {
   if (password === "password") {
     console.log("verify");
     let a = "Admin";
@@ -23,7 +23,7 @@ router.post("/user", async (req, res) => {
   console.log("User login attempt:", email, password);
   if (email === "Admin") {
     console.log("welcome admin", email, password);
-    verification(email, password, res);
+    verification(password, res);
     return 0;
   }
   else{
