@@ -2,7 +2,7 @@ const express = require("express");
 const { ObjectId } = require("mongodb");
 const mongoose = require("mongoose");
 const router = express.Router();
-const { Buisnessdata } = require("../model");
+const { Usersdata, Buisnessdata } = require('../model.js');
 
 let db; // Change db to mongooseConnection
 function init(dbConnection) {
@@ -47,10 +47,10 @@ router.get("/search", async (req, res) => {
         .json({ error: true, message: "Service query parameter is required" });
     }
 
-    const users = await Buisnessdata.find({
-      services: { $elemMatch: { $regex: searchQuery, $options: "i" } },
-    });
-    res.render("homepage", { userlist: users });
+    const business = await Buisnessdata.find({ name: { $regex: searchQuery, $options: 'i' } });
+    if(!business){
+    res.render('homepage', { blist: business });}
+    else{console.log(businesses);}
   } catch (error) {
     console.error("Error searching users:", error);
     res.status(500).json({ error: true, message: "Internal server error" });

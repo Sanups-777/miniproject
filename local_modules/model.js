@@ -11,11 +11,11 @@ const udetailSchema = new mongoose.Schema({
 const Usersdata = mongoose.model("users", udetailSchema);
 
 const bdetailSchema = new mongoose.Schema({
-  id: mongoose.Schema.Types.ObjectId,
-  name: String,
-  email: String,
-  phnoe: String,
-  services: Array,
+    id: mongoose.Schema.Types.ObjectId,
+    name: String,
+    email: String,
+    phone: String,
+    services:Array,
 });
 
 const Buisnessdata = mongoose.model("buisness-L", bdetailSchema);

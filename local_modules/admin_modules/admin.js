@@ -44,7 +44,7 @@ router.post("/uremove", async (req, res) => {
 router.get("/bdetails", (req, res) => {
   Buisnessdata.find({})
     .then((data) => {
-      res.render("details", {
+      res.render("business_details", {
         userlist: data,
       });
     })
