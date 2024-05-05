@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const path = require('path');
-const { Usersdata, Buisnessdata } = require('./model.js');
+const { Usersdata, Buisnessdata } = require('../models/model.js');
 
 let db;
 function init(dbConnection) {
@@ -10,15 +10,15 @@ function init(dbConnection) {
 }
 
 router.get("/login", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    res.sendFile(path.join(__dirname, "../../public/login.html"));
 });
 
 router.get("/signup", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/reg.html"));
+    res.sendFile(path.join(__dirname, "../../public/reg.html"));
 });
 
 router.get("/mainpage", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/mainpage.html"));
+    res.sendFile(path.join(__dirname, "../../public/mainpage.html"));
 });
 router.get("/homepage", async (req, res) => {
     const page = req.query.page || 1;
@@ -36,14 +36,26 @@ router.get("/homepage", async (req, res) => {
       res.status(500).send("Internal Server Error");
     }
 });
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxFIX RESET XXXXXXXXXXXXXXX//////////////////
+router.get("/reset", (req, res) => {
+  // (Usersdata.find({})
+  //   .then((data) => {
+  //     res.render('reset', {
+  //       userlist: data
+  //     });
+  //   })
+  //   .catch((err) => {
+  //     console.error(err);
+  //     res.status(500).send("Internal Server Error");
+  //   }));)
+    res.sendFile(path.join(__dirname, "../../public/reset.html"));
+});
+
 router.get("/mainpage", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/reset.html"));
+    res.sendFile(path.join(__dirname, "../../public/mainpage.html"));
 });
 router.get("/mainpage", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/mainpage.html"));
-});
-router.get("/mainpage", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/mainpage.html"));
+    res.sendFile(path.join(__dirname, "../../public/mainpage.html"));
 });
 
 
