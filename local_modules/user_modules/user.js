@@ -2,7 +2,7 @@ const express = require("express");
 const { ObjectId } = require("mongodb");
 const mongoose = require("mongoose");
 const router = express.Router();
-const { Usersdata, Buisnessdata } = require("../model");
+const { Buisnessdata } = require("../model");
 
 let db; // Change db to mongooseConnection
 function init(dbConnection) {
@@ -40,15 +40,15 @@ router.post("/reset_pass", async (req, res) => {
 
 router.get("/search", async (req, res) => {
   try {
-    const searchQuery = req.query.name;
+    const searchQuery = req.query.service;
     if (!searchQuery || searchQuery.trim() === "") {
       return res
         .status(400)
-        .json({ error: true, message: "Name query parameter is required" });
+        .json({ error: true, message: "Service query parameter is required" });
     }
 
-    const users = await Usersdata.find({
-      name: { $regex: searchQuery, $options: "i" },
+    const users = await Buisnessdata.find({
+      services: { $elemMatch: { $regex: searchQuery, $options: "i" } },
     });
     res.render("homepage", { userlist: users });
   } catch (error) {
