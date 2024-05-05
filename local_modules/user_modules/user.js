@@ -2,7 +2,7 @@ const express = require('express');
 const { ObjectId } = require('mongodb');
 const mongoose = require('mongoose');
 const router = express.Router();
-const { Usersdata, Buisnessdata } = require('./models');
+const { Usersdata, Buisnessdata } = require('../model.js');
 
 let db; // Change db to mongooseConnection
 function init(dbConnection) {
@@ -43,8 +43,10 @@ router.get("/search", async (req, res) => {
       return res.status(400).json({ error: true, message: "Name query parameter is required" });
     }
 
-    const users = await Usersdata.find({ name: { $regex: searchQuery, $options: 'i' } });
-    res.render('homepage', { userlist: users });
+    const business = await Buisnessdata.find({ name: { $regex: searchQuery, $options: 'i' } });
+    if(!business){
+    res.render('homepage', { blist: business });}
+    else{console.log(businesses);}
   } catch (error) {
     console.error("Error searching users:", error);
     res.status(500).json({ error: true, message: "Internal server error" });

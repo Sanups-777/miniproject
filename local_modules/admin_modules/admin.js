@@ -55,7 +55,7 @@ router.get('/bdetails', (req, res) => {
     });
 });
 
-router.post("/uremove", async (req, res) => {
+router.post("/bremove", async (req, res) => {
   
     var email = req.body.nrem;
     var result;
