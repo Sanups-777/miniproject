@@ -18,7 +18,7 @@ const bdetailSchema = new mongoose.Schema({
   services: [String],
 });
 
-const Buisnessdata = mongoose.model("buisness-L", bdetailSchema);
+const Buisnessdata = mongoose.model("business-ls", bdetailSchema);
 
 module.exports = { Usersdata, Buisnessdata };
 // module.exports=Usersdata;

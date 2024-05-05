@@ -32,7 +32,7 @@
                         <% }); %>
                     </td>
                     <td> <form action='/admin/bremove' method='post'>
-                            <input type="hidden" name="email" value="Buisnessdata.email">
+                            <input type="hidden" name="email" value="<%= Buisnessdata.email %>">
                             <button type="submit">Remove User</button>
                         </form></td>
                     </tr>

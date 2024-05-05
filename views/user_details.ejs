@@ -28,7 +28,7 @@
                         <td><%= Usersdata.email%></td>
                         <td><%= Usersdata.phno%></td>
                         <td> <form action='/admin/uremove' method='post'>
-                            <input type="hidden" name="email" value="Usersdata.email">
+                            <input type="hidden" name="email" value="<%= Usersdata.email %>">
                             <button type="submit" name="Usersdata.email">Remove User</button>
                         </form></td>
                     </tr>
