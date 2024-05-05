@@ -5,7 +5,7 @@ const cors=require(cors);
 db();
 
 
-router.get("/search",async(req,res)=>{
+router.get("/home_search",async(req,res)=>{
   try{
       const page=parseInt(req.query.page)-1||0;
       const limit=parseInt(req.query.limit)||5;

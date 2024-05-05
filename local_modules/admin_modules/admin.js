@@ -2,13 +2,13 @@ const express = require("express");
 const { ObjectId } = require("mongodb");
 const { default: mongoose } = require("mongoose");
 const router = express.Router();
-const { Usersdata, Buisnessdata } = require('../model');
+const { Usersdata, Buisnessdata } = require('../models/model');
 
-let mongooseConnection; // Change db to mongooseConnection
-function init(dbConnection) {
-  mongooseConnection = dbConnection;
-  // console.log("connected succesfully")
-}
+// let mongooseConnection; // Change db to mongooseConnection
+// function init(dbConnection) {
+//   mongooseConnection = dbConnection;
+//   // console.log("connected succesfully")
+// }
 
 router.get('/udetails', (req, res) => {
   Usersdata.find({})
@@ -84,4 +84,4 @@ router.post("/bremove", async (req, res) => {
   }
 });
 
-module.exports = { init, router };
+module.exports = {router };
