@@ -2,7 +2,7 @@ const express = require("express");
 const { ObjectId } = require("mongodb");
 const { default: mongoose } = require("mongoose");
 const router = express.Router();
-const { Usersdata, Buisnessdata } = require('../model');
+const { Usersdata, Buisnessdata } = require("../model");
 
 let mongooseConnection; // Change db to mongooseConnection
 function init(dbConnection) {
@@ -10,11 +10,11 @@ function init(dbConnection) {
   // console.log("connected succesfully")
 }
 
-router.get('/udetails', (req, res) => {
+router.get("/udetails", (req, res) => {
   Usersdata.find({})
     .then((data) => {
-      res.render('user_details', {
-        userlist: data
+      res.render("user_details", {
+        userlist: data,
       });
     })
     .catch((err) => {
@@ -42,15 +42,8 @@ router.post("/uremove", async (req, res) => {
 });
 
 router.get("/bdetails", async (req, res) => {
-  const page = req.query.page || 1;
-  const limit = 20;
-  const skip = (page - 1) * limit;
-
   try {
-    const data = await Buisnessdata.find({})
-      .skip(skip)
-      .limit(limit);
-
+    const data = await Buisnessdata.find({});
     // if (data.length === 0) {
     //   console.log('No data found in Buisnessdata collection');
     // } else {
@@ -59,20 +52,18 @@ router.get("/bdetails", async (req, res) => {
 
     res.render("business_details", { blist: data });
   } catch (err) {
-    console.error('Error fetching Buisnessdata collection:', err);
+    console.error("Error fetching Buisnessdata collection:", err);
     res.status(500).send("Internal Server Error");
   }
 });
 
-
 router.post("/bremove", async (req, res) => {
-  
-    var email = req.body.email;
-    console.log(email); 
-    var result;
-    try {
-    result = await Buisnessdata.findOne({ email: email });// Use Usersdata model
-    } catch (err) {
+  var email = req.body.email;
+  console.log(email);
+  var result;
+  try {
+    result = await Buisnessdata.findOne({ email: email }); // Use Usersdata model
+  } catch (err) {
     console.log("User does not exist");
   }
   if (!result) {
