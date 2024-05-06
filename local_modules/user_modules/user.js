@@ -1,14 +1,7 @@
 const express = require("express");
-const { ObjectId } = require("mongodb");
-const mongoose = require("mongoose");
 const router = express.Router();
-const { Usersdata, Buisnessdata } = require('../model.js');
+const { Usersdata, Buisnessdata } = require('../models/model.js');
 
-let db; // Change db to mongooseConnection
-function init(dbConnection) {
-  db = dbConnection;
-  // console.log("connected succesfully")
-}
 router.post("/reset_pass", async (req, res) => {
   const { email_reset, original_password_reset, new_password_reset } = req.body;
 
@@ -31,30 +24,12 @@ router.post("/reset_pass", async (req, res) => {
     );
 
     // Redirect to the login page
-    return res.redirect("/login.html");
+    return redirect("/homesaver/login");
   } catch (err) {
     console.error("Error resetting password:", err);
     res.status(500).send("Internal Server Error");
   }
 });
 
-router.get("/search", async (req, res) => {
-  try {
-    const searchQuery = req.query.service;
-    if (!searchQuery || searchQuery.trim() === "") {
-      return res
-        .status(400)
-        .json({ error: true, message: "Service query parameter is required" });
-    }
 
-    const business = await Buisnessdata.find({ name: { $regex: searchQuery, $options: 'i' } });
-    if(!business){
-    res.render('homepage', { blist: business });}
-    else{console.log(businesses);}
-  } catch (error) {
-    console.error("Error searching users:", error);
-    res.status(500).json({ error: true, message: "Internal server error" });
-  }
-});
-
-module.exports = { init, router };
+module.exports = {router };

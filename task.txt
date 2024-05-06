@@ -9,9 +9,6 @@ business profie(ejs)
 
 frontend (sync with the theme)
     |-->mainpage(button should be in the same color as login form loginpage)
-    |--homepage
-        |-->nav bar to white and font to black
-        |-->table decoration
     |--details(button should be in the same color as login form loginpage)
     |--
     |
@@ -21,5 +18,19 @@ admin(ejs)
     |->editing in table                                                                                                                 X
     |->
 
+|--homepage
+        |-->nav bar to white and font to black
+        |-->table decoration
+        |-->button to acces buisness viewpage
+
 logo(login,signup)
-  
+   Jaseer
+   |--homepage
+        |-->single tile
+        |-->Increase size of book appointment window
+        |-->Create booking database(business name,date,service,user)
+        |-->Display sevices in the tiles in bold
+        |-->business name bold and big
+    
+EJS(Navbar, footer,reset password page)
+

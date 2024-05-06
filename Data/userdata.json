@@ -1,0 +1,135 @@
+[
+  {
+    "username": "john_doe",
+    "password": "Password123!",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "phno": "1234567890"
+  },
+  {
+    "username": "jane_smith",
+    "password": "Jane@Smith456",
+    "name": "Jane Smith",
+    "email": "jane@example.com",
+    "phno": "9876543210"
+  },
+  {
+    "username": "alice_wonder",
+    "password": "Alice_Wonder123",
+    "name": "Alice Wonder",
+    "email": "alice@example.com",
+    "phno": "8765432109"
+  },
+  {
+    "username": "bob_marley",
+    "password": "BobMarley!@#",
+    "name": "Bob Marley",
+    "email": "bob@example.com",
+    "phno": "7654321098"
+  },
+  {
+    "username": "emily_white",
+    "password": "Emily1234!",
+    "name": "Emily White",
+    "email": "emily@example.com",
+    "phno": "6543210987"
+  },
+  {
+    "username": "david_jones",
+    "password": "David_Jones@123",
+    "name": "David Jones",
+    "email": "david@example.com",
+    "phno": "5432109876"
+  },
+  {
+    "username": "sarah_adams",
+    "password": "SarahAdams5678!",
+    "name": "Sarah Adams",
+    "email": "sarah@example.com",
+    "phno": "4321098765"
+  },
+  {
+    "username": "michael_black",
+    "password": "Michael_Black@2023",
+    "name": "Michael Black",
+    "email": "michael@example.com",
+    "phno": "3210987654"
+  },
+  {
+    "username": "amanda_brown",
+    "password": "Amanda_Brown123#",
+    "name": "Amanda Brown",
+    "email": "amanda@example.com",
+    "phno": "2109876543"
+  },
+  {
+    "username": "peter_green",
+    "password": "Peter_Green!@#",
+    "name": "Peter Green",
+    "email": "peter@example.com",
+    "phno": "1098765432"
+  },
+  {
+    "username": "laura_smith",
+    "password": "Laura@Smith2023",
+    "name": "Laura Smith",
+    "email": "laura@example.com",
+    "phno": "9876543210"
+  },
+  {
+    "username": "ryan_williams",
+    "password": "RyanWilliams123!",
+    "name": "Ryan Williams",
+    "email": "ryan@example.com",
+    "phno": "8765432109"
+  },
+  {
+    "username": "olivia_taylor",
+    "password": "OliviaTaylor@2023",
+    "name": "Olivia Taylor",
+    "email": "olivia@example.com",
+    "phno": "7654321098"
+  },
+  {
+    "username": "jack_jackson",
+    "password": "Jack!Jackson123",
+    "name": "Jack Jackson",
+    "email": "jack@example.com",
+    "phno": "6543210987"
+  },
+  {
+    "username": "sophia_martin",
+    "password": "SophiaMartin@123",
+    "name": "Sophia Martin",
+    "email": "sophia@example.com",
+    "phno": "5432109876"
+  },
+  {
+    "username": "ethan_anderson",
+    "password": "Ethan_Anderson123!",
+    "name": "Ethan Anderson",
+    "email": "ethan@example.com",
+    "phno": "4321098765"
+  },
+  {
+    "username": "mia_thompson",
+    "password": "MiaThompson@2023",
+    "name": "Mia Thompson",
+    "email": "mia@example.com",
+    "phno": "3210987654"
+  },
+  {
+    "username": "jacob_clark",
+    "password": "Jacob!Clark123",
+    "name": "Jacob Clark",
+    "email": "jacob@example.com",
+    "phno": "2109876543"
+  },
+  {
+    "username": "ava_rodriguez",
+    "password": "Ava_Rodriguez@123",
+    "name": "Ava Rodriguez",
+    "email": "ava@example.com",
+    "phno": "1098765432"
+  }
+]
