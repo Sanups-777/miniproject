@@ -21,7 +21,7 @@ app.use("/images", express.static("images"));
 
 // Import local modules
 const login = require("./local_modules/authentication_modules/login.js");
-const signup = require("./local_modules/authentication_modules/signup.js");
+const signup = require("./local_modules/authentication_modules/signup.js");  
 const admin = require("./local_modules/admin_modules/admin.js");
 const users = require("./local_modules/user_modules/user.js");
 const routes = require("./local_modules/routes/routes.js");

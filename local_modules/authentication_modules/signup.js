@@ -29,7 +29,7 @@ router.post("/business", async (req, res) => {
 router.post("/users", async (req, res) => {
   var name = req.body.name;
   var username = req.body.username;
-  var email = req.body.email;
+  var email = req.body.email;                                     //sigup_post
   var phno = req.body.phno;
   var password = req.body.password;
 
