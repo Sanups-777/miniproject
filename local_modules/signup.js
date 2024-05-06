@@ -28,7 +28,7 @@ router.post("/business", (req, res) => {
   });
 });
 router.post("/users", (req, res) => {
-  var name = req.body.name;
+  var name = req.body.name;                   //signup_post
   var username = req.body.username;
   var email = req.body.email;
   var phno = req.body.phno;
