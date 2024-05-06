@@ -60,8 +60,8 @@
         border-radius: 15px;
         box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
         z-index: 2;
-        width: 40%; /* Adjusting width to take 40% of the screen */
-        height: 40%; /* Adjusting height to take 40% of the parent container's height */
+        width: 40%;
+        height: 68%;
       }
 
       .close-button {
@@ -86,7 +86,8 @@
         z-index: 2;
       }
       .form-inner form .field input[type="date"],
-      .form-inner form .field textarea {
+      .form-inner form .field textarea,
+      .form-inner form .field select {
         height: 50px; /* Adjust height */
         width: 100%;
         outline: none;
@@ -99,8 +100,16 @@
         resize: none; /* Disable resizing */
         z-index: 2;
       }
-      .form-inner form .field input:focus::placeholder {
+      .form-inner form .field input:focus::placeholder,
+      .form-inner form .field select:focus::placeholder {
         color: #4d1434;
+      }
+      .form-inner form .field select:hover option {
+        background-color: transparent;
+        color: inherit;
+      }
+      .form-inner form .field select:hover {
+        outline: none;
       }
       .show-form-button {
         background: #4d1434; /* Adjusting button color */
@@ -158,6 +167,15 @@
                 placeholder="Describe the issue"
                 required
               ></textarea>
+            </div>
+            <div class="field">
+              <select name="service" required>
+                <option value="" disabled selected>Select Service</option>
+                <option value="pest_control">Pest Control</option>
+                <option value="moving">Moving</option>
+                <option value="cleaning">Cleaning</option>
+                <option value="repairs">Repairs</option>
+              </select>
             </div>
             <div class="field">
               <input type="submit" value="Book Now" class="show-form-button" />

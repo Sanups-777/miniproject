@@ -3,282 +3,329 @@
     "name": "Swift Pest Control",
     "email": "swiftpest@example.com",
     "phone": "5551001001",
-    "services": ["pest control"]
+    "services": ["pest control"],
+    "description": "Swift Pest Control specializes in the humane removal and prevention of pests from residential and commercial properties. Our team of experts ensures swift and effective solutions to keep your environment pest-free."
   },
   {
     "name": "Sparkle Cleaning Services",
     "email": "sparkleclean@example.com",
     "phone": "5551001002",
-    "services": ["cleaning"]
+    "services": ["cleaning"],
+    "description": "Sparkle Cleaning Services offers top-notch residential and commercial cleaning solutions. Our experienced cleaners use eco-friendly products and advanced techniques to leave your space sparkling clean."
   },
   {
     "name": "Fix-It Repairs",
     "email": "fixitrepairs@example.com",
     "phone": "5551001003",
-    "services": ["repairs"]
+    "services": ["repairs"],
+    "description": "Fix-It Repairs provides comprehensive repair services for homes and businesses. From plumbing and electrical to carpentry and appliance repairs, our skilled technicians ensure your repairs are done right the first time."
   },
   {
     "name": "Eagle Movers",
     "email": "eaglemovers@example.com",
     "phone": "5551001004",
-    "services": ["moving"]
+    "services": ["moving"],
+    "description": "Eagle Movers offers efficient and reliable moving services for residential and commercial clients. With our experienced team and modern equipment, we make your move stress-free and seamless."
   },
   {
     "name": "Elite Services",
     "email": "eliteservices@example.com",
     "phone": "5551001005",
-    "services": ["pest control", "cleaning"]
+    "services": ["pest control", "cleaning"],
+    "description": "Elite Services is your one-stop solution for pest control and cleaning needs. We combine effective pest management with thorough cleaning services to create a safe and hygienic environment for your home or business."
   },
   {
     "name": "FixRight Solutions",
     "email": "fixrightsolutions@example.com",
     "phone": "5551001006",
-    "services": ["cleaning", "repairs"]
+    "services": ["cleaning", "repairs"],
+    "description": "FixRight Solutions offers professional cleaning and repair services to keep your property in top condition. From deep cleaning to minor repairs, our skilled team ensures quality workmanship and customer satisfaction."
   },
   {
     "name": "MoveItNow",
     "email": "moveitnow@example.com",
     "phone": "5551001007",
-    "services": ["moving", "cleaning"]
+    "services": ["moving", "cleaning"],
+    "description": "MoveItNow provides efficient moving services along with professional cleaning to make your relocation hassle-free. With our attention to detail and commitment to excellence, we ensure a smooth transition to your new space."
   },
   {
     "name": "Guardian Services",
     "email": "guardianservices@example.com",
     "phone": "5551001008",
-    "services": ["pest control", "moving"]
+    "services": ["pest control", "moving"],
+    "description": "Guardian Services offers comprehensive pest control and moving solutions to protect your property and belongings. Our experienced team safeguards your space from pests while ensuring a secure and seamless move."
   },
   {
     "name": "FreshStart Solutions",
     "email": "freshstartsolutions@example.com",
     "phone": "5551001009",
-    "services": ["cleaning", "repairs", "moving"]
+    "services": ["cleaning", "repairs", "moving"],
+    "description": "FreshStart Solutions provides a fresh start for your property with professional cleaning, repairs, and moving services. Whether you need a deep clean, minor repairs, or assistance with relocation, we have you covered."
   },
   {
     "name": "PestPro Clean & Repair",
     "email": "pestprocleanrepair@example.com",
     "phone": "5551001010",
-    "services": ["pest control", "cleaning", "repairs"]
+    "services": ["pest control", "cleaning", "repairs"],
+    "description": "PestPro Clean & Repair offers a comprehensive approach to pest control, cleaning, and repairs. Our integrated services ensure your property remains pest-free, clean, and well-maintained."
   },
   {
     "name": "Rapid Relocations",
     "email": "rapidrelocations@example.com",
     "phone": "5551001011",
-    "services": ["moving"]
+    "services": ["moving"],
+    "description": "Rapid Relocations specializes in fast and efficient moving services for residential and commercial clients. With our experienced team and modern fleet, we ensure a swift and stress-free relocation process."
   },
   {
     "name": "CritterCatchers",
     "email": "crittercatchers@example.com",
     "phone": "5551001012",
-    "services": ["pest control"]
+    "services": ["pest control"],
+    "description": "CritterCatchers is dedicated to safely removing and preventing pests from invading your space. Our team of experts employs humane techniques to ensure your property remains pest-free and safe for occupants."
   },
   {
     "name": "AllClean Services",
     "email": "allclean@example.com",
     "phone": "5551001013",
-    "services": ["cleaning"]
+    "services": ["cleaning"],
+    "description": "AllClean Services delivers top-quality residential and commercial cleaning solutions. Using eco-friendly products and advanced equipment, we leave your space spotless and hygienic."
   },
   {
     "name": "FixItNow",
     "email": "fixitnow@example.com",
     "phone": "5551001014",
-    "services": ["repairs", "moving"]
+    "services": ["repairs", "moving"],
+    "description": "FixItNow offers prompt and reliable repair and moving services for residential and commercial clients. From quick fixes to smooth relocations, our experienced team ensures your needs are met with efficiency and professionalism."
   },
   {
     "name": "FastTrack Movers",
     "email": "fasttrackmovers@example.com",
     "phone": "5551001015",
-    "services": ["moving"]
+    "services": ["moving"],
+    "description": "FastTrack Movers specializes in fast and efficient moving services for residential and commercial clients. With our streamlined approach and dedicated team, we ensure your move is completed swiftly and smoothly."
   },
   {
     "name": "BugBeGone",
     "email": "bugbegone@example.com",
     "phone": "5551001016",
-    "services": ["pest control"]
+    "services": ["pest control"],
+    "description": "BugBeGone provides effective pest control solutions to rid your property of unwanted pests. Using safe and environmentally friendly methods, we ensure your space remains bug-free and comfortable."
   },
   {
     "name": "SweepingSolutions",
     "email": "sweepingsolutions@example.com",
     "phone": "5551001017",
-    "services": ["cleaning"]
+    "services": ["cleaning"],
+    "description": "SweepingSolutions offers comprehensive cleaning services for residential and commercial properties. Our meticulous cleaners leave no corner untouched, ensuring your space is thoroughly cleaned and sanitized."
   },
   {
     "name": "RepairsRUs",
     "email": "repairsrus@example.com",
     "phone": "5551001018",
-    "services": ["repairs"]
+    "services": ["repairs"],
+    "description": "RepairsRUs is your go-to source for professional repair services. From minor fixes to major renovations, our skilled technicians deliver quality workmanship and personalized service."
   },
   {
     "name": "SmoothMove",
     "email": "smoothmove@example.com",
     "phone": "5551001019",
-    "services": ["moving"]
+    "services": ["moving"],
+    "description": "SmoothMove provides seamless and stress-free moving services for residential and commercial clients. With our attention to detail and careful handling, we ensure your move is executed smoothly and efficiently."
   },
   {
     "name": "PestTech",
     "email": "pesttech@example.com",
     "phone": "5551001020",
-    "services": ["pest control"]
+    "services": ["pest control"],
+    "description": "PestTech employs cutting-edge technology and proven techniques to tackle pest infestations. Our comprehensive pest control solutions ensure your property remains pest-free and safe for occupants."
   },
   {
     "name": "Spotless Solutions",
     "email": "spotlesssolutions@example.com",
     "phone": "5551001021",
-    "services": ["cleaning", "moving"]
+    "services": ["cleaning", "moving"],
+    "description": "Spotless Solutions offers a combination of cleaning and moving services to meet all your property needs. With our meticulous cleaners and efficient movers, we ensure your space is spotless and your move is hassle-free."
   },
   {
     "name": "PerfectFix",
     "email": "perfectfix@example.com",
     "phone": "5551001022",
-    "services": ["repairs"]
+    "services": ["repairs"],
+    "description": "PerfectFix specializes in providing perfect solutions for all your repair needs. Our experienced technicians deliver prompt and reliable repairs, ensuring your property is restored to its optimal condition."
   },
   {
     "name": "MoveMasters",
     "email": "movemasters@example.com",
     "phone": "5551001023",
-    "services": ["moving"]
+    "services": ["moving"],
+    "description": "MoveMasters are the masters of moving, offering efficient and reliable relocation services. With our expertise and attention to detail, we ensure your move is executed seamlessly from start to finish."
   },
   {
     "name": "EcoPest",
     "email": "ecopest@example.com",
     "phone": "5551001024",
-    "services": ["pest control"]
+    "services": ["pest control"],
+    "description": "EcoPest provides eco-friendly pest control solutions to protect your property and the environment. Our sustainable methods ensure effective pest management while minimizing harm to non-target species."
   },
   {
     "name": "GreenCleaners",
     "email": "greencleaners@example.com",
     "phone": "5551001025",
-    "services": ["cleaning"]
+    "services": ["cleaning"],
+    "description": "GreenCleaners offers environmentally friendly cleaning services for homes and businesses. Using non-toxic products and eco-conscious practices, we provide a clean and healthy environment for our clients."
   },
   {
     "name": "Handyman Heroes",
     "email": "handymanheroes@example.com",
     "phone": "5551001026",
-    "services": ["repairs", "moving"]
+    "services": ["repairs", "moving"],
+    "description": "Handyman Heroes are your go-to professionals for repairs and moving services. With our skilled technicians and efficient movers, we tackle any job with precision and care, ensuring customer satisfaction every time."
   },
   {
     "name": "SpeedyRelo",
     "email": "speedyrelo@example.com",
     "phone": "5551001027",
-    "services": ["moving"]
+    "services": ["moving"],
+    "description": "SpeedyRelo specializes in fast and efficient moving services for residential and commercial clients. With our speedy and reliable service, we ensure your relocation is completed on time and within budget."
   },
   {
     "name": "CritterControl",
     "email": "crittercontrol@example.com",
     "phone": "5551001028",
-    "services": ["pest control"]
+    "services": ["pest control"],
+    "description": "CritterControl provides humane pest control solutions to protect your property from unwanted critters. Our experienced team employs safe and effective methods to ensure your space remains critter-free."
   },
   {
     "name": "FreshNShine",
     "email": "freshnshine@example.com",
     "phone": "5551001029",
-    "services": ["cleaning"]
+    "services": ["cleaning"],
+    "description": "FreshNShine specializes in delivering fresh and shining spaces with our professional cleaning services. Using advanced techniques and eco-friendly products, we ensure your property is spotless and inviting."
   },
   {
     "name": "FixItFast",
     "email": "fixitfast@example.com",
     "phone": "5551001030",
-    "services": ["repairs"]
+    "services": ["repairs"],
+    "description": "FixItFast offers prompt and reliable repair services to address all your property maintenance needs. Our skilled technicians deliver fast and efficient repairs, ensuring minimal disruption to your daily life."
   },
   {
     "name": "RapidMovers",
     "email": "rapidmovers@example.com",
     "phone": "5551001031",
-    "services": ["moving"]
+    "services": ["moving"],
+    "description": "RapidMovers specializes in rapid and efficient moving services for residential and commercial clients. With our experienced team and modern equipment, we ensure your move is completed swiftly and smoothly."
   },
   {
     "name": "PestBusters",
     "email": "pestbusters@example.com",
     "phone": "5551001032",
-    "services": ["pest control"]
+    "services": ["pest control"],
+    "description": "PestBusters are dedicated to busting pests out of your property. Using advanced pest control techniques, we eliminate pests and prevent future infestations, ensuring your space remains pest-free and comfortable."
   },
   {
     "name": "CleanDreams",
     "email": "cleandreams@example.com",
     "phone": "5551001033",
-    "services": ["cleaning"]
+    "services": ["cleaning"],
+    "description": "CleanDreams turns your cleaning dreams into reality with our professional cleaning services. From residential to commercial spaces, we ensure your property is impeccably clean and sanitized."
   },
   {
     "name": "HandyFix",
     "email": "handyfix@example.com",
     "phone": "5551001034",
-    "services": ["repairs", "moving"]
+    "services": ["repairs", "moving"],
+    "description": "HandyFix is your handy solution for repairs and moving needs. With our skilled team of technicians and movers, we provide efficient and reliable service, ensuring your property is well-maintained and your move is stress-free."
   },
   {
     "name": "ReloNow",
     "email": "relonow@example.com",
     "phone": "5551001035",
-    "services": ["moving"]
+    "services": ["moving"],
+    "description": "ReloNow offers fast and reliable moving services to help you relocate with ease. With our experienced team and modern equipment, we ensure your move is completed swiftly and efficiently."
   },
   {
     "name": "CritterCatch",
     "email": "crittercatch@example.com",
     "phone": "5551001036",
-    "services": ["pest control"]
+    "services": ["pest control"],
+    "description": "CritterCatch specializes in humane critter removal and pest control solutions. Our experienced team ensures your property remains critter-free while prioritizing the safety and well-being of the animals."
   },
   {
     "name": "ShineBright",
     "email": "shinebright@example.com",
     "phone": "5551001037",
-    "services": ["cleaning"]
+    "services": ["cleaning"],
+    "description": "ShineBright delivers shining results with our professional cleaning services. Using advanced techniques and high-quality products, we ensure your property sparkles with cleanliness and freshness."
   },
   {
     "name": "FixItRight",
     "email": "fixitright@example.com",
     "phone": "5551001038",
-    "services": ["repairs"]
+    "services": ["repairs"],
+    "description": "FixItRight specializes in fixing it right the first time. Our skilled technicians provide reliable repair services, ensuring your property is restored to its optimal condition with precision and efficiency."
   },
   {
     "name": "EasyRelo",
     "email": "easyrelo@example.com",
     "phone": "5551001039",
-    "services": ["moving"]
+    "services": ["moving"],
+    "description": "EasyRelo makes relocation easy with our efficient moving services. Whether it's residential or commercial, local or long-distance, our experienced team ensures your move is smooth and stress-free."
   },
   {
     "name": "PestAway",
     "email": "pestaway@example.com",
     "phone": "5551001040",
-    "services": ["pest control"]
+    "services": ["pest control"],
+    "description": "PestAway keeps pests away from your property with our effective pest control solutions. Using safe and environmentally friendly methods, we ensure your space remains pest-free and comfortable."
   },
   {
     "name": "PureClean",
     "email": "pureclean@example.com",
     "phone": "5551001041",
-    "services": ["cleaning"]
+    "services": ["cleaning"],
+    "description": "PureClean delivers pure cleanliness with our professional cleaning services. Using eco-friendly products and meticulous techniques, we ensure your property is impeccably clean and sanitized."
   },
   {
     "name": "FixItAll",
     "email": "fixitall@example.com",
     "phone": "5551001042",
-    "services": ["repairs", "moving"]
+    "services": ["repairs", "moving"],
+    "description": "FixItAll is your one-stop solution for repairs and moving needs. With our comprehensive services and skilled team, we ensure your property is well-maintained and your move is executed with precision and care."
   },
   {
     "name": "ReloEase",
     "email": "reloease@example.com",
     "phone": "5551001043",
-    "services": ["moving"]
+    "services": ["moving"],
+    "description": "ReloEase offers hassle-free moving solutions for residential and commercial clients. With our efficient team and customer-centric approach, we ensure your relocation is smooth and stress-free."
   },
   {
     "name": "BugOff",
     "email": "bugoff@example.com",
     "phone": "5551001044",
-    "services": ["pest control"]
+    "services": ["pest control"],
+    "description": "BugOff ensures pests bug off from your property with our effective pest control solutions. Using safe and eco-friendly methods, we eliminate pests and prevent future infestations, ensuring your space remains comfortable and pest-free."
   },
   {
     "name": "CleanSweep",
     "email": "cleansweep@example.com",
     "phone": "5551001045",
-    "services": ["cleaning"]
+    "services": ["cleaning"],
+    "description": "CleanSweep provides thorough and comprehensive cleaning services for homes and businesses. With our attention to detail and eco-friendly practices, we ensure your property is clean and sanitized to the highest standards."
   },
   {
     "name": "FixItFix",
     "email": "fixitfix@example.com",
     "phone": "5551001046",
-    "services": ["repairs"]
+    "services": ["repairs"],
+    "description": "FixItFix offers reliable repair services to address all your property maintenance needs. Our skilled technicians deliver prompt and efficient repairs, ensuring your property is restored to its optimal condition."
   },
   {
     "name": "SmoothRelo",
     "email": "smoothrelo@example.com",
     "phone": "5551001047",
-    "services": ["moving"]
+    "services": ["moving"],
+    "description": "SmoothRelo specializes in smooth and seamless relocation services for residential and commercial clients. With our experienced team and customer-focused approach, we ensure your move is stress-free and executed with precision."
   }
 ]
