@@ -1,52 +1,68 @@
 const express = require("express");
 const router = express.Router();
-const { Usersdata ,Buisnessdata } = require("../models/model");
+const { Usersdata  } = require("../models/model");
 
-router.post("/business", async (req, res) => {
-  var name = req.body.name;
-  var username = req.body.username;
-  var email = req.body.email;
-  var phno = req.body.phno;
-  var password = req.body.password;
+const handleErrors = (err) =>{
+  console.log(err.message, err.code);
+  let error = {
+     email : '' ,password: ''
+  };
 
-  try {
-    const newData = await Buisnessdata.create({
-      name: name,
-      username: username,
-      email: email,
-      phno: phno,
-      password: password,
-    });
 
-    console.log("Record Inserted Successfully:", newData._id);
-    res.redirect("/homesaver/login");
-  } catch (err) {
-    console.error("Error inserting record:", err);
-    return res.status(500).json({ error: "Internal server error" });
-  }
-});
+  //validation errors
+  if(err.message.includes('user validation failed'))
+    {
+      Object.values(err.errors).forEach(({properties}) =>{
+        error[properties.path] = properties.message;
+      });
+    }
+    return error;
+}
+// router.post("/business", async (req, res) => {
+//   var name = req.body.name;
+//   var username = req.body.username;
+//   var email = req.body.email;
+//   var phno = req.body.phno;
+//   var password = req.body.password;
+
+//   try {
+//     const newData = await Buisnessdata.create({
+//       name: name,
+//       username: username,
+//       email: email,
+//       phno: phno,
+//       password: password,
+//     });
+
+//     console.log("Record Inserted Successfully:", newData._id);
+//     res.redirect("/homesaver/login");
+//   } catch (err) {
+//     console.error("Error inserting record:", err);
+//     return res.status(500).json({ error: "Internal server error" });
+//   }
+// });
 
 router.post("/users", async (req, res) => {
-  var name = req.body.name;
-  var username = req.body.username;
+  //var name = req.body.name;
+  //var username = req.body.username;
   var email = req.body.email;                                     //sigup_post
-  var phno = req.body.phno;
+  //var phno = req.body.phno;
   var password = req.body.password;
 
   try {
     const newData = await Usersdata.create({
-      name: name,
-      username: username,
+     // name: name,
+      //username: username,
       email: email,
-      phno: phno,
+      //phno: phno,
       password: password,
     });
 
     console.log("Record Inserted Successfully:", newData._id);
     res.redirect("/homesaver/login");
   } catch (err) {
-    console.error("Error inserting record:", err);
-    return res.status(500).json({ error: "Internal server error" });
+    const errors = handleErrors(err);
+   res.status(400).json({errors});
   }
 });
 
