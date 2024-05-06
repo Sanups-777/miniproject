@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const path = require('path');
+const Usersdata = require('./model');
 
 let db;
 function init(dbConnection) {
@@ -19,8 +20,17 @@ router.get("/signup", (req, res) => {
 router.get("/mainpage", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/mainpage.html"));
 });
-router.get("/homepage", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/homepage.html"));
+router.get("/homepage", async (req, res) => {
+    Usersdata.find({})
+        .then((data) => {
+            res.render('homepage', {
+                userlist: data
+            });
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+        });
 });
 router.get("/mainpage", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/reset.html"));

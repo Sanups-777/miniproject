@@ -1,18 +1,25 @@
-TASKS                                name            completed(X)
+TASKS                                                                                                           name            completed(X)
 
 service page                        
-search engine                        sanu
-form validation (signup page)        janice
+search engine                                                                                                    sanu                X
+form validation (signup page)                                                                                    janice              
+
 business profie(ejs)
     |->business_module(js)
-frontend
-    |-->mainpage,homepage(sync with the theme)
-    
+
+frontend (sync with the theme)
+    |-->mainpage(button should be in the same color as login form loginpage)
+    |--homepage
+        |-->nav bar to white and font to black
+        |-->table decoration
+    |--details(button should be in the same color as login form loginpage)
+    |--
+    |
+
 admin(ejs)
-    |->business profile
-    |->editing in table 
+    |->business profile                                          
+    |->editing in table                                                                                                                 X
     |->
 
 logo(login,signup)
-
-multer??
+  
