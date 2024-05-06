@@ -24,7 +24,7 @@ router.post("/reset_pass", async (req, res) => {
     );
 
     // Redirect to the login page
-    return res.redirect("/login.html");
+    return redirect("/homesaver/login");
   } catch (err) {
     console.error("Error resetting password:", err);
     res.status(500).send("Internal Server Error");
