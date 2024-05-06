@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      .navbar {
+        background-color: #4d1434;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .navbar__buttons {
+        display: flex;
+        gap: 20px;
+      }
+      .navbar__buttons a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 15px;
+        border-radius: 0px; /* Setting border radius to 0px */
+        transition: background-color 0.3s ease;
+      }
+      .navbar__buttons a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="#" class="navbar__logo"
+        ><img
+          src="Logo.png"
+          style="width: 80px; height: auto; top: 10px; left: 10px"
+      /></a>
+      <div class="navbar__buttons">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </body>
+</html>

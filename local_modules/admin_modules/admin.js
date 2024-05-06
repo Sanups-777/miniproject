@@ -1,42 +1,78 @@
-const express = require('express');
-const { ObjectId } = require('mongodb');
-const { default: mongoose } = require('mongoose');
+const express = require("express");
+const { ObjectId } = require("mongodb");
+const { default: mongoose } = require("mongoose");
 const router = express.Router();
-const Usersdata = require('../model');
+const { Usersdata, Buisnessdata } = require("../models/model");
 
-let mongooseConnection; // Change db to mongooseConnection
-function init(dbConnection) {
-  mongooseConnection = dbConnection;
-  // console.log("connected succesfully")
-}
+// let mongooseConnection; // Change db to mongooseConnection
+// function init(dbConnection) {
+//   mongooseConnection = dbConnection;
+//   // console.log("connected succesfully")
+// }
 
-router.get('/details', (req, res) => {
+router.get("/udetails", (req, res) => {
   Usersdata.find({})
     .then((data) => {
-      res.render('details', {
+      res.render('admin/user_details', {
         userlist: data
       });
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).send('Internal Server Error');
+      res.status(500).send("Internal Server Error");
     });
 });
 
-router.post("/remuser", async (req, res) => {
-  
-    var email = req.body.nrem;
-    var result;
-    try {
+router.post("/uremove", async (req, res) => {
+  var email = req.body.email;
+  console.log(email);
+  var result;
+  try {
     result = await Usersdata.findOne({ email: email }); // Use Usersdata model
-    } catch (err) {
+  } catch (err) {
     console.log("User does not exist");
-    }
-    console.log(result);
-
-    await Usersdata.deleteOne({ email: email}); // Use Usersdata model and await the deletion
-    console.log("user deleted");
-    res.redirect("/details");
+  }
+  if (!result) {
+    console.log("User not found");
+  } else {
+    await Usersdata.deleteOne({ email: email });
+    console.log("User deleted");
+    res.redirect("/admin/udetails");
+  }
 });
 
-module.exports = { init, router };
+router.get("/bdetails", async (req, res) => {
+  try {
+    const data = await Buisnessdata.find({});
+    // if (data.length === 0) {
+    //   console.log('No data found in Buisnessdata collection');
+    // } else {
+    //   console.log('Data found in Buisnessdata collection');
+    // }
+
+    res.render("admin/business_details", { blist: data });
+  } catch (err) {
+    console.error("Error fetching Buisnessdata collection:", err);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+router.post("/bremove", async (req, res) => {
+  var email = req.body.email;
+  console.log(email);
+  var result;
+  try {
+    result = await Buisnessdata.findOne({ email: email }); // Use Usersdata model
+  } catch (err) {
+    console.log("User does not exist");
+  }
+  if (!result) {
+    console.log("User not found");
+  } else {
+    await Buisnessdata.deleteOne({ email: email });
+    console.log("User deleted");
+    res.redirect("/admin/bdetails");
+  }
+});
+
+module.exports = { router };
