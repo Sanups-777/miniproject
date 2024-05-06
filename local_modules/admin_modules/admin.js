@@ -13,8 +13,8 @@ const { Usersdata, Buisnessdata } = require("../models/model");
 router.get("/udetails", (req, res) => {
   Usersdata.find({})
     .then((data) => {
-      res.render('admin/user_details', {
-        userlist: data
+      res.render("admin/user_details", {
+        userlist: data,
       });
     })
     .catch((err) => {

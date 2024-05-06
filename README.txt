@@ -1,4 +1,4 @@
-npm install body-parser ejs express dotenv cors mongodb mongoose nodemon
+npm install body-parser ejs express dotenv jsonwebtoken mongodb mongoose nodemon
 
 
 
