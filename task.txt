@@ -24,4 +24,13 @@ admin(ejs)
         |-->button to acces buisness viewpage
 
 logo(login,signup)
-  
+   Jaseer
+   |--homepage
+        |-->single tile
+        |-->Increase size of book appointment window
+        |-->Create booking database(business name,date,service,user)
+        |-->Display sevices in the tiles in bold
+        |-->business name bold and big
+    
+EJS(Navbar, footer,reset password page)
+
