@@ -16,7 +16,7 @@ frontend (sync with the theme)
 admin(ejs)
     |->business profile                                          
     |->editing in table                                                                                                                 X
-    |->
+    |-->Add route to verify business button
 
 |--homepage
         |-->nav bar to white and font to black
@@ -32,5 +32,6 @@ logo(login,signup)
         |-->Display sevices in the tiles in bold
         |-->business name bold and big
     
+
 EJS(Navbar, footer,reset password page)
 
