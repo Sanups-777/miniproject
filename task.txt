@@ -31,7 +31,10 @@ logo(login,signup)
         |-->Create booking database(business name,date,service,user)
         |-->Display sevices in the tiles in bold
         |-->business name bold and big
-    
+        |-->Add price estimation
+
+|-->Create service page with avg cost
+
 
 EJS(Navbar, footer,reset password page)
 
