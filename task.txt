@@ -8,7 +8,7 @@ business profie(ejs)
     |->business_module(js)
 
 frontend (sync with the theme)
-    |-->mainpage(button should be in the same color as login form loginpage)
+    |-->index(button should be in the same color as login form loginpage)
     |--details(button should be in the same color as login form loginpage)
     |--
     |
