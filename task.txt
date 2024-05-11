@@ -1,36 +1,41 @@
-TASKS                                                                                                           name            completed(X)
+completed(X)    TASKS                                                                                                           name            
 
-service page                        
-search engine                                                                                                    sanu                X
-form validation (signup page)                                                                                    janice              
+            service page                        
+    x        search engine                                                                                                    sanu                X
+    x        form validation (signup page)                                                                                    janice              
 
-business profie(ejs)
-    |->business_module(js)
+            business 
+                |->business_module(js)
+    x           |->user business profile()
+                |->profie(ejs)
 
-frontend (sync with the theme)
-    |-->mainpage(button should be in the same color as login form loginpage)
-    |--details(button should be in the same color as login form loginpage)
-    |--
-    |
+            frontend (sync with the theme)
+                |-->index(button should be in the same color as login form loginpage)
+                |--details(button should be in the same color as login form loginpage)
+                |--
+                |
 
-admin(ejs)
-    |->business profile                                          
-    |->editing in table                                                                                                                 X
-    |->
+            admin(ejs)                                       
+    X           |->editing in table                                                                                                                 X
+                |-->Add route to verify business button
 
-|--homepage
-        |-->nav bar to white and font to black
-        |-->table decoration
-        |-->button to acces buisness viewpage
+            |--homepage
+                    |-->nav bar to white and font to black with ejs
+    X               |-->table decoration
+    X                |-->button to acces buisness viewpage
 
-logo(login,signup)
-   Jaseer
-   |--homepage
-        |-->single tile
-        |-->Increase size of book appointment window
-        |-->Create booking database(business name,date,service,user)
-        |-->Display sevices in the tiles in bold
-        |-->business name bold and big
-    
-EJS(Navbar, footer,reset password page)
+            logo(login,signup)
+            Jaseer
+            |--homepage
+    X               |-->single tile
+    x                |-->Increase size of book appointment window
+                    |-->Create booking database(business name,date,service,user)
+    x                |-->Display sevices in the tiles in bold
+                    |-->business name bold and big
+                    |-->Add price estimation
+
+            |-->Create service page with avg cost
+
+
+            EJS(Navbar, footer,reset password page)
 

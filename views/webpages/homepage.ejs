@@ -19,9 +19,13 @@
       }
 
       .navbar {
-        background-color: #333;
-        color: #fff;
-        padding: 10px 0;
+        position: fixed; /* Set position to fixed */
+      top: 0; /* Stick it to the top of the viewport */
+      width: 100%; /* Occupy full width */
+      z-index: 1000; /* Ensure it's above other content */
+      /* background-color: #333;
+      color: #fff; */
+      padding: 10px 0;
       }
 
       .container {
@@ -145,7 +149,7 @@
     <nav class="navbar">
       <div class="container">
         <a
-          href="/homesaver/mainpage"
+          href="/homesaver/index"
           style="color: #ffffff; text-decoration: none"
         >
           <img
@@ -168,8 +172,8 @@
         </div>
         <!-- End Search Container -->
         <ul class="nav-links">
-          <li><a href="/homesaver/mainpage">Home</a></li>
-          <li><a href="#">Services</a></li>
+          <li><a href="/homesaver/homepage">Home</a></li>
+          <li><a href="/homesaver/nav">Services</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
         </ul>

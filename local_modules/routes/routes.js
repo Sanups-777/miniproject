@@ -12,8 +12,8 @@ router.get("/signup", (req, res) => {
   res.render("authentication/signup");
 });
 
-router.get("/mainpage", (req, res) => {
-  res.render("mainpage");
+router.get("/index", (req, res) => {
+  res.render("webpages/index");
 });
 router.get("/homepage", async (req, res) => {
   const page = req.query.page || 1;
@@ -23,7 +23,7 @@ router.get("/homepage", async (req, res) => {
   try {
     const data = await Buisnessdata.find({}).skip(skip).limit(limit);
 
-    res.render("homepage", { blist: data });
+    res.render("webpages/homepage", { blist: data });
   } catch (err) {
     console.error("Error fetching Buisnessdata collection:", err);
     res.status(500).send("Internal Server Error");
@@ -31,7 +31,7 @@ router.get("/homepage", async (req, res) => {
 });
 
 router.get("/homepage/viewbusiness", (req, res) => {
-  res.render("viewbuisness");
+  res.render("webpages/viewbuisness");
 });
 
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxFIX RESET XXXXXXXXXXXXXXX//////////////////
@@ -49,10 +49,11 @@ router.get("/reset", (req, res) => {
   res.render("authentication/login");
 });
 
-router.get("/mainpage", (req, res) => {
-  res.render("authentication/login");
+router.get("/nav", (req, res) => {
+  res.render("nav-footer/navbardisplay");
 });
-router.get("/mainpage", (req, res) => {
+
+router.get("/index", (req, res) => {
   res.render("authentication/login");
 });
 
