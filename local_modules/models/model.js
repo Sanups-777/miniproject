@@ -4,20 +4,12 @@ const udetailSchema = new mongoose.Schema({
   id: mongoose.Schema.Types.ObjectId,
   name: String,
   username: String,
-  email: { 
-            type: String, 
-            required: [true,'Enter email'], 
-            unique: true, 
-            lowercase: true },
+  email: { type: String, required: true, unique: true, lowercase: true },
   phno: String,
-  password: { type: String, 
-              required: true,
-            minLength},
+  password: { type: String, required: true },
 });
 
 const Usersdata = mongoose.model("users", udetailSchema);
-
-
 
 const bdetailSchema = new mongoose.Schema({
   id: mongoose.Schema.Types.ObjectId,
