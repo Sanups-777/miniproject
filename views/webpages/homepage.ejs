@@ -19,9 +19,13 @@
       }
 
       .navbar {
-        background-color: #333;
-        color: #fff;
-        padding: 10px 0;
+        position: fixed; /* Set position to fixed */
+      top: 0; /* Stick it to the top of the viewport */
+      width: 100%; /* Occupy full width */
+      z-index: 1000; /* Ensure it's above other content */
+      /* background-color: #333;
+      color: #fff; */
+      padding: 10px 0;
       }
 
       .container {
@@ -80,19 +84,20 @@
         transition: all 0.3s ease;
       }
 
-      .search-button {
+      .search-button,
+      .tile-button {
         background-color: #4d1434; /* Updated color */
         color: white;
         border: none;
         border-radius: 22px; /* 10% bigger */
         padding: 11px 16.5px; /* Increased padding */
-        margin-left: 5.5px; /* Increased margin */
         font-size: 15.4px; /* 10% bigger */
         cursor: pointer;
         transition: all 0.3s ease;
       }
 
-      .search-button:hover {
+      .search-button:hover,
+      .tile-button:hover {
         background-color: #3c0f29; /* Adjusted hover color */
       }
 
@@ -109,14 +114,12 @@
       }
 
       .tile {
-        width: 25%; /* Each tile occupies 25% of the page width */
+        width: 75%; /* Each tile occupies 75% of the page width */
         background: #fff;
         padding: 30px;
         border-radius: 15px;
         box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
         margin-bottom: 20px;
-        margin-right: 20px;
-        margin-left: 20px;
         position: relative; /* Set position to relative */
       }
 
@@ -124,14 +127,7 @@
         margin-bottom: 10px; /* Added spacing between paragraphs */
       }
 
-      .tile a {
-        background-color: #4d1434;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        padding: 8px 16px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+      .tile-button {
         /* Position the button */
         position: absolute;
         bottom: 15px;
@@ -139,8 +135,12 @@
         text-decoration: none;
       }
 
-      .tile a:hover {
-        background-color: #3c0f29;
+      /* Added style for name */
+      .name {
+        font-weight: bold;
+        position: absolute;
+        top: 15px;
+        left: 15px;
       }
     </style>
   </head>
@@ -149,7 +149,7 @@
     <nav class="navbar">
       <div class="container">
         <a
-          href="/homesaver/mainpage"
+          href="/homesaver/index"
           style="color: #ffffff; text-decoration: none"
         >
           <img
@@ -172,30 +172,31 @@
         </div>
         <!-- End Search Container -->
         <ul class="nav-links">
-          <li><a href="/homesaver/mainpage">Home</a></li>
-          <li><a href="#">Services</a></li>
+          <li><a href="/homesaver/homepage">Home</a></li>
+          <li><a href="/homesaver/nav">Services</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
       </div>
     </nav>
-    <% for (var i = 0; i < blist.length; i += 2) { %>
+    <% for (var i = 0; i < blist.length; i += 1) { %>
     <div class="row">
-      <% if (i < blist.length) { %>
       <div class="tile">
-        <p><strong>Name:</strong> <%= blist[i].name %></p>
+        <!-- Name in bold at the top left -->
+        <div class="name"><%= blist[i].name %></div>
         <p><strong>Phone:</strong> <%= blist[i].phone %></p>
         <p><strong>Email:</strong> <%= blist[i].email %></p>
-        <a href="/homesaver/homepage/viewbusiness">Book Now</a>
+        <p>
+          <strong>Services:</strong>
+          <strong
+            ><% blist[i].services.forEach((service, index) => { %> <%= service
+            %><% if(index < blist[i].services.length - 1) { %>,<% } %> <% }); %>
+          </strong>
+        </p>
+        <a href="/homesaver/homepage/viewbusiness" class="tile-button"
+          >View Details</a
+        >
       </div>
-      <% } %> <% if (i + 1 < blist.length) { %>
-      <div class="tile">
-        <p><strong>Name:</strong> <%= blist[i + 1].name %></p>
-        <p><strong>Phone:</strong> <%= blist[i + 1].phone %></p>
-        <p><strong>Email:</strong> <%= blist[i + 1].email %></p>
-        <a href="/homesaver/homepage/viewbusiness">Book Now</a>
-      </div>
-      <% } %>
     </div>
     <% } %>
   </body>

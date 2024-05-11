@@ -225,7 +225,7 @@
         method="post"
         autocomplete="off"
         class="login"
-        onsubmit="return validation()"
+        id="formm"
       >
         <div class="field">
           <input name="elog" type="text" placeholder="Email Address" required />
@@ -255,9 +255,9 @@
       }
     }
     var form = document.querySelector("form");
-    if (userType === "user") {
+    if (userType === "login") {
       form.action = "/login/user";
-    } else if (userType === "business") {
+    } else if (userType === "signup") {
       form.action = "/login/business";
     }
   }

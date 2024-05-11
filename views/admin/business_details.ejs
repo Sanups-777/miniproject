@@ -22,6 +22,8 @@
           <th scope="col">phone</th>
           <th scope="col">email</th>
           <th scope="col">services</th>
+          <th scope="col">Actions</th>
+          <!-- Add this header -->
         </tr>
       </thead>
       <tbody>
@@ -36,13 +38,22 @@
             <% }); %>
           </td>
           <td>
-            <form action="/admin/bremove" method="post">
+            <form action="/admin/bremove" method="post" style="display: inline">
               <input
                 type="hidden"
                 name="email"
                 value="<%= Buisnessdata.email %>"
               />
-              <button type="submit">Remove User</button>
+              <button type="submit">Remove Business</button>
+            </form>
+            <!-- Add the following form for verifying business -->
+            <form action="/admin/bverify" method="post" style="display: inline">
+              <input
+                type="hidden"
+                name="email"
+                value="<%= Buisnessdata.email %>"
+              />
+              <button type="submit">Verify Business</button>
             </form>
           </td>
         </tr>
