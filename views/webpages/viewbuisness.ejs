@@ -157,7 +157,12 @@
       <div class="form-wrapper" id="form-wrapper">
         <div class="form-inner">
           <span class="close-button" onclick="closeForm()">×</span>
-          <form autocomplete="off" onsubmit="success()">
+          <form
+            action="/homesaver/business/booking"
+            method="post"
+            autocomplete="off"
+            onsubmit="success()"
+          >
             <div class="field">
               <input name="date" type="date" required />
             </div>
@@ -178,6 +183,18 @@
                 <option value="repairs">Repairs</option>
               </select>
             </div>
+            <input
+              type="hidden"
+              name="uname"
+              id="uname"
+              value="<%= user.name %>"
+            />
+            <input
+              type="hidden"
+              name="bname"
+              id="bname"
+              value="<%= business.name %>"
+            />
             <div class="field">
               <input type="submit" value="Book Now" class="show-form-button" />
             </div>

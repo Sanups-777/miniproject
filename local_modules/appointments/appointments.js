@@ -17,7 +17,6 @@ router.post("/booking", async (req, res) => {
       issue: issue,
     });
     console.log("Appointment Inserted Successfully:", newData._id);
-    res.redirect("/homesaver/login");
   } catch (err) {
     console.error("Error inserting record:", err);
     return res.status(500).json({ error: "Internal server error" });

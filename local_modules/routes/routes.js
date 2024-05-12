@@ -32,11 +32,14 @@ router.get("/homepage", async (req, res) => {
 });
 
 router.get("/homepage/viewbusiness", async (req, res) => {
-  // Extract the businessId from the query parameters
+  // Extract the businessId and userId from the query parameters
   const businessId = req.query.businessId;
-  if (!businessId) {
-    return res.status(400).send("Business ID is missing");
+  const userId = req.query.userId;
+
+  if (!businessId || !userId) {
+    return res.status(400).send("Business ID or User ID is missing");
   }
+
   // Assuming blist is an array of business objects
   try {
     // Assuming BusinessData is your Mongoose model/schema
@@ -47,8 +50,16 @@ router.get("/homepage/viewbusiness", async (req, res) => {
       return res.status(404).send("Business not found");
     }
 
-    // Render the view template passing business data
-    res.render("webpages/viewbuisness", { business: business });
+    // Assuming UserData is your user model/schema
+    const user = await Usersdata.findById(userId).exec();
+
+    if (!user) {
+      // Handle user not found
+      return res.status(404).send("User not found");
+    }
+
+    // Render the view template passing business data and user data
+    res.render("webpages/viewbuisness", { business: business, user: user });
   } catch (err) {
     // Handle error
     console.error(err);
@@ -57,24 +68,20 @@ router.get("/homepage/viewbusiness", async (req, res) => {
 });
 router.get("/login/homepage", async (req, res) => {
   const userid = req.query.id;
-  const page = req.query.page || 1;
-  const limit = 20;
-  const skip = (page - 1) * limit;
-
   if (!userid) {
     return res.status(400).send("userid is missing");
   }
   try {
     // Assuming BusinessData is your Mongoose model/schema
     const user = await Usersdata.findById(userid).exec();
-    const data = await Buisnessdata.find({}).skip(skip).limit(limit);
+    const data = await Buisnessdata.find({});
     if (!user) {
       // Handle business not found
       return res.status(404).send("Business not found");
     }
     console.log(user);
     // Render the view template passing business data
-    res.render("webpages/homepage", { user: user, blist: data });
+    res.render("user/homepage", { user: user, blist: data });
   } catch (err) {
     // Handle error
     console.error(err);
