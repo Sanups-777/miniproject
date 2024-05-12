@@ -7,16 +7,15 @@ const handleErrors = (err) =>{
   let error = {
      email : '' ,password: ''
   };
-
-
   //validation errors
-  if(err.message.includes('user validation failed'))
+  if(err.message.includes('users validation failed'))
     {
       Object.values(err.errors).forEach(({properties}) =>{
         error[properties.path] = properties.message;
       });
     }
     return error;
+    
 }
 // router.post("/business", async (req, res) => {
 //   var name = req.body.name;
@@ -54,7 +53,7 @@ router.post("/users", async (req, res) => {
      // name: name,
       //username: username,
       email: email,
-      //phno: phno,
+      //phone : phno,
       password: password,
     });
 

@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
-const {body,validationResult} = require('express-validator');
+//const {body,validationResult} = require('express-validator');
 const app = express();
 
 // Set the view engine to use EJS
