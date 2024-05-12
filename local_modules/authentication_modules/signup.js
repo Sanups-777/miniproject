@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const { Usersdata  } = require("../models/model");
+const { Usersdata  } = require("../models/user_models");
 const { Buisnessdata } = require("../models/model");
 const handleErrors = (err) =>{
   console.log(err.message, err.code);
   let errors = {
-   name : '',username :'', email : '' ,phno : '',password: '' , conpassword : ''
+    email : '' ,password: '' 
  };
 
  //duplicate error code
