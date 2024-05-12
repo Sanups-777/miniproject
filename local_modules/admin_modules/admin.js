@@ -37,7 +37,8 @@ router.post("/uremove", async (req, res) => {
   } else {
     await Usersdata.deleteOne({ email: email });
     console.log("User deleted");
-    res.redirect("/admin/udetails");
+    //res.redirect("/admin/udetails");
+    res.render("admin/adminp");
   }
 });
 
@@ -71,7 +72,8 @@ router.post("/bremove", async (req, res) => {
   } else {
     await Buisnessdata.deleteOne({ email: email });
     console.log("User deleted");
-    res.redirect("/admin/bdetails");
+    // res.redirect("/admin/bdetails");
+    res.render("admin/adminp");
   }
 });
 

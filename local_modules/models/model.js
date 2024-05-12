@@ -29,6 +29,7 @@ const apdetailSchema = new mongoose.Schema({
   uname: String,
   date: Date,
   service: String,
+  issue: String,
 });
 
 const Appointments = mongoose.model("appointments", apdetailSchema);
