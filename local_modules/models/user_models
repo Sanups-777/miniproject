@@ -58,14 +58,14 @@ const udetailSchema = new mongoose.Schema({
 });
 
 //fire a function after doc saved to db
- userSchema.post('save' , function (doc, next){
+udetailSchema.post('save' , function (doc, next){
   console.log('new user was created and saved' , doc);
   next();
 
  });
 
  //fire a function before doc saved to db
- userSchema.pre('save' , function (doc){
+ udetailSchema.pre('save' , function (doc){
     console.log('user about to be created and saved',this);
  })
 const Usersdata = mongoose.model("users", udetailSchema);

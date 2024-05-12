@@ -58,10 +58,10 @@ router.post("/users", async (req, res) => {
 
   try {
     const newData = await Usersdata.create({
-      name: name,
-      username: username,
+      //name: name,
+      //username: username,
       email: email,
-      phone : phno,
+      //phone : phno,
       password: password,
     });
 
