@@ -4,17 +4,25 @@ const { Usersdata  } = require("../models/model");
 const { Buisnessdata } = require("../models/model");
 const handleErrors = (err) =>{
   console.log(err.message, err.code);
-  let error = {
+  let errors = {
    name : '',username :'', email : '' ,phno : '',password: '' , conpassword : ''
  };
+
+ //duplicate error code
+ if(err.code === 11000)
+  {
+  
+    errors.email = 'that email is already registered';
+     return errors;
+  }
   //validation errors
   if(err.message.includes('users validation failed'))
     {
       Object.values(err.errors).forEach(({properties}) =>{
-        error[properties.path] = properties.message;
+        errors[properties.path] = properties.message;
       });
     }
-    return error;
+    return errors;
     
 }
  router.post("/business", async (req, res) => {
