@@ -112,7 +112,7 @@ password:{
   required: true,
   minlength: [8,'Minimum password length is 8 charecters']
 } ,
-confirmPassword: {
+conpassword: {
   type: String,
   required: true,
   validate: {
