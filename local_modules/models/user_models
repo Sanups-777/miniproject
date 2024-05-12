@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { isEmail } = require('validator');
-
+const bcrypt = require('bcrypt');
 const udetailSchema = new mongoose.Schema({
   id: mongoose.Schema.Types.ObjectId,
 //   name: {
@@ -65,8 +65,9 @@ udetailSchema.post('save' , function (doc, next){
  });
 
  //fire a function before doc saved to db
- udetailSchema.pre('save' , function (doc){
-    console.log('user about to be created and saved',this);
+ udetailSchema.pre('save' ,async function (next){
+  const salt = await bcrypt.genSalt();
+    this.password = await bcrypt.hash(this.password, salt);
  })
 const Usersdata = mongoose.model("users", udetailSchema);
 
