@@ -58,13 +58,19 @@ router.get("/index", (req, res) => {
 });
 
 // Define your services array
-const services = ['Pest Control', 'Cleaning', 'Plumbing', 'Electrical'];
+const services = ["Pest Control", "Cleaning", "Plumbing", "Electrical"];
 
 // Render the service page and pass the services array to the template
-router.get('/services', (req, res) => {
-    res.render('webpages/services', { services: services });
+router.get("/services", (req, res) => {
+  res.render("webpages/services", { services: services });
 });
 
+// router.get("/booking_details", (req, res) => {
+//   res.render("business/book");
+// });
+// router.get("/booking", (req, res) => {
+//   res.redirect("");
+// });
 router.post("/send-email", mail);
 
 module.exports = { router };

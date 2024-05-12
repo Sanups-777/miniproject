@@ -157,7 +157,7 @@
       <div class="form-wrapper" id="form-wrapper">
         <div class="form-inner">
           <span class="close-button" onclick="closeForm()">×</span>
-          <form method="post" autocomplete="off" onsubmit="return validation()">
+          <form autocomplete="off" onsubmit="success()">
             <div class="field">
               <input name="date" type="date" required />
             </div>
@@ -181,6 +181,7 @@
             <div class="field">
               <input type="submit" value="Book Now" class="show-form-button" />
             </div>
+            <span id="Confirm"></span>
           </form>
         </div>
       </div>
@@ -193,6 +194,9 @@
       function closeForm() {
         document.getElementById("form-wrapper").style.display = "none";
         document.getElementById("darkOverlay").style.display = "none"; // Hide the dark overlay
+      }
+      function success() {
+        document.getElementById("Confirm").value = "Booking Confirmed";
       }
     </script>
   </body>

@@ -23,5 +23,15 @@ const bdetailSchema = new mongoose.Schema({
 
 const Buisnessdata = mongoose.model("business-ls", bdetailSchema);
 
-module.exports = { Usersdata, Buisnessdata };
-// module.exports=Usersdata;
+const apdetailSchema = new mongoose.Schema({
+  id: mongoose.Schema.Types.ObjectId,
+  bname: String,
+  uname: String,
+  date: Date,
+  service: String,
+});
+
+const Appointments = mongoose.model("appointments", apdetailSchema);
+
+module.exports = { Usersdata, Buisnessdata, Appointments };
+// module.exports=Usersdata
