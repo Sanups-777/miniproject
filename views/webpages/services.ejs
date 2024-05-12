@@ -1,51 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Services</title>
     <style>
-        /* You can add your own CSS styles here for the grid layout */
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        .service-item {
-            background-color: #f0f0f0;
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
-            cursor: pointer;
-        }
-        .service-item:hover {
-            background-color: #e0e0e0;
-        }
-        body{
-            background:-webkit-linear-gradient(
+      /* You can add your own CSS styles here for the grid layout */
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+      }
+      .service-item {
+        background-color: #f0f0f0;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+      }
+      .service-item:hover {
+        background-color: #e0e0e0;
+      }
+      body {
+        background: -webkit-linear-gradient(
           left,
           rgba(33, 8, 28, 1),
           #4d1434,
           rgba(77, 20, 52, 1)
         );
-        }
+      }
+      .navpush {
+        margin-top: 101px;
+      }
     </style>
-</head>
-<body>
-    <h1 textalign="center">Services Offered</h1>
-    <div class="service-grid">
+  </head>
+  <%- include('../nav-footer/navbardisplay') %>
+  <body>
+    <div class="navpush">
+      <h1 textalign="center">Services Offered</h1>
+      <div class="service-grid">
         <% services.forEach(service => { %>
-            <div class="service-item" onclick="redirectToService('<%= service %>')">
-                <h2><%= service %></h2>
-            </div>
+        <div class="service-item" onclick="redirectToService('<%= service %>')">
+          <h2><%= service %></h2>
+        </div>
         <% }) %>
+      </div>
     </div>
-
     <script>
-        // JavaScript function to redirect to the corresponding service page
-        function redirectToService(service) {
-            window.location.href = "/services/" + service; // Assuming your service pages are structured like "/services/pest-control", etc.
-        }
+      // JavaScript function to redirect to the corresponding service page
+      function redirectToService(service) {
+        window.location.href = "/services/" + service; // Assuming your service pages are structured like "/services/pest-control", etc.
+      }
     </script>
-</body>
+  </body>
 </html>
