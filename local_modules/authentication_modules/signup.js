@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const { Usersdata  } = require("../models/model");
+const { Usersdata  } = require("../models/user_models");
 const { Buisnessdata } = require("../models/model");
 const handleErrors = (err) =>{
   console.log(err.message, err.code);
   let errors = {
-   name : '',username :'', email : '' ,phno : '',password: '' , conpassword : ''
+    email : '' ,password: '' 
  };
 
  //duplicate error code
@@ -50,18 +50,18 @@ const handleErrors = (err) =>{
  });
 
 router.post("/users", async (req, res) => {
-  var name = req.body.name;
-  var username = req.body.username;
+  // var name = req.body.name;
+  // var username = req.body.username;
   var email = req.body.email;                                     //sigup_post
-  var phno = req.body.phno;
+  // var phno = req.body.phno;
   var password = req.body.password;
 
   try {
     const newData = await Usersdata.create({
-      name: name,
-      username: username,
+      //name: name,
+      //username: username,
       email: email,
-      phone : phno,
+      //phone : phno,
       password: password,
     });
 
