@@ -43,6 +43,9 @@ app.get("/", (req, res) => {
   res.render("webpages/index");
 });
 
+
+
+
 // Mount routes
 app.use("/login", login.router);
 app.use("/signup", signup.router);

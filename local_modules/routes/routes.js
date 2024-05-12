@@ -57,6 +57,14 @@ router.get("/index", (req, res) => {
   res.render("authentication/login");
 });
 
+// Define your services array
+const services = ['Pest Control', 'Cleaning', 'Plumbing', 'Electrical'];
+
+// Render the service page and pass the services array to the template
+router.get('/services', (req, res) => {
+    res.render('webpages/services', { services: services });
+});
+
 router.post("/send-email", mail);
 
 module.exports = { router };
