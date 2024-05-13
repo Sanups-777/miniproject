@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const cookieParser = require('cookie-parser');
 //const {body,validationResult} = require('express-validator');
 const app = express();
 
@@ -12,7 +13,7 @@ app.use(bodyParser.json());
 
 // Serve static files from the "public" directory
 app.use(express.static("public"));
-
+app.use(cookieParser());
 // Parse URL-encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -42,7 +43,18 @@ mongoose
 app.get("/", (req, res) => {
   res.render("webpages/index");
 });
+// app.get('/set-cookies',(req, res) => {
+//  // res.setHeader('Set-Cookie' ,'newUser=true');
+//  res.cookie('newUser', false);
+//  res.cookie('isEmployee',true,{maxAge: 1000 * 60 * 60 *24, secure: true});
+//   res.send('you got the cookies!');
+// });
+// app.get('/read-cookies',(req, res) => {
+//   const cookies = req.cookies;
+//   console.log(cookies);
+//   res.json(cookies);
 
+//});
 
 
 
