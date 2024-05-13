@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { Usersdata  } = require("../models/user_models");
 const { Buisnessdata } = require("../models/model");
+const jwt = require('jsonwebtoken');
 const handleErrors = (err) =>{
   console.log(err.message, err.code);
   let errors = {
@@ -25,6 +26,13 @@ const handleErrors = (err) =>{
     return errors;
     
 }
+const maxAge =3 * 24 * 60 *60;
+const createToken = (id) =>{
+  return jwt.sign({id}, 'net ninja secret', {
+    expiresIn: maxAge
+  });
+}
+
  router.post("/business", async (req, res) => {
   var name = req.body.name;
    var username = req.body.username;
@@ -64,7 +72,9 @@ router.post("/users", async (req, res) => {
       //phone : phno,
       password: password,
     });
-
+    const token = createToken(user._id);
+    res.cookie('jwt' , token , {httpOnly:true, maxAge: maxAge * 1000});
+    res.status(201).json({user: user._id});
     console.log("Record Inserted Successfully:", newData._id);
     res.redirect("/homesaver/login");
   } catch (err) {
