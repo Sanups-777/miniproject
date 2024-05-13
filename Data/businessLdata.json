@@ -4,7 +4,13 @@
     "email": "swiftpest@example.com",
     "phone": "5551001001",
     "password": "P@ssw0rd",
-    "services": ["pest control"],
+    "services": [
+      {
+        "name": "pest control",
+        "minprice": 2904,
+        "maxprice": 4369
+      }
+    ],
     "description": "Swift Pest Control specializes in the humane removal and prevention of pests from residential and commercial properties. Our team of experts ensures swift and effective solutions to keep your environment pest-free."
   },
   {
@@ -12,7 +18,13 @@
     "email": "sparkleclean@example.com",
     "phone": "5551001002",
     "password": "P@ssw0rd",
-    "services": ["cleaning"],
+    "services": [
+      {
+        "name": "cleaning",
+        "minprice": 1615,
+        "maxprice": 4013
+      }
+    ],
     "description": "Sparkle Cleaning Services offers top-notch residential and commercial cleaning solutions. Our experienced cleaners use eco-friendly products and advanced techniques to leave your space sparkling clean."
   },
   {
@@ -20,7 +32,13 @@
     "email": "fixitrepairs@example.com",
     "phone": "5551001003",
     "password": "P@ssw0rd",
-    "services": ["repairs"],
+    "services": [
+      {
+        "name": "repairs",
+        "minprice": 1852,
+        "maxprice": 4422
+      }
+    ],
     "description": "Fix-It Repairs provides comprehensive repair services for homes and businesses. From plumbing and electrical to carpentry and appliance repairs, our skilled technicians ensure your repairs are done right the first time."
   },
   {
@@ -28,7 +46,13 @@
     "email": "eaglemovers@example.com",
     "phone": "5551001004",
     "password": "P@ssw0rd",
-    "services": ["moving"],
+    "services": [
+      {
+        "name": "moving",
+        "minprice": 1753,
+        "maxprice": 3287
+      }
+    ],
     "description": "Eagle Movers offers efficient and reliable moving services for residential and commercial clients. With our experienced team and modern equipment, we make your move stress-free and seamless."
   },
   {
@@ -36,7 +60,18 @@
     "email": "eliteservices@example.com",
     "phone": "5551001005",
     "password": "P@ssw0rd",
-    "services": ["pest control", "cleaning"],
+    "services": [
+      {
+        "name": "pest control",
+        "minprice": 3926,
+        "maxprice": 4895
+      },
+      {
+        "name": "cleaning",
+        "minprice": 3919,
+        "maxprice": 4504
+      }
+    ],
     "description": "Elite Services is your one-stop solution for pest control and cleaning needs. We combine effective pest management with thorough cleaning services to create a safe and hygienic environment for your home or business."
   },
   {
@@ -44,7 +79,18 @@
     "email": "fixrightsolutions@example.com",
     "phone": "5551001006",
     "password": "P@ssw0rd",
-    "services": ["cleaning", "repairs"],
+    "services": [
+      {
+        "name": "cleaning",
+        "minprice": 3703,
+        "maxprice": 4050
+      },
+      {
+        "name": "repairs",
+        "minprice": 1488,
+        "maxprice": 4877
+      }
+    ],
     "description": "FixRight Solutions offers professional cleaning and repair services to keep your property in top condition. From deep cleaning to minor repairs, our skilled team ensures quality workmanship and customer satisfaction."
   },
   {
@@ -52,7 +98,18 @@
     "email": "moveitnow@example.com",
     "phone": "5551001007",
     "password": "P@ssw0rd",
-    "services": ["moving", "cleaning"],
+    "services": [
+      {
+        "name": "moving",
+        "minprice": 3047,
+        "maxprice": 4528
+      },
+      {
+        "name": "cleaning",
+        "minprice": 3557,
+        "maxprice": 4554
+      }
+    ],
     "description": "MoveItNow provides efficient moving services along with professional cleaning to make your relocation hassle-free. With our attention to detail and commitment to excellence, we ensure a smooth transition to your new space."
   },
   {
@@ -60,7 +117,18 @@
     "email": "guardianservices@example.com",
     "phone": "5551001008",
     "password": "P@ssw0rd",
-    "services": ["pest control", "moving"],
+    "services": [
+      {
+        "name": "pest control",
+        "minprice": 2144,
+        "maxprice": 3767
+      },
+      {
+        "name": "moving",
+        "minprice": 2017,
+        "maxprice": 4796
+      }
+    ],
     "description": "Guardian Services offers comprehensive pest control and moving solutions to protect your property and belongings. Our experienced team safeguards your space from pests while ensuring a secure and seamless move."
   },
   {
@@ -68,7 +136,23 @@
     "email": "freshstartsolutions@example.com",
     "phone": "5551001009",
     "password": "P@ssw0rd",
-    "services": ["cleaning", "repairs", "moving"],
+    "services": [
+      {
+        "name": "cleaning",
+        "minprice": 1108,
+        "maxprice": 2568
+      },
+      {
+        "name": "repairs",
+        "minprice": 1359,
+        "maxprice": 4035
+      },
+      {
+        "name": "moving",
+        "minprice": 2471,
+        "maxprice": 3201
+      }
+    ],
     "description": "FreshStart Solutions provides a fresh start for your property with professional cleaning, repairs, and moving services. Whether you need a deep clean, minor repairs, or assistance with relocation, we have you covered."
   },
   {
@@ -76,7 +160,23 @@
     "email": "pestprocleanrepair@example.com",
     "phone": "5551001010",
     "password": "P@ssw0rd",
-    "services": ["pest control", "cleaning", "repairs"],
+    "services": [
+      {
+        "name": "pest control",
+        "minprice": 2828,
+        "maxprice": 4963
+      },
+      {
+        "name": "cleaning",
+        "minprice": 2697,
+        "maxprice": 4853
+      },
+      {
+        "name": "repairs",
+        "minprice": 1919,
+        "maxprice": 2774
+      }
+    ],
     "description": "PestPro Clean & Repair offers a comprehensive approach to pest control, cleaning, and repairs. Our integrated services ensure your property remains pest-free, clean, and well-maintained."
   },
   {
@@ -84,7 +184,13 @@
     "email": "rapidrelocations@example.com",
     "phone": "5551001011",
     "password": "P@ssw0rd",
-    "services": ["moving"],
+    "services": [
+      {
+        "name": "moving",
+        "minprice": 1905,
+        "maxprice": 4724
+      }
+    ],
     "description": "Rapid Relocations specializes in fast and efficient moving services for residential and commercial clients. With our experienced team and modern fleet, we ensure a swift and stress-free relocation process."
   },
   {
@@ -92,7 +198,13 @@
     "email": "crittercatchers@example.com",
     "phone": "5551001012",
     "password": "P@ssw0rd",
-    "services": ["pest control"],
+    "services": [
+      {
+        "name": "pest control",
+        "minprice": 3326,
+        "maxprice": 4267
+      }
+    ],
     "description": "CritterCatchers is dedicated to safely removing and preventing pests from invading your space. Our team of experts employs humane techniques to ensure your property remains pest-free and safe for occupants."
   },
   {
@@ -100,7 +212,13 @@
     "email": "allclean@example.com",
     "phone": "5551001013",
     "password": "P@ssw0rd",
-    "services": ["cleaning"],
+    "services": [
+      {
+        "name": "cleaning",
+        "minprice": 2116,
+        "maxprice": 4979
+      }
+    ],
     "description": "AllClean Services delivers top-quality residential and commercial cleaning solutions. Using eco-friendly products and advanced equipment, we leave your space spotless and hygienic."
   },
   {
@@ -108,7 +226,18 @@
     "email": "fixitnow@example.com",
     "phone": "5551001014",
     "password": "P@ssw0rd",
-    "services": ["repairs", "moving"],
+    "services": [
+      {
+        "name": "repairs",
+        "minprice": 1480,
+        "maxprice": 3463
+      },
+      {
+        "name": "moving",
+        "minprice": 3184,
+        "maxprice": 3897
+      }
+    ],
     "description": "FixItNow offers prompt and reliable repair and moving services for residential and commercial clients. From quick fixes to smooth relocations, our experienced team ensures your needs are met with efficiency and professionalism."
   },
   {
@@ -116,7 +245,13 @@
     "email": "fasttrackmovers@example.com",
     "phone": "5551001015",
     "password": "P@ssw0rd",
-    "services": ["moving"],
+    "services": [
+      {
+        "name": "moving",
+        "minprice": 2152,
+        "maxprice": 4678
+      }
+    ],
     "description": "FastTrack Movers specializes in fast and efficient moving services for residential and commercial clients. With our streamlined approach and dedicated team, we ensure your move is completed swiftly and smoothly."
   },
   {
@@ -124,7 +259,13 @@
     "email": "bugbegone@example.com",
     "phone": "5551001016",
     "password": "P@ssw0rd",
-    "services": ["pest control"],
+    "services": [
+      {
+        "name": "pest control",
+        "minprice": 1854,
+        "maxprice": 3710
+      }
+    ],
     "description": "BugBeGone provides effective pest control solutions to rid your property of unwanted pests. Using safe and environmentally friendly methods, we ensure your space remains bug-free and comfortable."
   },
   {
@@ -132,7 +273,13 @@
     "email": "sweepingsolutions@example.com",
     "phone": "5551001017",
     "password": "P@ssw0rd",
-    "services": ["cleaning"],
+    "services": [
+      {
+        "name": "cleaning",
+        "minprice": 1179,
+        "maxprice": 4587
+      }
+    ],
     "description": "SweepingSolutions offers comprehensive cleaning services for residential and commercial properties. Our meticulous cleaners leave no corner untouched, ensuring your space is thoroughly cleaned and sanitized."
   },
   {
@@ -140,7 +287,13 @@
     "email": "repairsrus@example.com",
     "phone": "5551001018",
     "password": "P@ssw0rd",
-    "services": ["repairs"],
+    "services": [
+      {
+        "name": "repairs",
+        "minprice": 1545,
+        "maxprice": 2996
+      }
+    ],
     "description": "RepairsRUs is your go-to source for professional repair services. From minor fixes to major renovations, our skilled technicians deliver quality workmanship and personalized service."
   },
   {
@@ -148,7 +301,13 @@
     "email": "smoothmove@example.com",
     "phone": "5551001019",
     "password": "P@ssw0rd",
-    "services": ["moving"],
+    "services": [
+      {
+        "name": "moving",
+        "minprice": 1264,
+        "maxprice": 4069
+      }
+    ],
     "description": "SmoothMove provides seamless and stress-free moving services for residential and commercial clients. With our attention to detail and careful handling, we ensure your move is executed smoothly and efficiently."
   },
   {
@@ -156,7 +315,13 @@
     "email": "pesttech@example.com",
     "phone": "5551001020",
     "password": "P@ssw0rd",
-    "services": ["pest control"],
+    "services": [
+      {
+        "name": "pest control",
+        "minprice": 1546,
+        "maxprice": 2905
+      }
+    ],
     "description": "PestTech employs cutting-edge technology and proven techniques to tackle pest infestations. Our comprehensive pest control solutions ensure your property remains pest-free and safe for occupants."
   },
   {
@@ -164,7 +329,18 @@
     "email": "spotlesssolutions@example.com",
     "phone": "5551001021",
     "password": "P@ssw0rd",
-    "services": ["cleaning", "moving"],
+    "services": [
+      {
+        "name": "cleaning",
+        "minprice": 1023,
+        "maxprice": 3922
+      },
+      {
+        "name": "moving",
+        "minprice": 1967,
+        "maxprice": 4765
+      }
+    ],
     "description": "Spotless Solutions offers a combination of cleaning and moving services to meet all your property needs. With our meticulous cleaners and efficient movers, we ensure your space is spotless and your move is hassle-free."
   },
   {
@@ -172,7 +348,13 @@
     "email": "perfectfix@example.com",
     "phone": "5551001022",
     "password": "P@ssw0rd",
-    "services": ["repairs"],
+    "services": [
+      {
+        "name": "repairs",
+        "minprice": 1048,
+        "maxprice": 2999
+      }
+    ],
     "description": "PerfectFix specializes in providing perfect solutions for all your repair needs. Our experienced technicians deliver prompt and reliable repairs, ensuring your property is restored to its optimal condition."
   },
   {
@@ -180,7 +362,13 @@
     "email": "movemasters@example.com",
     "phone": "5551001023",
     "password": "P@ssw0rd",
-    "services": ["moving"],
+    "services": [
+      {
+        "name": "moving",
+        "minprice": 1289,
+        "maxprice": 4736
+      }
+    ],
     "description": "MoveMasters are the masters of moving, offering efficient and reliable relocation services. With our expertise and attention to detail, we ensure your move is executed seamlessly from start to finish."
   },
   {
@@ -188,7 +376,13 @@
     "email": "ecopest@example.com",
     "phone": "5551001024",
     "password": "P@ssw0rd",
-    "services": ["pest control"],
+    "services": [
+      {
+        "name": "pest control",
+        "minprice": 1467,
+        "maxprice": 2992
+      }
+    ],
     "description": "EcoPest provides eco-friendly pest control solutions to protect your property and the environment. Our sustainable methods ensure effective pest management while minimizing harm to non-target species."
   },
   {
@@ -196,7 +390,13 @@
     "email": "greencleaners@example.com",
     "phone": "5551001025",
     "password": "P@ssw0rd",
-    "services": ["cleaning"],
+    "services": [
+      {
+        "name": "cleaning",
+        "minprice": 1035,
+        "maxprice": 3989
+      }
+    ],
     "description": "GreenCleaners offers environmentally friendly cleaning services for homes and businesses. Using non-toxic products and eco-conscious practices, we provide a clean and healthy environment for our clients."
   },
   {
@@ -204,7 +404,18 @@
     "email": "handymanheroes@example.com",
     "phone": "5551001026",
     "password": "P@ssw0rd",
-    "services": ["repairs", "moving"],
+    "services": [
+      {
+        "name": "repairs",
+        "minprice": 1268,
+        "maxprice": 4787
+      },
+      {
+        "name": "moving",
+        "minprice": 1277,
+        "maxprice": 4468
+      }
+    ],
     "description": "Handyman Heroes are your go-to professionals for repairs and moving services. With our skilled technicians and efficient movers, we tackle any job with precision and care, ensuring customer satisfaction every time."
   },
   {
@@ -212,7 +423,13 @@
     "email": "speedyrelo@example.com",
     "phone": "5551001027",
     "password": "P@ssw0rd",
-    "services": ["moving"],
+    "services": [
+      {
+        "name": "moving",
+        "minprice": 1152,
+        "maxprice": 3856
+      }
+    ],
     "description": "SpeedyRelo specializes in fast and efficient moving services for residential and commercial clients. With our speedy and reliable service, we ensure your relocation is completed on time and within budget."
   },
   {
@@ -220,7 +437,13 @@
     "email": "crittercontrol@example.com",
     "phone": "5551001028",
     "password": "P@ssw0rd",
-    "services": ["pest control"],
+    "services": [
+      {
+        "name": "pest control",
+        "minprice": 1211,
+        "maxprice": 4038
+      }
+    ],
     "description": "CritterControl provides humane pest control solutions to protect your property from unwanted critters. Our experienced team employs safe and effective methods to ensure your space remains critter-free."
   },
   {
@@ -228,7 +451,13 @@
     "email": "freshnshine@example.com",
     "phone": "5551001029",
     "password": "P@ssw0rd",
-    "services": ["cleaning"],
+    "services": [
+      {
+        "name": "cleaning",
+        "minprice": 1123,
+        "maxprice": 2714
+      }
+    ],
     "description": "FreshNShine specializes in delivering fresh and shining spaces with our professional cleaning services. Using advanced techniques and eco-friendly products, we ensure your property is spotless and inviting."
   },
   {
@@ -236,7 +465,13 @@
     "email": "fixitfast@example.com",
     "phone": "5551001030",
     "password": "P@ssw0rd",
-    "services": ["repairs"],
+    "services": [
+      {
+        "name": "repairs",
+        "minprice": 1589,
+        "maxprice": 4689
+      }
+    ],
     "description": "FixItFast offers prompt and reliable repair services to address all your property maintenance needs. Our skilled technicians deliver fast and efficient repairs, ensuring minimal disruption to your daily life."
   },
   {
@@ -244,7 +479,13 @@
     "email": "rapidmovers@example.com",
     "phone": "5551001031",
     "password": "P@ssw0rd",
-    "services": ["moving"],
+    "services": [
+      {
+        "name": "moving",
+        "minprice": 1689,
+        "maxprice": 4203
+      }
+    ],
     "description": "RapidMovers specializes in rapid and efficient moving services for residential and commercial clients. With our experienced team and modern equipment, we ensure your move is completed swiftly and smoothly."
   },
   {
@@ -252,7 +493,13 @@
     "email": "pestbusters@example.com",
     "phone": "5551001032",
     "password": "P@ssw0rd",
-    "services": ["pest control"],
+    "services": [
+      {
+        "name": "pest control",
+        "minprice": 1056,
+        "maxprice": 3111
+      }
+    ],
     "description": "PestBusters are dedicated to busting pests out of your property. Using advanced pest control techniques, we eliminate pests and prevent future infestations, ensuring your space remains pest-free."
   },
   {
@@ -260,7 +507,18 @@
     "email": "cleanslate@example.com",
     "phone": "5551001033",
     "password": "P@ssw0rd",
-    "services": ["cleaning", "moving"],
+    "services": [
+      {
+        "name": "cleaning",
+        "minprice": 1732,
+        "maxprice": 4874
+      },
+      {
+        "name": "moving",
+        "minprice": 1505,
+        "maxprice": 4012
+      }
+    ],
     "description": "CleanSlate offers a fresh start for your property with our cleaning and moving services. Whether you need a thorough clean or assistance with relocation, our dedicated team ensures your space is clean and organized."
   },
   {
@@ -268,7 +526,18 @@
     "email": "fixitall@example.com",
     "phone": "5551001034",
     "password": "P@ssw0rd",
-    "services": ["repairs", "moving"],
+    "services": [
+      {
+        "name": "repairs",
+        "minprice": 1157,
+        "maxprice": 3456
+      },
+      {
+        "name": "moving",
+        "minprice": 1312,
+        "maxprice": 4802
+      }
+    ],
     "description": "FixItAll is your all-in-one solution for repairs and moving services. From fixing minor issues to managing your relocation, our experienced team ensures your property needs are taken care of with efficiency and professionalism."
   },
   {
@@ -276,7 +545,13 @@
     "email": "swiftpest@example.com",
     "phone": "5551001035",
     "password": "P@ssw0rd",
-    "services": ["pest control"],
+    "services": [
+      {
+        "name": "pest control",
+        "minprice": 1150,
+        "maxprice": 3125
+      }
+    ],
     "description": "SwiftPest offers swift and effective pest control solutions for residential and commercial properties. With our experienced team and proven methods, we ensure your space remains pest-free and comfortable."
   }
 ]
