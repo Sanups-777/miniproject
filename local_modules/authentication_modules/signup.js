@@ -33,6 +33,33 @@ const createToken = (id) =>{
   });
 }
 
+router.post("/users", async (req, res) => {
+  // var name = req.body.name;
+  // var username = req.body.username;
+  var email = req.body.email;                                     //sigup_post
+  // var phno = req.body.phno;
+  var password = req.body.password;
+
+  try {
+    const newData = await Usersdata.create({
+      //name: name,
+      //username: username,
+      email: email,
+      //phone : phno,
+      password: password,
+    });
+    const token = createToken(newData._id);
+    // console.log("Record Inserted Successfully:", newData._id);
+    res.cookie('jwt' , token , {httpOnly:true, maxAge: maxAge * 1000});
+    res.status(201).json({newData: newData._id});
+    
+    // res.redirect("/homesaver/homepage");
+  } catch (err) {
+    const errors = handleErrors(err);
+   res.status(401).json({errors});
+  }
+});
+
  router.post("/business", async (req, res) => {
   var name = req.body.name;
    var username = req.body.username;
@@ -57,34 +84,5 @@ const createToken = (id) =>{
    }
  });
 
-router.post("/users", async (req, res) => {
-  // var name = req.body.name;
-  // var username = req.body.username;
-  var email = req.body.email;                                     //sigup_post
-  // var phno = req.body.phno;
-  var password = req.body.password;
-
-  try {
-    const newData = await Usersdata.create({
-      //name: name,
-      //username: username,
-      email: email,
-      //phone : phno,
-      password: password,
-    });
-    const token = createToken(newData._id);
-   
-    // console.log("Record Inserted Successfully:", newData._id);
-    res.cookie('jwt' , token , {httpOnly:true, maxAge: maxAge * 1000});
-    res.status(201).json({user: newData._id});
-    console.log("Record Inserted Successfully:", newData._id);
-    //res.status(201).json({newData: newData._id});
-    
-    res.redirect("/homesaver/login");
-  } catch (err) {
-    const errors = handleErrors(err);
-   res.status(401).json({errors});
-  }
-});
 
 module.exports = { router };
