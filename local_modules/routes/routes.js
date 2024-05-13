@@ -4,7 +4,7 @@ const path = require("path");
 const { Usersdata, Buisnessdata } = require("../models/model.js");
 const { mail } = require("../feedback_modules/feedback.js");
 const booking = require("../appointments/appointments.js");
-
+const servicefun = require("../Servicesfunction/service.js");
 router.get("/login", (req, res) => {
   res.render("authentication/login");
 });
@@ -111,12 +111,27 @@ router.get("/index", (req, res) => {
   res.render("authentication/login");
 });
 
-// Define your services array
-const services = ["Pest Control", "Cleaning", "Plumbing", "Electrical"];
-
 // Render the service page and pass the services array to the template
-router.get("/services", (req, res) => {
-  res.render("webpages/services", { services: services });
+router.get("/services", async (req, res) => {
+  try {
+    // Fetch all documents from the Buisnessdata collection
+    const businesses = await Buisnessdata.find({}, "services");
+
+    // Extract services from each document
+    const services = businesses.map((business) => business.services);
+    const minprice = servicefun.calculateAverage(services, "minprice");
+    const maxprice = servicefun.calculateAverage(services, "maxprice");
+    // Render the services view and pass the services data
+    res.render("webpages/services", {
+      services: services,
+      minprice: minprice,
+      maxprice: maxprice,
+    });
+  } catch (error) {
+    // Handle any errors that occur during the database operation
+    console.error("Error fetching services:", error);
+    res.status(500).send("Error fetching services");
+  }
 });
 
 router.use("/business", booking.router);

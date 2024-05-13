@@ -7,17 +7,21 @@
     <style>
       /* You can add your own CSS styles here for the grid layout */
       .service-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 20px;
       }
+
       .service-item {
         background-color: #f0f0f0;
         padding: 20px;
         border-radius: 5px;
         text-align: center;
         cursor: pointer;
+        width: 200px; /* Set a fixed width for consistent item sizes */
       }
+
       .service-item:hover {
         background-color: #e0e0e0;
       }
@@ -32,25 +36,30 @@
       .navpush {
         margin-top: 101px;
       }
+      h1 {
+        color: white;
+        text-align: center;
+      }
     </style>
   </head>
   <%- include('../nav-footer/navbardisplay') %>
   <body>
     <div class="navpush">
-      <h1 textalign="center">Services Offered</h1>
+      <h1>Services Offered</h1>
       <div class="service-grid">
-        <% services.forEach(service => { %>
-        <div class="service-item" onclick="redirectToService('<%= service %>')">
-          <h2><%= service %></h2>
+        <% Object.keys(minprice).forEach(function(key) { %> <% if
+        (maxprice[key]) { %>
+        <div class="service-item">
+          <h2><%= key %></h2>
+          <p>₹<%= minprice[key] %>-₹<%= maxprice[key] %></p>
         </div>
-        <% }) %>
+        <% } else { %>
+        <div class="service-item">
+          <h2><%= key %>:</h2>
+          <p>Price: <%= minprice[key] %></p>
+        </div>
+        <% } %> <% }); %>
       </div>
     </div>
-    <script>
-      // JavaScript function to redirect to the corresponding service page
-      function redirectToService(service) {
-        window.location.href = "/services/" + service; // Assuming your service pages are structured like "/services/pest-control", etc.
-      }
-    </script>
   </body>
 </html>
