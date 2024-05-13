@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
-const cookieParser = require('cookie-parser');
+
 //const {body,validationResult} = require('express-validator');
 const app = express();
 
@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 // Serve static files from the "public" directory
 app.use(express.static("public"));
-app.use(cookieParser());
+
 // Parse URL-encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -27,8 +27,10 @@ const admin = require("./local_modules/admin_modules/admin.js");
 const users = require("./local_modules/user_modules/user.js");
 const routes = require("./local_modules/routes/routes.js");
 const search = require("./local_modules/search/search.js");
+const cookiep=require("./local_modules/authentication_modules/token/cookie-jwt.js")
 // Connect to MongoDB
 const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
 mongoose
   .connect(
     "mongodb+srv://mongodb:gr74mongo@cluster0.mg8xlkx.mongodb.net/userdata",
@@ -43,18 +45,7 @@ mongoose
 app.get("/", (req, res) => {
   res.render("webpages/index");
 });
-// app.get('/set-cookies',(req, res) => {
-//  // res.setHeader('Set-Cookie' ,'newUser=true');
-//  res.cookie('newUser', false);
-//  res.cookie('isEmployee',true,{maxAge: 1000 * 60 * 60 *24, secure: true});
-//   res.send('you got the cookies!');
-// });
-// app.get('/read-cookies',(req, res) => {
-//   const cookies = req.cookies;
-//   console.log(cookies);
-//   res.json(cookies);
 
-//});
 
 
 
@@ -65,6 +56,7 @@ app.use("/admin", admin.router);
 app.use("/users", users.router);
 app.use("/homesaver", routes.router);
 app.use("/search", search.router);
+app.use("/cookie",cookiep.cookie)
 
 // Start the server
 const PORT = 3300;

@@ -1,5 +1,6 @@
 const express = require("express");
-const { Usersdata, Buisnessdata } = require("../models/model");
+const { Buisnessdata } = require("../models/model");
+const { Usersdata }=require("../models/user_models")
 const router = express.Router();
 
 async function verification(password, res) {

@@ -58,5 +58,4 @@ conpassword: {
 const Buisnessdata = mongoose.model("business-ls", bdetailSchema);
 
 
-// module.exports=Usersdata;
 module.exports = { Buisnessdata};
