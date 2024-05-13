@@ -72,14 +72,15 @@ router.post("/users", async (req, res) => {
       //phone : phno,
       password: password,
     });
-    const token = createToken(user._id);
+    const token = createToken(newData._id);
+    // console.log("Record Inserted Successfully:", newData._id);
     res.cookie('jwt' , token , {httpOnly:true, maxAge: maxAge * 1000});
-    res.status(201).json({user: user._id});
-    console.log("Record Inserted Successfully:", newData._id);
+    //res.status(201).json({newData: newData._id});
+    
     res.redirect("/homesaver/login");
   } catch (err) {
     const errors = handleErrors(err);
-   res.status(400).json({errors});
+   res.status(401).json({errors});
   }
 });
 
