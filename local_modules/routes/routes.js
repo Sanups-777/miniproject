@@ -21,6 +21,7 @@ router.get("/homepage", async (req, res) => {
   const skip = (page - 1) * limit;
 
   try {
+    console.log("ceheck");
     const data = await Buisnessdata.find({}).skip(skip).limit(limit);
 
     res.render("webpages/homepage", { blist: data });
