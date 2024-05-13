@@ -35,7 +35,6 @@ router.get("/homepage/viewbusiness", async (req, res) => {
   // Extract the businessId and userId from the query parameters
   const businessId = req.query.businessId;
   const userId = req.query.userId;
-
   if (!businessId || !userId) {
     return res.status(400).send("Business ID or User ID is missing");
   }

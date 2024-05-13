@@ -30,6 +30,7 @@ const apdetailSchema = new mongoose.Schema({
   date: Date,
   service: String,
   issue: String,
+  accepted: Boolean,
 });
 
 const Appointments = mongoose.model("appointments", apdetailSchema);

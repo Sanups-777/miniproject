@@ -163,81 +163,63 @@
     </style>
   </head>
   <body>
-    <div>
-      <link
-        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
-        rel="stylesheet"
-      />
-      <div class="container bootstrap snippets bootdey">
-        <div class="row">
-          <div class="profile-nav col-md-3">
-            <div class="panel">
-              <div class="user-heading round">
-                <a href="#">
-                  <img
-                    src="http://localhost:3300/images/Logo.png"
-                    alt="Profile Picture"
-                  />
-                </a>
-                <h1><%=name%></h1>
-                <p><%=email%></p>
-              </div>
-              <ul class="nav nav-pills nav-stacked">
-                <li class="active">
-                  <a href="#"> <i class="fa fa-user"></i> Profile</a>
-                </li>
-                <li class="active">
-                  <a href="/homesaver/reset">
-                    <i class="fa fa-key"></i> Change Password</a
-                  >
-                </li>
-                <li class="active">
-                  <a href="/homesaver/login/homepage?id=<%=id%>">
-                    <i class="fa fa-sign-out"></i>Home Page</a
-                  >
-                </li>
-                <li class="active">
-                  <a href="/homesaver/login">
-                    <i class="fa fa-sign-out"></i> Log Out</a
-                  >
-                </li>
-              </ul>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <div class="container bootstrap snippets bootdey">
+      <div class="row">
+        <div class="profile-nav col-md-3">
+          <div class="panel">
+            <div class="user-heading round">
+              <a href="/homesaver/index">
+                <img
+                  src="http://localhost:3300/images/Logo.png"
+                  alt="Profile Picture"
+                />
+              </a>
+              <h1><%=name%></h1>
+              <p><%=email%></p>
             </div>
+            <ul class="nav nav-pills nav-stacked">
+              <li class="active">
+                <a href="reset.html">
+                  <i class="fa fa-key"></i> Change Password</a
+                >
+              </li>
+              <li class="active">
+                <a href="#" onclick="loadAppointments()">
+                  <i class="fa fa-user"></i>Appointments</a
+                >
+              </li>
+              <li class="active">
+                <a href="/homesaver/login/homepage?id=<%=id%>">
+                  <i class="fa fa-sign-out"></i>Home Page</a
+                >
+              </li>
+              <li class="active">
+                <a href="/homesaver/login">
+                  <i class="fa fa-sign-out"></i> Log Out</a
+                >
+              </li>
+            </ul>
           </div>
-          <div class="profile-info col-md-9">
-            <div class="panel">
-              <div class="panel">
-                <div class="bio-graph-heading">Account info</div>
-                <div class="panel-body bio-graph-info">
-                  <h1>Profile</h1>
-                  <div class="row">
-                    <div class="bio-row">
-                      <p id="uname"><span>Name </span>: <%=name%></p>
-                    </div>
-                    <div class="bio-row">
-                      <p id="uusername"><span>Username </span>: <%=uname%></p>
-                    </div>
-                    <div class="bio-row">
-                      <p id="uemail"><span>Email </span>: <%=email%></p>
-                    </div>
-                    <div class="bio-row">
-                      <p id="uphone"><span>Phone number </span>: <%=phone%></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        </div>
+        <div id="profile-info" class="profile-info col-md-9">
+          <!-- Content will be loaded here -->
         </div>
       </div>
     </div>
-    <script
-      data-cfasync="false"
-      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
-    ></script>
+    <script>
+      // Function to load user profiles
+      function loadAppointments() {
+        // Load user profiles directly using EJS
+        $("#profile-info").load(
+          "/homesaver/business/accepted_booking_details?userId=<%=id%>"
+        );
+      }
+    </script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src="..\index.js"></script>
-    <script type="text/javascript"></script>
   </body>
 </html>

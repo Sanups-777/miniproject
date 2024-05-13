@@ -140,14 +140,7 @@
       <div class="business-details">
         <!-- Placeholder business details -->
         <h2><%= business.name %></h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et
-          vestibulum arcu, at laoreet neque. Proin id commodo odio. Lorem ipsum
-          dolor sit amet consectetur, adipisicing elit. Pariatur modi veritatis
-          optio distinctio saepe fuga repudiandae iste fugit est ad voluptates
-          debitis nemo consequatur quaerat corporis, sapiente architecto natus!
-          Nam?
-        </p>
+        <p><%= business.description %></p>
       </div>
       <button class="show-form-button" style="z-index: 1" onclick="showForm()">
         Book Appointment
@@ -161,8 +154,13 @@
             action="/homesaver/business/booking"
             method="post"
             autocomplete="off"
-            onsubmit="success()"
           >
+            <input
+              name="userId"
+              id="userId"
+              type="hidden"
+              value="<%=user._id%>"
+            />
             <div class="field">
               <input name="date" type="date" required />
             </div>
@@ -176,11 +174,10 @@
             </div>
             <div class="field">
               <select name="service" required>
-                <option value="" disabled selected>Select Service</option>
-                <option value="pest_control">Pest Control</option>
-                <option value="moving">Moving</option>
-                <option value="cleaning">Cleaning</option>
-                <option value="repairs">Repairs</option>
+                <option value="" selected>Select Service</option>
+                <% business.services.forEach(function(service) { %>
+                <option value="<%= service %>"><%= service %></option>
+                <% }); %>
               </select>
             </div>
             <input
@@ -211,9 +208,6 @@
       function closeForm() {
         document.getElementById("form-wrapper").style.display = "none";
         document.getElementById("darkOverlay").style.display = "none"; // Hide the dark overlay
-      }
-      function success() {
-        document.getElementById("Confirm").value = "Booking Confirmed";
       }
     </script>
   </body>

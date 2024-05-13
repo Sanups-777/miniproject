@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Appointment</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center; /* Aligning horizontally */
+        align-items: center; /* Aligning vertically */
+        background: -webkit-linear-gradient(
+          left,
+          rgba(33, 8, 28, 1),
+          #4d1434,
+          rgba(77, 20, 52, 1)
+        );
+      }
+      .wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column; /* Aligning items in a column */
+        align-items: center; /* Aligning items to the center horizontally */
+        width: 80%; /* Adjusting width to fill the screen */
+        height: 60%;
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+      }
+      .business-details {
+        width: 100%; /* Adjusting width */
+        height: 90%;
+        background: #4d1434; /* Adjusting background color */
+        border-radius: 15px;
+        padding: 40px; /* Adjusting padding */
+        color: white;
+        text-align: center;
+        font-size: 20px; /* Adjusting font size */
+        line-height: 1.5; /* Adjusting line height */
+      }
+      .show-form-button {
+        background: #4d1434; /* Adjusting button color */
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+        z-index: 2;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <%- include('../nav-footer/navbardisplay') %>
+  <body>
+    <div class="wrapper">
+      <div class="business-details">
+        <!-- Placeholder business details -->
+        <h2>booking Successful</h2>
+      </div>
+      <a
+        href="/homesaver/login/homepage?id=<%=userId%>"
+        class="show-form-button"
+        style="z-index: 1"
+      >
+        Go back to homepage
+      </a>
+    </div>
+  </body>
+</html>

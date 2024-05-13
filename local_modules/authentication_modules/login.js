@@ -57,12 +57,7 @@ router.post("/business", async (req, res) => {
     console.log("business does not exist");
   }
   if (result.password == password) {
-    let a = result.name;
-    let e = result.email;
-    let p = result.phno;
-    let u = result.username;
-
-    res.render("business/buisness", { name: a, email: e, phone: p, uname: u });
+    res.render("business/buisness", { business: result });
   } else {
     console.log("NULL");
   }
