@@ -17,7 +17,13 @@ const bdetailSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true, lowercase: true },
   phone: String,
   password: { type: String, required: true },
-  services: [String],
+  services: [
+    {
+      name: String,
+      minprice: Number,
+      maxprice: Number,
+    },
+  ],
   description: String,
 });
 

@@ -176,7 +176,7 @@
               <select name="service" required>
                 <option value="" selected>Select Service</option>
                 <% business.services.forEach(function(service) { %>
-                <option value="<%= service %>"><%= service %></option>
+                <option value="<%= service.name %>"><%= service.name %></option>
                 <% }); %>
               </select>
             </div>
