@@ -6,8 +6,7 @@ const router = express.Router();
 async function verification(password, res) {
   if (password === "password") {
     console.log("welcome admin", password);
-    let a = "Admin";
-    res.render("admin/adminp", { name: a });
+    res.render("admin/adminp");
   } else {
     console.log("INVALID PASSWORD");
     res.redirect("/homesaver/login");
@@ -33,7 +32,14 @@ router.post("/user", async (req, res) => {
         let e = result.email;
         let p = result.phno;
         let u = result.username;
-        res.render("user/userp", { name: a, email: e, phone: p, uname: u });
+        let i = result._id;
+        res.render("user/userp", {
+          name: a,
+          email: e,
+          phone: p,
+          uname: u,
+          id: i,
+        });
       } else {
         console.log("incorrect password");
       }
@@ -52,14 +58,9 @@ router.post("/business", async (req, res) => {
     console.log("business does not exist");
   }
   if (result.password == password) {
-    let a = result.name;
-    let e = result.email;
-    let p = result.phno;
-    let u = result.username;
-
-    res.render("business/buisness", { name: a, email: e, phone: p, uname: u });
+    res.render("business/buisness", { business: result });
   } else {
-    console.log("NULL");
+    console.log("incorrect password");
   }
 });
 

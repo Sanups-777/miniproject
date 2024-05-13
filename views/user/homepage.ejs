@@ -190,6 +190,8 @@
               name="service"
               placeholder="Search by service"
             />
+            <input type="hidden" name="userId" value="<%= user._id %>" />
+
             <button class="search-button" type="submit">Search</button>
           </form>
         </div>
@@ -213,13 +215,20 @@
           <p>
             <strong>Services:</strong>
             <strong
-              ><% blist[i].services.forEach((service, index) => { %> <%= service
-              %><% if(index < blist[i].services.length - 1) { %>,<% } %> <% });
-              %>
-            </strong>
+              ><% if (blist[i].services && blist[i].services.length > 0) { %> <%
+              blist[i].services.forEach(function(service, index) { %> <%=
+              service.name %>:
+              <!-- Displaying each service's name -->
+              ₹<%= service.minprice %>-₹<%= service.maxprice %>
+              <!-- Displaying min and max prices -->
+              <% if (index < blist[i].services.length - 1) { %> ,
+              <!-- Add comma if not the last service -->
+              <% } %> <% }); %> <% } else { %> Error: Service data not found. <%
+              } %></strong
+            >
           </p>
           <a
-            href="/homesaver/homepage/viewbusiness?businessId=<%= blist[i]._id %>"
+            href="/homesaver/homepage/viewbusiness?businessId=<%= blist[i]._id %>&userId=<%= user._id%>"
             class="tile-button"
             >View Details</a
           >

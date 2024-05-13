@@ -35,7 +35,7 @@ completed(X)    TASKS                                                           
                     |-->Add price estimation
 
             |-->Create service page with avg cost
-
+                |-->Fix navbar link to home so it contains userId
 
             EJS(Navbar, footer,reset password page)
 

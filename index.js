@@ -27,7 +27,7 @@ const admin = require("./local_modules/admin_modules/admin.js");
 const users = require("./local_modules/user_modules/user.js");
 const routes = require("./local_modules/routes/routes.js");
 const search = require("./local_modules/search/search.js");
-const cookiep=require("./local_modules/authentication_modules/token/cookie-jwt.js")
+const booking = require("./local_modules/appointments/appointments.js");
 // Connect to MongoDB
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
@@ -46,9 +46,6 @@ app.get("/", (req, res) => {
   res.render("webpages/index");
 });
 
-
-
-
 // Mount routes
 app.use("/login", login.router);
 app.use("/signup", signup.router);
@@ -56,8 +53,7 @@ app.use("/admin", admin.router);
 app.use("/users", users.router);
 app.use("/homesaver", routes.router);
 app.use("/search", search.router);
-app.use("/cookie",cookiep.cookie)
-
+app.use("/appointments", booking.router);
 // Start the server
 const PORT = 3300;
 app.listen(PORT, () => {
