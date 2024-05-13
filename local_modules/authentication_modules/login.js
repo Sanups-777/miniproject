@@ -59,7 +59,7 @@ router.post("/business", async (req, res) => {
   if (result.password == password) {
     res.render("business/buisness", { business: result });
   } else {
-    console.log("NULL");
+    console.log("incorrect password");
   }
 });
 
