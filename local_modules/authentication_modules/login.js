@@ -14,34 +14,45 @@ async function verification(password, res) {
   }
 }
 
-router.post("/user", async (req, res) => {
-  const { elog: email, plog: password } = req.body;
-  console.log("User login attempt:", email, password);
-  if (email === "Admin") {
-    verification(password, res);
-    return 0;
-  } else {
-    try {
-      var result = await Usersdata.findOne({ email: email });
-    } catch (err) {
-      console.log("User does not exist");
-    }
+// router.post("/user", async (req, res) => {
+//   const { elog: email, plog: password } = req.body;
+//   console.log("User login attempt:", email, password);
+//   if (email === "Admin") {
+//     verification(password, res);
+//     return 0;
+//   } else {
+//     try {
+//       var result = await Usersdata.findOne({ email: email });
+//     } catch (err) {
+//       res.status(400).json({});
+//       console.log("User does not exist");
+//     }
 
-    if (result) {
-      if (result.password == password) {
-        let a = result.name;
-        let e = result.email;
-        let p = result.phno;
-        let u = result.username;
-        res.render("user/userp", { name: a, email: e, phone: p, uname: u });
-      } else {
-        console.log("incorrect password");
-      }
-    } else {
-      console.log("incorrect email");
-    }
+//     if (result) {
+//       if (result.password == password) {
+//         let a = result.name;
+//         let e = result.email;
+//         let p = result.phno;
+//         let u = result.username;
+//         res.render("user/userp", { name: a, email: e, phone: p, uname: u });
+//       } else {
+//         console.log("incorrect password");
+//       }
+//     } else {
+//       console.log("incorrect email");
+//     }
+//   }
+// });
+router.post("/user", async (req, res)=>{
+  const {email, password} = req.body;
+  try{
+    const user = await Usersdata.login(email, password);
+    res.status(200).json({user: Usersdata._id});
   }
-});
+  catch(err){
+    res.status(400).json({});
+  }
+})
 
 router.post("/business", async (req, res) => {
   const { elog: email, plog: password } = req.body;

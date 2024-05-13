@@ -73,7 +73,7 @@ router.post("/users", async (req, res) => {
       password: password,
     });
     const token = createToken(newData._id);
-    const token = createToken(newData._id);
+   
     // console.log("Record Inserted Successfully:", newData._id);
     res.cookie('jwt' , token , {httpOnly:true, maxAge: maxAge * 1000});
     res.status(201).json({user: newData._id});

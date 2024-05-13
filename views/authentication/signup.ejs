@@ -8,11 +8,7 @@
 <body>
   
     <form
-    action="/signup/users"
     
-    method="post"
-    autocomplete="off"
-    class="login"
     
   >
   <!-- <div class="field">
@@ -41,6 +37,9 @@
   </form>
   <script>
     const form = document.querySelector('form');
+
+    const emailError = document.querySelector('.email.error');
+  const passwordError = document.querySelector('.password.error');
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
