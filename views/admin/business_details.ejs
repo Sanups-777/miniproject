@@ -74,7 +74,8 @@
           <td><%= Buisnessdata.phone %></td>
           <td><%= Buisnessdata.email %></td>
           <td>
-            <% Buisnessdata.services.forEach(service => { %> <%= service %><br />
+            <% Buisnessdata.services.forEach(service => { %> <%= service.name
+            %><br />
             <% }); %>
           </td>
           <td>

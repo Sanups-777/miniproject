@@ -19,8 +19,9 @@ router.get("/home_search", async (req, res) => {
     }
 
     const businesses = await Buisnessdata.find({
-      services: { $regex: searchQuery, $options: "i" },
+      "services.name": { $regex: searchQuery, $options: "i" },
     });
+
     if (businesses.length === 0) {
       console.log("No businesses found");
     } else {
