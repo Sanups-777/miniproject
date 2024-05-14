@@ -19,7 +19,8 @@ router.post("/user", async (req, res) => {
   if (email === "Admin") {
     verification(password, res);
     return 0;
-  } else {
+  } 
+  else {
     try {
       var result = await Usersdata.findOne({ email: email });
     } catch (err) {
@@ -48,6 +49,8 @@ router.post("/user", async (req, res) => {
     }
   }
 });
+
+
 
 router.post("/business", async (req, res) => {
   const { elog: email, plog: password } = req.body;

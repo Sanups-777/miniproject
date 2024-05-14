@@ -31,5 +31,5 @@ const apdetailSchema = new mongoose.Schema({
 
 const Appointments = mongoose.model("appointments", apdetailSchema);
 
-module.exports = { Usersdata, Buisnessdata, Appointments };
+module.exports = { Buisnessdata, Appointments };
 // module.exports=Usersdata
