@@ -1,4 +1,4 @@
-<head>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Signup Page</title>
@@ -199,9 +199,8 @@
         cursor: pointer;
       }
     </style>
-  </head>
+  
   <%- include('../nav-footer/navbardisplay') %>
-  <body>
     <div class="wrapper">
       <div class="title-text">
         <div class="title signup">Signup</div>
@@ -309,6 +308,7 @@
     const form = document.querySelector('form');
     const emailE=document.querySelector('.email.error');
     const passE=document.querySelector('.password.error');
+    const route='/signup/users'
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -318,7 +318,7 @@
       const email = form.email.value;
       const password = form.password.value;
       try{
-        const res = await fetch(form.action,{
+        const res = await fetch(route,{
           method: 'POST',
           body: JSON.stringify({ email , password}),
           headers: {'Content-Type':'application/json'}
@@ -357,10 +357,10 @@
         }
         var form = document.querySelector("form");
         if (userType === "user") {
-          form.action = "/signup/users";
+          route = "/signup/users";
         } else if (userType === "business") {
-          form.action = "/signup/business";
+          route = "/signup/business";
         }
       }
     </script>
-  </body>
+ 
