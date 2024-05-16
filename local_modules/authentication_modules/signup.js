@@ -1,8 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const { Usersdata  } = require("../models/user_models");
+const{createToken}=require("./token/cookie-jwt")
+const { Usersdata  } = require("../models/user_models.js");
 const { Buisnessdata } = require("../models/model");
 const jwt = require('jsonwebtoken');
+
+
+
 const handleErrors = (err) =>{
   console.log(err.message, err.code);
   let errors = {
@@ -26,12 +30,12 @@ const handleErrors = (err) =>{
     return errors;
     
 }
-const maxAge =3 * 24 * 60 *60;
-const createToken = (id) =>{
-  return jwt.sign({id}, 'net ninja secret', {
-    expiresIn: maxAge
-  });
-}
+// const maxAge =3 * 24 * 60 *60;
+// const createToken = (id) =>{
+//   return jwt.sign({id}, 'net ninja secret', {
+//     expiresIn: maxAge
+//   });
+// }
 
 router.post("/users", async (req, res) => {
   // var name = req.body.name;

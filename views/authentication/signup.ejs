@@ -261,7 +261,7 @@
                 placeholder="Email Address"
                 required
               />
-              <div class="validation-message email error"></div>
+              <div class="validation-message, email error"></div>
             </div>
             <!-- <div class="field">
               <input
@@ -281,7 +281,7 @@
                 placeholder="Password"
                 required
               />
-              <div class="validation-message password error"></div>
+              <div class="validation-message, password error"></div>
             </div>
             <!-- <div class="field">
               <input
@@ -308,7 +308,7 @@
     const form = document.querySelector('form');
     const emailE=document.querySelector('.email.error');
     const passE=document.querySelector('.password.error');
-    const route='/signup/users'
+    let route='/signup/users'
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();

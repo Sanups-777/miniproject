@@ -3,6 +3,10 @@ const { Buisnessdata } = require("../models/model");
 const { Usersdata }=require("../models/user_models")
 const router = express.Router();
 
+
+router.use("/login", (req, res) => {
+  res.render("authentication/login");
+});
 async function verification(password, res) {
   if (password === "password") {
     console.log("welcome admin", password);
@@ -44,9 +48,10 @@ async function verification(password, res) {
 // });
 router.post("/user", async (req, res)=>{
   const {email, password} = req.body;
+  console.log("check");
   try{
     const user = await Usersdata.login(email, password);
-    res.status(200).json({user: Usersdata._id});
+    res.status(200).json({user: user._id});
   }
   catch(err){
     res.status(400).json({});
@@ -68,4 +73,4 @@ router.post("/business", async (req, res) => {
   }
 });
 
-module.exports = { router };
+module.exports = { router};

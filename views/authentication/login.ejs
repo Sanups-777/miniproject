@@ -229,10 +229,12 @@
         id="formm"
       >
         <div class="field">
-          <input name="elog" type="text" placeholder="Email Address" required />
+          <input name="email" type="email" placeholder="Email Address" required />
+          <div class="email error"></div>
         </div>
         <div class="field">
-          <input name="plog" type="password" placeholder="Password" required />
+          <input name="password" type="password" placeholder="Password" required />
+          <div class="email error"></div>
         </div>
         <div class="field btn">
           <div class="btn-layer"></div>
@@ -246,36 +248,21 @@
   </div>
 </div>
 <script>
-  function changeFormAction() {
-    var userType;
-    var radios = document.getElementsByName("slide");
-    for (var i = 0; i < radios.length; i++) {
-      if (radios[i].checked) {
-        userType = radios[i].id;
-        break;
-      }
-    }
-    var form = document.querySelector("form");
-    if (userType === "login") {
-      form.action = "/login/user";
-    } else if (userType === "signup") {
-      form.action = "/login/business";
-    }
-  }
+  
   const form = document.querySelector('form');
-  const emailError = document.querySelector('.email.error');
-  const passwordError = document.querySelector('.password.error');
+    const emailE=document.querySelector('.email.error');
+    const passE=document.querySelector('.password.error');
+    let route='/login/user';
+  
   form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      emailE.textContent='';
+      passE.textContent='';
 
-      //reset errors
-      emailError.textContent = '';
-      passwordError.textContent = '';
       const email = form.email.value;
       const password = form.password.value;
-
       try{
-        const res = await fetch('/login/users',{
+        const res = await fetch(route,{
           method: 'POST',
           body: JSON.stringify({ email , password}),
           headers: {'Content-Type':'application/json'}
@@ -284,8 +271,8 @@
         console.log(data);
         if(data.errors)
         {
-          emailError.textContent = data.errors.email;
-          passwordError.textContent = data.errors.password;
+          emailE.textContent = data.errors.email;
+          passE.textContent = data.errors.password;
         }
         if(data.user)
         {
@@ -298,4 +285,20 @@
       }
     });
 
+    function changeFormAction() {
+    var userType;
+    var radios = document.getElementsByName("slide");
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].checked) {
+        userType = radios[i].id;
+        break;
+      }
+    }
+    var form = document.querySelector("form");
+    if (userType === "user") {
+      route = "login/user";
+    } else if (userType === "business") {
+      route = "login/business";
+    }
+  }
 </script>

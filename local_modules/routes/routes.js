@@ -1,17 +1,22 @@
 const express = require("express");
 const router = express.Router();
 const path = require("path");
-const { Usersdata, Buisnessdata } = require("../models/model.js");
+const { Buisnessdata } = require("../models/model.js");
 const { mail } = require("../feedback_modules/feedback.js");
 const booking = require("../appointments/appointments.js");
 const servicefun = require("../Servicesfunction/service.js");
-router.get("/login", (req, res) => {
+// const signup = require("../authentication_modules/signup/");  
+// const login = require("../authentication_modules/login.js");  
+
+router.use("/login", (req, res) => {
   res.render("authentication/login");
 });
 
 router.get("/signup", (req, res) => {
   res.render("authentication/signup");
 });
+// router.use("signup", signup.router);
+// router.use("login", login.router);
 
 router.get("/index", (req, res) => {
   res.render("webpages/index");
