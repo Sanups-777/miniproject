@@ -126,6 +126,9 @@ router.get("/nav", (req, res) => {
   res.render("nav-footer/navbardisplay");
 });
 
+router.get("/checkout", (req, res) => {
+  res.render("webpages/checkout");
+});
 router.get("/index", (req, res) => {
   res.render("authentication/login");
 });
