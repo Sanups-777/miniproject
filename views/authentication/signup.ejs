@@ -132,7 +132,7 @@
         font-size: 17px;
         transition: all 0.3s ease;
       }
-      .form-inner form .field span.validation-message {
+      .form-inner form .field .validation-message {
         position: absolute;
         bottom: -20px; /* Adjusted positioning */
         left: 0;
@@ -261,7 +261,7 @@
                 placeholder="Email Address"
                 required
               />
-              <div class="validation-message, email error"></div>
+              <div class="validation-message email error"></div>
             </div>
             <!-- <div class="field">
               <input
@@ -281,7 +281,7 @@
                 placeholder="Password"
                 required
               />
-              <div class="validation-message, password error"></div>
+              <div class="validation-message password error"></div>
             </div>
             <!-- <div class="field">
               <input
@@ -332,7 +332,7 @@
         }
         if(data.newData)
         {
-            location.assign('/homesaver/index');
+            location.assign('/homesaver/homepage');
         }
         else {
       // If the response is not okay (e.g., 404 or 500 error), handle it here

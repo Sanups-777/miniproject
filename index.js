@@ -34,6 +34,7 @@ const cookiep=require("./local_modules/authentication_modules/token/cookie-jwt.j
 // Connect to MongoDB
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
+app.use(cookieParser());
 mongoose
   .connect(
     "mongodb+srv://mongodb:gr74mongo@cluster0.mg8xlkx.mongodb.net/userdata",

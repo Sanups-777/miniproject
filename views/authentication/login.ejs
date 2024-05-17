@@ -133,6 +133,15 @@
       font-size: 17px;
       transition: all 0.3s ease;
     }
+    .form-inner form .field .validation-message {
+        position: absolute;
+        bottom: -20px; /* Adjusted positioning */
+        left: 0;
+        width: 100%;
+        font-size: 14px;
+        color: red;
+        padding-left: 18px;
+      }
 
     form .field input:focus::placeholder {
       color: #4d1434;
@@ -230,11 +239,11 @@
       >
         <div class="field">
           <input name="email" type="email" placeholder="Email Address" required />
-          <div class="email error"></div>
+          <div class="validation-message email error"></div>
         </div>
         <div class="field">
           <input name="password" type="password" placeholder="Password" required />
-          <div class="email error"></div>
+          <div class="validation-message password error"></div>
         </div>
         <div class="field btn">
           <div class="btn-layer"></div>
@@ -276,7 +285,7 @@
         }
         if(data.user)
         {
-          //location.assign('/');
+          location.assign('/homesaver/homepage');
         }
       }
       catch(err)

@@ -5,10 +5,15 @@ const { Buisnessdata } = require("../models/model.js");
 const { mail } = require("../feedback_modules/feedback.js");
 const booking = require("../appointments/appointments.js");
 const servicefun = require("../Servicesfunction/service.js");
+const {requireAuth, checkuser}=require("../authentication_modules/token/auth.js");
+const logout = require("../authentication_modules/logout.js");
+router.get('*',checkuser)
 // const signup = require("../authentication_modules/signup/");  
 // const login = require("../authentication_modules/login.js");  
+router.use("/logout", logout.router);
 
-router.use("/login", (req, res) => {
+
+router.get("/login", (req, res) => {
   res.render("authentication/login");
 });
 

@@ -73,6 +73,7 @@ udetailSchema.post('save' , function (doc, next){
  
  //static method to login user
  udetailSchema.statics.login = async function(email, password){
+  console.log(email,password);
   const user = await this.findOne({ email});
   if (user){
   const auth = await  bcrypt.compare(password, user.password);
