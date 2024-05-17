@@ -11,7 +11,8 @@
         "maxprice": 4369
       }
     ],
-    "description": "Swift Pest Control specializes in the humane removal and prevention of pests from residential and commercial properties. Our team of experts ensures swift and effective solutions to keep your environment pest-free."
+    "description": "Swift Pest Control specializes in the humane removal and prevention of pests from residential and commercial properties. Our team of experts ensures swift and effective solutions to keep your environment pest-free.",
+    "verify": false
   },
   {
     "name": "Sparkle Cleaning Services",
@@ -25,7 +26,8 @@
         "maxprice": 4013
       }
     ],
-    "description": "Sparkle Cleaning Services offers top-notch residential and commercial cleaning solutions. Our experienced cleaners use eco-friendly products and advanced techniques to leave your space sparkling clean."
+    "description": "Sparkle Cleaning Services offers top-notch residential and commercial cleaning solutions. Our experienced cleaners use eco-friendly products and advanced techniques to leave your space sparkling clean.",
+    "verify": false
   },
   {
     "name": "Fix-It Repairs",
@@ -39,7 +41,8 @@
         "maxprice": 4422
       }
     ],
-    "description": "Fix-It Repairs provides comprehensive repair services for homes and businesses. From plumbing and electrical to carpentry and appliance repairs, our skilled technicians ensure your repairs are done right the first time."
+    "description": "Fix-It Repairs provides comprehensive repair services for homes and businesses. From plumbing and electrical to carpentry and appliance repairs, our skilled technicians ensure your repairs are done right the first time.",
+    "verify": false
   },
   {
     "name": "Eagle Movers",
@@ -53,7 +56,8 @@
         "maxprice": 3287
       }
     ],
-    "description": "Eagle Movers offers efficient and reliable moving services for residential and commercial clients. With our experienced team and modern equipment, we make your move stress-free and seamless."
+    "description": "Eagle Movers offers efficient and reliable moving services for residential and commercial clients. With our experienced team and modern equipment, we make your move stress-free and seamless.",
+    "verify": false
   },
   {
     "name": "Elite Services",
@@ -72,7 +76,8 @@
         "maxprice": 4504
       }
     ],
-    "description": "Elite Services is your one-stop solution for pest control and cleaning needs. We combine effective pest management with thorough cleaning services to create a safe and hygienic environment for your home or business."
+    "description": "Elite Services is your one-stop solution for pest control and cleaning needs. We combine effective pest management with thorough cleaning services to create a safe and hygienic environment for your home or business.",
+    "verify": false
   },
   {
     "name": "FixRight Solutions",
@@ -91,7 +96,8 @@
         "maxprice": 4877
       }
     ],
-    "description": "FixRight Solutions offers professional cleaning and repair services to keep your property in top condition. From deep cleaning to minor repairs, our skilled team ensures quality workmanship and customer satisfaction."
+    "description": "FixRight Solutions offers professional cleaning and repair services to keep your property in top condition. From deep cleaning to minor repairs, our skilled team ensures quality workmanship and customer satisfaction.",
+    "verify": false
   },
   {
     "name": "MoveItNow",
@@ -110,7 +116,8 @@
         "maxprice": 4554
       }
     ],
-    "description": "MoveItNow provides efficient moving services along with professional cleaning to make your relocation hassle-free. With our attention to detail and commitment to excellence, we ensure a smooth transition to your new space."
+    "description": "MoveItNow provides efficient moving services along with professional cleaning to make your relocation hassle-free. With our attention to detail and commitment to excellence, we ensure a smooth transition to your new space.",
+    "verify": false
   },
   {
     "name": "Guardian Services",
@@ -129,7 +136,8 @@
         "maxprice": 4796
       }
     ],
-    "description": "Guardian Services offers comprehensive pest control and moving solutions to protect your property and belongings. Our experienced team safeguards your space from pests while ensuring a secure and seamless move."
+    "description": "Guardian Services offers comprehensive pest control and moving solutions to protect your property and belongings. Our experienced team safeguards your space from pests while ensuring a secure and seamless move.",
+    "verify": false
   },
   {
     "name": "FreshStart Solutions",
@@ -153,7 +161,8 @@
         "maxprice": 3201
       }
     ],
-    "description": "FreshStart Solutions provides a fresh start for your property with professional cleaning, repairs, and moving services. Whether you need a deep clean, minor repairs, or assistance with relocation, we have you covered."
+    "description": "FreshStart Solutions provides a fresh start for your property with professional cleaning, repairs, and moving services. Whether you need a deep clean, minor repairs, or assistance with relocation, we have you covered.",
+    "verify": false
   },
   {
     "name": "PestPro Clean & Repair",
@@ -177,7 +186,8 @@
         "maxprice": 2774
       }
     ],
-    "description": "PestPro Clean & Repair offers a comprehensive approach to pest control, cleaning, and repairs. Our integrated services ensure your property remains pest-free, clean, and well-maintained."
+    "description": "PestPro Clean & Repair offers a comprehensive approach to pest control, cleaning, and repairs. Our integrated services ensure your property remains pest-free, clean, and well-maintained.",
+    "verify": false
   },
   {
     "name": "Rapid Relocations",
@@ -191,7 +201,8 @@
         "maxprice": 4724
       }
     ],
-    "description": "Rapid Relocations specializes in fast and efficient moving services for residential and commercial clients. With our experienced team and modern fleet, we ensure a swift and stress-free relocation process."
+    "description": "Rapid Relocations specializes in fast and efficient moving services for residential and commercial clients. With our experienced team and modern fleet, we ensure a swift and stress-free relocation process.",
+    "verify": false
   },
   {
     "name": "CritterCatchers",
@@ -205,7 +216,8 @@
         "maxprice": 4267
       }
     ],
-    "description": "CritterCatchers is dedicated to safely removing and preventing pests from invading your space. Our team of experts employs humane techniques to ensure your property remains pest-free and safe for occupants."
+    "description": "CritterCatchers is dedicated to safely removing and preventing pests from invading your space. Our team of experts employs humane techniques to ensure your property remains pest-free and safe for occupants.",
+    "verify": false
   },
   {
     "name": "AllClean Services",
@@ -219,7 +231,8 @@
         "maxprice": 4979
       }
     ],
-    "description": "AllClean Services delivers top-quality residential and commercial cleaning solutions. Using eco-friendly products and advanced equipment, we leave your space spotless and hygienic."
+    "description": "AllClean Services delivers top-quality residential and commercial cleaning solutions. Using eco-friendly products and advanced equipment, we leave your space spotless and hygienic.",
+    "verify": false
   },
   {
     "name": "FixItNow",
@@ -238,7 +251,8 @@
         "maxprice": 3897
       }
     ],
-    "description": "FixItNow offers prompt and reliable repair and moving services for residential and commercial clients. From quick fixes to smooth relocations, our experienced team ensures your needs are met with efficiency and professionalism."
+    "description": "FixItNow offers prompt and reliable repair and moving services for residential and commercial clients. From quick fixes to smooth relocations, our experienced team ensures your needs are met with efficiency and professionalism.",
+    "verify": false
   },
   {
     "name": "FastTrack Movers",
@@ -252,7 +266,8 @@
         "maxprice": 4678
       }
     ],
-    "description": "FastTrack Movers specializes in fast and efficient moving services for residential and commercial clients. With our streamlined approach and dedicated team, we ensure your move is completed swiftly and smoothly."
+    "description": "FastTrack Movers specializes in fast and efficient moving services for residential and commercial clients. With our streamlined approach and dedicated team, we ensure your move is completed swiftly and smoothly.",
+    "verify": false
   },
   {
     "name": "BugBeGone",
@@ -266,7 +281,8 @@
         "maxprice": 3710
       }
     ],
-    "description": "BugBeGone provides effective pest control solutions to rid your property of unwanted pests. Using safe and environmentally friendly methods, we ensure your space remains bug-free and comfortable."
+    "description": "BugBeGone provides effective pest control solutions to rid your property of unwanted pests. Using safe and environmentally friendly methods, we ensure your space remains bug-free and comfortable.",
+    "verify": false
   },
   {
     "name": "SweepingSolutions",
@@ -280,7 +296,8 @@
         "maxprice": 4587
       }
     ],
-    "description": "SweepingSolutions offers comprehensive cleaning services for residential and commercial properties. Our meticulous cleaners leave no corner untouched, ensuring your space is thoroughly cleaned and sanitized."
+    "description": "SweepingSolutions offers comprehensive cleaning services for residential and commercial properties. Our meticulous cleaners leave no corner untouched, ensuring your space is thoroughly cleaned and sanitized.",
+    "verify": false
   },
   {
     "name": "RepairsRUs",
@@ -294,7 +311,8 @@
         "maxprice": 2996
       }
     ],
-    "description": "RepairsRUs is your go-to source for professional repair services. From minor fixes to major renovations, our skilled technicians deliver quality workmanship and personalized service."
+    "description": "RepairsRUs is your go-to source for professional repair services. From minor fixes to major renovations, our skilled technicians deliver quality workmanship and personalized service.",
+    "verify": false
   },
   {
     "name": "SmoothMove",
@@ -308,7 +326,8 @@
         "maxprice": 4069
       }
     ],
-    "description": "SmoothMove provides seamless and stress-free moving services for residential and commercial clients. With our attention to detail and careful handling, we ensure your move is executed smoothly and efficiently."
+    "description": "SmoothMove provides seamless and stress-free moving services for residential and commercial clients. With our attention to detail and careful handling, we ensure your move is executed smoothly and efficiently.",
+    "verify": false
   },
   {
     "name": "PestTech",
@@ -322,7 +341,8 @@
         "maxprice": 2905
       }
     ],
-    "description": "PestTech employs cutting-edge technology and proven techniques to tackle pest infestations. Our comprehensive pest control solutions ensure your property remains pest-free and safe for occupants."
+    "description": "PestTech employs cutting-edge technology and proven techniques to tackle pest infestations. Our comprehensive pest control solutions ensure your property remains pest-free and safe for occupants.",
+    "verify": false
   },
   {
     "name": "Spotless Solutions",
@@ -341,7 +361,8 @@
         "maxprice": 4765
       }
     ],
-    "description": "Spotless Solutions offers a combination of cleaning and moving services to meet all your property needs. With our meticulous cleaners and efficient movers, we ensure your space is spotless and your move is hassle-free."
+    "description": "Spotless Solutions offers a combination of cleaning and moving services to meet all your property needs. With our meticulous cleaners and efficient movers, we ensure your space is spotless and your move is hassle-free.",
+    "verify": false
   },
   {
     "name": "PerfectFix",
@@ -355,7 +376,8 @@
         "maxprice": 2999
       }
     ],
-    "description": "PerfectFix specializes in providing perfect solutions for all your repair needs. Our experienced technicians deliver prompt and reliable repairs, ensuring your property is restored to its optimal condition."
+    "description": "PerfectFix specializes in providing perfect solutions for all your repair needs. Our experienced technicians deliver prompt and reliable repairs, ensuring your property is restored to its optimal condition.",
+    "verify": false
   },
   {
     "name": "MoveMasters",
@@ -369,7 +391,8 @@
         "maxprice": 4736
       }
     ],
-    "description": "MoveMasters are the masters of moving, offering efficient and reliable relocation services. With our expertise and attention to detail, we ensure your move is executed seamlessly from start to finish."
+    "description": "MoveMasters are the masters of moving, offering efficient and reliable relocation services. With our expertise and attention to detail, we ensure your move is executed seamlessly from start to finish.",
+    "verify": false
   },
   {
     "name": "EcoPest",
@@ -383,7 +406,8 @@
         "maxprice": 2992
       }
     ],
-    "description": "EcoPest provides eco-friendly pest control solutions to protect your property and the environment. Our sustainable methods ensure effective pest management while minimizing harm to non-target species."
+    "description": "EcoPest provides eco-friendly pest control solutions to protect your property and the environment. Our sustainable methods ensure effective pest management while minimizing harm to non-target species.",
+    "verify": false
   },
   {
     "name": "GreenCleaners",
@@ -397,7 +421,8 @@
         "maxprice": 3989
       }
     ],
-    "description": "GreenCleaners offers environmentally friendly cleaning services for homes and businesses. Using non-toxic products and eco-conscious practices, we provide a clean and healthy environment for our clients."
+    "description": "GreenCleaners offers environmentally friendly cleaning services for homes and businesses. Using non-toxic products and eco-conscious practices, we provide a clean and healthy environment for our clients.",
+    "verify": false
   },
   {
     "name": "Handyman Heroes",
@@ -416,7 +441,8 @@
         "maxprice": 4468
       }
     ],
-    "description": "Handyman Heroes are your go-to professionals for repairs and moving services. With our skilled technicians and efficient movers, we tackle any job with precision and care, ensuring customer satisfaction every time."
+    "description": "Handyman Heroes are your go-to professionals for repairs and moving services. With our skilled technicians and efficient movers, we tackle any job with precision and care, ensuring customer satisfaction every time.",
+    "verify": false
   },
   {
     "name": "SpeedyRelo",
@@ -430,7 +456,8 @@
         "maxprice": 3856
       }
     ],
-    "description": "SpeedyRelo specializes in fast and efficient moving services for residential and commercial clients. With our speedy and reliable service, we ensure your relocation is completed on time and within budget."
+    "description": "SpeedyRelo specializes in fast and efficient moving services for residential and commercial clients. With our speedy and reliable service, we ensure your relocation is completed on time and within budget.",
+    "verify": false
   },
   {
     "name": "CritterControl",
@@ -444,114 +471,7 @@
         "maxprice": 4038
       }
     ],
-    "description": "CritterControl provides humane pest control solutions to protect your property from unwanted critters. Our experienced team employs safe and effective methods to ensure your space remains critter-free."
-  },
-  {
-    "name": "FreshNShine",
-    "email": "freshnshine@example.com",
-    "phone": "5551001029",
-    "password": "P@ssw0rd",
-    "services": [
-      {
-        "name": "cleaning",
-        "minprice": 1123,
-        "maxprice": 2714
-      }
-    ],
-    "description": "FreshNShine specializes in delivering fresh and shining spaces with our professional cleaning services. Using advanced techniques and eco-friendly products, we ensure your property is spotless and inviting."
-  },
-  {
-    "name": "FixItFast",
-    "email": "fixitfast@example.com",
-    "phone": "5551001030",
-    "password": "P@ssw0rd",
-    "services": [
-      {
-        "name": "repairs",
-        "minprice": 1589,
-        "maxprice": 4689
-      }
-    ],
-    "description": "FixItFast offers prompt and reliable repair services to address all your property maintenance needs. Our skilled technicians deliver fast and efficient repairs, ensuring minimal disruption to your daily life."
-  },
-  {
-    "name": "RapidMovers",
-    "email": "rapidmovers@example.com",
-    "phone": "5551001031",
-    "password": "P@ssw0rd",
-    "services": [
-      {
-        "name": "moving",
-        "minprice": 1689,
-        "maxprice": 4203
-      }
-    ],
-    "description": "RapidMovers specializes in rapid and efficient moving services for residential and commercial clients. With our experienced team and modern equipment, we ensure your move is completed swiftly and smoothly."
-  },
-  {
-    "name": "PestBusters",
-    "email": "pestbusters@example.com",
-    "phone": "5551001032",
-    "password": "P@ssw0rd",
-    "services": [
-      {
-        "name": "pest control",
-        "minprice": 1056,
-        "maxprice": 3111
-      }
-    ],
-    "description": "PestBusters are dedicated to busting pests out of your property. Using advanced pest control techniques, we eliminate pests and prevent future infestations, ensuring your space remains pest-free."
-  },
-  {
-    "name": "CleanSlate",
-    "email": "cleanslate@example.com",
-    "phone": "5551001033",
-    "password": "P@ssw0rd",
-    "services": [
-      {
-        "name": "cleaning",
-        "minprice": 1732,
-        "maxprice": 4874
-      },
-      {
-        "name": "moving",
-        "minprice": 1505,
-        "maxprice": 4012
-      }
-    ],
-    "description": "CleanSlate offers a fresh start for your property with our cleaning and moving services. Whether you need a thorough clean or assistance with relocation, our dedicated team ensures your space is clean and organized."
-  },
-  {
-    "name": "FixItAll",
-    "email": "fixitall@example.com",
-    "phone": "5551001034",
-    "password": "P@ssw0rd",
-    "services": [
-      {
-        "name": "repairs",
-        "minprice": 1157,
-        "maxprice": 3456
-      },
-      {
-        "name": "moving",
-        "minprice": 1312,
-        "maxprice": 4802
-      }
-    ],
-    "description": "FixItAll is your all-in-one solution for repairs and moving services. From fixing minor issues to managing your relocation, our experienced team ensures your property needs are taken care of with efficiency and professionalism."
-  },
-  {
-    "name": "SwiftPest",
-    "email": "swiftpest@example.com",
-    "phone": "5551001035",
-    "password": "P@ssw0rd",
-    "services": [
-      {
-        "name": "pest control",
-        "minprice": 1150,
-        "maxprice": 3125
-      }
-    ],
-    "description": "SwiftPest offers swift and effective pest control solutions for residential and commercial properties. With our experienced team and proven methods, we ensure your space remains pest-free and comfortable."
+    "description": "CritterControl provides humane pest control solutions to protect your property from unwanted critters. Our experienced team employs safe and effective methods to ensure your space remains critter-free.",
+    "verify": false
   }
 ]
