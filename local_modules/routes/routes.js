@@ -1,24 +1,20 @@
 const express = require("express");
 const router = express.Router();
 const path = require("path");
-const { Usersdata, Buisnessdata } = require("../models/model.js");
-
-let db;
-function init(dbConnection) {
-  db = dbConnection;
-  // console.log("connected succesfully")
-}
-
+const { Usersdata, Buisnessdata, Appointments } = require("../models/model.js");
+const { mail } = require("../feedback_modules/feedback.js");
+const booking = require("../appointments/appointments.js");
+const servicefun = require("../Servicesfunction/service.js");
 router.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../public/login.html"));
+  res.render("authentication/login");
 });
 
 router.get("/signup", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../public/reg.html"));
+  res.render("authentication/signup");
 });
 
-router.get("/mainpage", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../public/mainpage.html"));
+router.get("/index", (req, res) => {
+  res.render("webpages/index");
 });
 router.get("/homepage", async (req, res) => {
   const page = req.query.page || 1;
@@ -28,35 +24,193 @@ router.get("/homepage", async (req, res) => {
   try {
     const data = await Buisnessdata.find({}).skip(skip).limit(limit);
 
-    res.render("homepage", { blist: data });
+    res.render("webpages/homepage", { blist: data });
   } catch (err) {
     console.error("Error fetching Buisnessdata collection:", err);
     res.status(500).send("Internal Server Error");
   }
 });
-router.get("/homepage/viewbusiness", (req, res) => {
-  res.render("viewbuisness");
+
+router.get("/homepage/viewbusiness", async (req, res) => {
+  // Extract the businessId and userId from the query parameters
+  const businessId = req.query.businessId;
+  const userId = req.query.userId;
+  if (!businessId || !userId) {
+    return res.status(400).send("Business ID or User ID is missing");
+  }
+
+  // Assuming blist is an array of business objects
+  try {
+    // Assuming BusinessData is your Mongoose model/schema
+    const business = await Buisnessdata.findById(businessId).exec();
+
+    if (!business) {
+      // Handle business not found
+      return res.status(404).send("Business not found");
+    }
+
+    // Assuming UserData is your user model/schema
+    const user = await Usersdata.findById(userId).exec();
+
+    if (!user) {
+      // Handle user not found
+      return res.status(404).send("User not found");
+    }
+
+    // Render the view template passing business data and user data
+    res.render("webpages/viewbuisness", { business: business, user: user });
+  } catch (err) {
+    // Handle error
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
 });
-// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxFIX RESET XXXXXXXXXXXXXXX//////////////////
+router.get("/login/homepage", async (req, res) => {
+  const userid = req.query.id;
+  if (!userid) {
+    return res.status(400).send("userid is missing");
+  }
+  try {
+    // Assuming BusinessData is your Mongoose model/schema
+    const user = await Usersdata.findById(userid).exec();
+    const data = await Buisnessdata.find({});
+    if (!user) {
+      // Handle business not found
+      return res.status(404).send("Business not found");
+    }
+    console.log(user);
+    // Render the view template passing business data
+    res.render("user/homepage", { user: user, blist: data });
+  } catch (err) {
+    // Handle error
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
+});
+router.get("/checkout", async (req, res) => {
+  const { appointmentId, userId } = req.query;
+  console.log(appointmentId, userId);
+  res.render("webpages/checkout", {
+    appointmentId: appointmentId,
+    userId: userId,
+  });
+});
+
+router.post("/paid", async (req, res) => {
+  const { appointmentId, userId } = req.query;
+  if (!appointmentId) {
+    return res.status(400).send("appoinmentId is missing");
+  }
+  if (!userId) {
+    return res.status(400).send(" User ID is missing");
+  }
+  try {
+    // Assuming BusinessData is your Mongoose model/schema
+    const appoinment = await Appointments.findById(appointmentId).exec();
+    if (!appoinment) {
+      // Handle business not found
+      return res.status(404).send("appoinment not found");
+    }
+    appoinment.paid = true;
+    await appoinment.save();
+    console.log(appoinment.paid);
+    // Render the view template passing business data
+
+    const result = await Usersdata.findById(userId).exec();
+    if (!result) {
+      // Handle business not found
+      return res.status(404).send("user not found");
+    }
+    let a = result.name;
+    let e = result.email;
+    let p = result.phno;
+    let u = result.username;
+    let i = result._id;
+    res.render("user/userp", {
+      name: a,
+      email: e,
+      phone: p,
+      uname: u,
+      id: i,
+    });
+  } catch (err) {
+    // Handle error
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
+});
 router.get("/reset", (req, res) => {
-  // (Usersdata.find({})
-  //   .then((data) => {
-  //     res.render('reset', {
-  //       userlist: data
-  //     });
-  //   })
-  //   .catch((err) => {
-  //     console.error(err);
-  //     res.status(500).send("Internal Server Error");
-  //   }));)
-  res.sendFile(path.join(__dirname, "../../public/reset.html"));
+  res.render("user/reset");
 });
 
-router.get("/mainpage", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../public/mainpage.html"));
-});
-router.get("/mainpage", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../public/mainpage.html"));
+router.post("/reset_pass", (req, res) => {
+  const { email_reset, original_password, new_password, cpreset } = req.body;
+
+  if (new_password !== cpreset) {
+    return res.status(400).send("New passwords do not match");
+  }
+
+  Usersdata.findOne({ email: email_reset })
+    .then((user) => {
+      if (!user) {
+        return res.status(404).send("User not found");
+      }
+
+      if (user.password !== original_password) {
+        return res.status(401).send("Original password is incorrect");
+      }
+
+      user.password = new_password; // Directly assigning the new password
+      console.log("Password reset successfully");
+      return user.save();
+    })
+    .then(() => {
+      res.render("authentication/login");
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Internal Server Error");
+    });
 });
 
-module.exports = { init, router };
+router.get("/nav", (req, res) => {
+  res.render("nav-footer/navbardisplay");
+});
+
+router.get("/checkout", (req, res) => {
+  res.render("webpages/checkout");
+});
+router.get("/index", (req, res) => {
+  res.render("authentication/login");
+});
+
+// Render the service page and pass the services array to the template
+router.get("/services", async (req, res) => {
+  try {
+    // Fetch all documents from the Buisnessdata collection
+    const businesses = await Buisnessdata.find({}, "services");
+
+    // Extract services from each document
+    const services = businesses.map((business) => business.services);
+    const minprice = servicefun.calculateAverage(services, "minprice");
+    const maxprice = servicefun.calculateAverage(services, "maxprice");
+    // Render the services view and pass the services data
+    res.render("webpages/services", {
+      services: services,
+      minprice: minprice,
+      maxprice: maxprice,
+    });
+  } catch (error) {
+    // Handle any errors that occur during the database operation
+    console.error("Error fetching services:", error);
+    res.status(500).send("Error fetching services");
+  }
+});
+
+router.use("/business", booking.router);
+// router.get("/booking", (req, res) => {
+//   res.redirect("");
+// });
+router.post("/send-email", mail);
+
+module.exports = { router };

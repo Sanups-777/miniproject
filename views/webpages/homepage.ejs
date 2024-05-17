@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>homepage</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: -webkit-linear-gradient(
+          left,
+          rgba(33, 8, 28, 1),
+          #4d1434,
+          rgba(77, 20, 52, 1)
+        );
+        background-color: #f9f9f9; /* Fallback color */
+      }
+
+      .navbar {
+        position: fixed; /* Set position to fixed */
+        top: 0; /* Stick it to the top of the viewport */
+        width: 100%; /* Occupy full width */
+        z-index: 1000; /* Ensure it's above other content */
+        /* background-color: #333;
+      color: #fff; */
+        padding: 10px 0;
+        background: -webkit-linear-gradient(
+          left,
+          rgba(33, 8, 28, 1),
+          #4d1434,
+          rgba(77, 20, 52, 1)
+        );
+      }
+
+      .container {
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo-link {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo-img {
+        width: 50px;
+        height: auto;
+        margin-right: 10px;
+      }
+
+      .nav-links {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-links li {
+        display: inline;
+        margin-right: 20px;
+      }
+
+      .nav-links li:last-child {
+        margin-right: 0;
+      }
+
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .search-container {
+        display: flex;
+        align-items: center;
+        flex: 0 0 40%;
+        padding: 0 11px;
+        width: 50%;
+      }
+
+      .search-input {
+        flex: 1;
+        padding: 11px 16.5px;
+        border: 2px solid #ccc;
+        border-radius: 22px;
+        font-size: 15.4px;
+        outline: none;
+        transition: all 0.3s ease;
+        width: 408px;
+      }
+
+      .tile-button {
+        background-color: #4d1434; /* Updated color */
+        color: white;
+        border: none;
+        border-radius: 22px; /* 10% bigger */
+        padding: 11px 16.5px; /* Increased padding */
+        font-size: 15.4px; /* 10% bigger */
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .search-button {
+        background-color: #4d1434; /* Updated color */
+        color: white;
+        border: 2px solid;
+        border-radius: 22px; /* 10% bigger */
+        border-color: #fff;
+        padding: 11px 16.5px; /* Increased padding */
+        font-size: 15.4px; /* 10% bigger */
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .tile-button:hover {
+        background-color: #3c0f29; /* Adjusted hover color */
+      }
+      .search-button:hover {
+        border-color: #4d1434;
+        box-shadow: 0 0 4.4px 0 #fff;
+      }
+      .search-input:focus {
+        border-color: #ffffff;
+        box-shadow: 0 0 4.4px 0 #fff;
+      }
+
+      .row {
+        display: flex;
+        justify-content: center; /* Center tiles horizontally */
+        margin: 20px auto; /* Added margin */
+        flex-wrap: wrap; /* Allow tiles to wrap to the next line */
+      }
+
+      .tile {
+        width: 75%; /* Each tile occupies 75% of the page width */
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        position: relative; /* Set position to relative */
+      }
+
+      .tile p {
+        margin-bottom: 10px; /* Added spacing between paragraphs */
+      }
+
+      .tile-button {
+        /* Position the button */
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        text-decoration: none;
+      }
+
+      /* Added style for name */
+      .name {
+        font-weight: bold;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+      }
+      .navpush {
+        margin-top: 101px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="container">
+        <a
+          href="/homesaver/index"
+          style="color: #ffffff; text-decoration: none"
+        >
+          <img
+            src="http://localhost:3300/images/Logo.png"
+            alt="Logo"
+            style="width: 80px; height: auto; top: 10px; left: 10px"
+          />
+        </a>
+        <!-- Search Container -->
+        <div class="search-container">
+          <form action="/search/home_search" method="get">
+            <input
+              type="text"
+              class="search-input"
+              name="service"
+              placeholder="Search by service"
+            />
+            <button class="search-button" type="submit">Search</button>
+          </form>
+        </div>
+        <!-- End Search Container -->
+        <ul class="nav-links">
+          <li><a href="/homesaver/homepage">Home</a></li>
+          <li><a href="/homesaver/services">Services</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="navpush">
+      <% for (var i = 0; i < blist.length; i += 1) { %>
+      <div class="row">
+        <div class="tile">
+          <!-- Name in bold at the top left -->
+          <div class="name"><%= blist[i].name %></div>
+          <p><strong>Phone:</strong> <%= blist[i].phone %></p>
+          <p><strong>Email:</strong> <%= blist[i].email %></p>
+          <p>
+            <strong>Services:</strong>
+            <strong
+              ><% blist[i].services.forEach((service, index) => { %> <%= service
+              %><% if(index < blist[i].services.length - 1) { %>,<% } %> <% });
+              %>
+            </strong>
+          </p>
+          <a
+            href="/homesaver/homepage/viewbusiness?businessId=<%= blist[i]._id %>"
+            class="tile-button"
+            >View Details</a
+          >
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homesaver</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      .hero {
+        position: relative; /* Ensure proper positioning for the pseudo-element */
+        background-image: url("http://localhost:3300/images/Banner.png");
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        text-align: center;
+      }
+
+      /* Add a pseudo-element to overlay black shade */
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.4
+        ); /* Adjust the transparency as needed */
+      }
+
+      .hero h2 {
+        font-size: 3em;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 1.2em;
+        margin-bottom: 40px;
+      }
+
+      .cta-buttons {
+        display: flex;
+        justify-content: center;
+        position: relative; /* Ensure proper stacking context */
+        z-index: 1; /* Ensure the buttons appear above other elements */
+      }
+
+      .btn {
+        background: -webkit-linear-gradient(
+          left,
+          rgba(33, 8, 28, 1),
+          #4d1434,
+          rgba(77, 20, 52, 1)
+        );
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        margin: 0 10px;
+        border-radius: 5px;
+        font-size: 1.1em;
+      }
+
+      .btn:hover {
+        background-color: #cc5500;
+      }
+      .navpush {
+        margin-top: 101px;
+      }
+    </style>
+  </head>
+  <%- include('../nav-footer/navbardisplay') %>
+  <body>
+    <div class="navpush">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div style="background-color: #000000b0" class="container">
+          <h2
+            style="
+              color: white;
+              font-weight: 700;
+              padding-right: 20px;
+              padding-bottom: 26px;
+            "
+          >
+            Welcome to Homesaver
+          </h2>
+          <div class="cta-buttons">
+            <a href="/homesaver/login" class="btn">Login</a>
+            <a href="/homesaver/signup" class="btn">Sign Up</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

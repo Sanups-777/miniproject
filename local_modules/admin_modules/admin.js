@@ -13,7 +13,7 @@ const { Usersdata, Buisnessdata } = require("../models/model");
 router.get("/udetails", (req, res) => {
   Usersdata.find({})
     .then((data) => {
-      res.render("user_details", {
+      res.render("admin/user_details", {
         userlist: data,
       });
     })
@@ -37,7 +37,8 @@ router.post("/uremove", async (req, res) => {
   } else {
     await Usersdata.deleteOne({ email: email });
     console.log("User deleted");
-    res.redirect("/admin/details");
+    //res.redirect("/admin/udetails");
+    res.render("admin/adminp");
   }
 });
 
@@ -50,7 +51,7 @@ router.get("/bdetails", async (req, res) => {
     //   console.log('Data found in Buisnessdata collection');
     // }
 
-    res.render("business_details", { blist: data });
+    res.render("admin/business_details", { blist: data });
   } catch (err) {
     console.error("Error fetching Buisnessdata collection:", err);
     res.status(500).send("Internal Server Error");
@@ -71,7 +72,8 @@ router.post("/bremove", async (req, res) => {
   } else {
     await Buisnessdata.deleteOne({ email: email });
     console.log("User deleted");
-    res.redirect("/admin/bdetails");
+    // res.redirect("/admin/bdetails");
+    res.render("admin/adminp");
   }
 });
 
