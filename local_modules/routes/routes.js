@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const path = require("path");
-const { Usersdata, Buisnessdata } = require("../models/model.js");
+const { Usersdata, Buisnessdata, Appointments } = require("../models/model.js");
 const { mail } = require("../feedback_modules/feedback.js");
 const booking = require("../appointments/appointments.js");
 const servicefun = require("../Servicesfunction/service.js");
@@ -87,7 +87,58 @@ router.get("/login/homepage", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+router.get("/checkout", async (req, res) => {
+  const { appoinmentId, userId } = req.query;
+  console.log(appoinmentId, userId);
+  res.render("webpages/checkout", {
+    appoinmentId: appoinmentId,
+    userId: userId,
+  });
+});
 
+router.post("/paid", async (req, res) => {
+  const { appoinmentId, userId } = req.query;
+  if (!appoinmentId) {
+    return res.status(400).send("appoinmentId is missing");
+  }
+  if (!userId) {
+    return res.status(400).send(" User ID is missing");
+  }
+  try {
+    // Assuming BusinessData is your Mongoose model/schema
+    const appoinment = await Appointments.findById(appoinmentId).exec();
+    if (!appoinment) {
+      // Handle business not found
+      return res.status(404).send("appoinment not found");
+    }
+    appoinment.paid = true;
+    await appoinment.save();
+    console.log(appoinment.paid);
+    // Render the view template passing business data
+
+    const result = await Usersdata.findById(userId).exec();
+    if (!result) {
+      // Handle business not found
+      return res.status(404).send("user not found");
+    }
+    let a = result.name;
+    let e = result.email;
+    let p = result.phno;
+    let u = result.username;
+    let i = result._id;
+    res.render("user/userp", {
+      name: a,
+      email: e,
+      phone: p,
+      uname: u,
+      id: i,
+    });
+  } catch (err) {
+    // Handle error
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
+});
 router.get("/reset", (req, res) => {
   res.render("user/reset");
 });

@@ -37,6 +37,7 @@ const apdetailSchema = new mongoose.Schema({
   service: String,
   issue: String,
   accepted: Boolean,
+  paid: Boolean,
 });
 
 const Appointments = mongoose.model("appointments", apdetailSchema);

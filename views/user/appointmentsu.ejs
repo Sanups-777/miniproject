@@ -32,13 +32,21 @@
         padding: 8px 12px;
         border: none;
         border-radius: 4px;
-        background-color: #007bff; /* Blue button color */
+        background: -webkit-linear-gradient(
+          left,
+          rgba(33, 8, 28, 1),
+          #4d1434,
+          rgba(77, 20, 52, 1)
+        );
         color: #fff; /* White text color */
         cursor: pointer;
+        text-decoration: none;
       }
 
       .abutton:hover {
-        background-color: #0056b3; /* Darker blue on hover */
+        background-color: #4d1434;
+        color: white;
+        text-decoration: none; /* Darker blue on hover */
       }
     </style>
   </head>
@@ -53,11 +61,12 @@
             <th scope="col">Service</th>
             <th scope="col">Issue</th>
             <th scope="col">Status</th>
+            <th scope="col">payment</th>
           </tr>
         </thead>
         <tbody>
-          <% appointmentlist.forEach(Appointment => { %> <% if(Appointment.uname
-          === user.name) { %>
+          <% appointmentlist.forEach(Appointment => { %> <% if
+          (Appointment.uname === user.name) { %>
           <tr>
             <td><%= Appointment.bname %></td>
             <td><%= Appointment.uname %></td>
@@ -68,6 +77,21 @@
               <strong
                 ><%= Appointment.accepted ? 'Booked' : 'Unavailable' %></strong
               >
+            </td>
+            <td>
+              <% if (Appointment.paid) { %>
+              <strong>Paid</strong>
+              <% } else if (Appointment.accepted) { %>
+              <a
+                href="/homesaver/checkout?userId=<%= user._id %>&appointmentId=<%= Appointment._id %>"
+                method="get"
+                style="display: inline"
+                class="abutton"
+                >Pay Now</a
+              >
+              <% } else { %>
+              <strong>Not Available</strong>
+              <% } %>
             </td>
           </tr>
           <% } %> <% }) %>

@@ -17,6 +17,7 @@ router.post("/booking", async (req, res) => {
       service: service,
       issue: issue,
       accepted: null,
+      paid: false,
     });
     console.log("Appointment Inserted Successfully:", newData._id);
     res.render("webpages/bookingsuccessful", { userId: userId });
