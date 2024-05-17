@@ -61,7 +61,7 @@
             <th scope="col">Service</th>
             <th scope="col">Issue</th>
             <th scope="col">Status</th>
-            <th scope="col">payment</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -79,9 +79,19 @@
               >
             </td>
             <td>
-              <% if (Appointment.paid) { %>
-              <strong>Paid</strong>
-              <% } else if (Appointment.accepted) { %>
+              <% if (Appointment.paid && Appointment.accepted &&
+              !Appointment.review) { %>
+              <a
+                href="/homesaver/review?userId=<%= user._id %>&appointmentId=<%= Appointment._id %>"
+                method="get"
+                style="display: inline"
+                class="abutton"
+                >Post a Review</a
+              >
+              <% } else if (Appointment.paid && Appointment.accepted &&
+              Appointment.review) { %>
+              <strong>Already Reviewed</strong>
+              <% } else if (!Appointment.paid && Appointment.accepted) { %>
               <a
                 href="/homesaver/checkout?userId=<%= user._id %>&appointmentId=<%= Appointment._id %>"
                 method="get"

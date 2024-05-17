@@ -26,21 +26,26 @@
           rgba(77, 20, 52, 1)
         );
       }
+      .containerb {
+        display: flex;
+        flex-direction: column; /* Align items in a column */
+        align-items: center; /* Align items to the center horizontally */
+        width: 80%;
+      }
       .wrapper {
         position: relative;
         display: flex;
         flex-direction: column; /* Aligning items in a column */
         align-items: center; /* Aligning items to the center horizontally */
-        width: 80%; /* Adjusting width to fill the screen */
-        height: 60%;
+        width: 100%; /* Adjusting width to fill the screen */
         background: #fff;
         padding: 30px;
         border-radius: 15px;
         box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+        margin-top: 20px; /* Adding margin to separate the wrappers */
       }
-      .business-details {
+      .business-details1 {
         width: 100%; /* Adjusting width */
-        height: 90%;
         background: #4d1434; /* Adjusting background color */
         border-radius: 15px;
         padding: 40px; /* Adjusting padding */
@@ -48,6 +53,16 @@
         text-align: center;
         font-size: 20px; /* Adjusting font size */
         line-height: 1.5; /* Adjusting line height */
+      }
+      .business-details2 {
+        text-align: left; /* Align text to the left */
+        width: 100%;
+        background: #4d1434;
+        border-radius: 15px;
+        padding: 40px;
+        color: white;
+        font-size: 20px;
+        line-height: 1.5;
       }
       .form-wrapper {
         display: none;
@@ -60,8 +75,8 @@
         border-radius: 15px;
         box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
         z-index: 2;
-        width: 40%;
-        height: 68%;
+        width: 450px;
+        height: 350px;
       }
 
       .close-button {
@@ -132,71 +147,124 @@
         height: 100%;
         z-index: 1; /* Ensure it's above other elements */
       }
+      /* Star rating */
+      .review p {
+        font-size: 18px;
+        color: black; /* Adjust size as needed */
+      }
+      .review p .star {
+        color: gold; /* Gold color for filled stars */
+        font-size: 24px; /* Larger font size for stars */
+      }
+      .review {
+        background-color: #fff;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e0e0e0;
+        text-align: left; /* Align text inside reviews to the left */
+      }
+      .navpush {
+        margin-top: 101px;
+        margin-left: 50px;
+        margin-right: 50px;
+        justify-content: center; /* Aligning horizontally */
+        align-items: center; /* Aligning vertically */
+        display: flex;
+      }
     </style>
   </head>
   <%- include('../nav-footer/navbardisplay') %>
   <body>
-    <div class="wrapper">
-      <div class="business-details">
-        <!-- Placeholder business details -->
-        <h2><%= business.name %></h2>
-        <p><%= business.description %></p>
-      </div>
-      <button class="show-form-button" style="z-index: 1" onclick="showForm()">
-        Book Appointment
-      </button>
-      <!-- Add a wrapper for the dark overlay -->
-      <div id="darkOverlay" class="darken" style="display: none"></div>
-      <div class="form-wrapper" id="form-wrapper">
-        <div class="form-inner">
-          <span class="close-button" onclick="closeForm()">×</span>
-          <form
-            action="/homesaver/business/booking"
-            method="post"
-            autocomplete="off"
-          >
-            <input
-              name="userId"
-              id="userId"
-              type="hidden"
-              value="<%=user._id%>"
-            />
-            <div class="field">
-              <input name="date" type="date" required />
-            </div>
-            <div class="field">
-              <textarea
-                name="issue"
-                rows="4"
-                placeholder="Describe the issue"
-                required
-              ></textarea>
-            </div>
-            <div class="field">
-              <select name="service" required>
-                <option value="" selected>Select Service</option>
-                <% business.services.forEach(function(service) { %>
-                <option value="<%= service.name %>"><%= service.name %></option>
-                <% }); %>
-              </select>
-            </div>
-            <input
-              type="hidden"
-              name="uname"
-              id="uname"
-              value="<%= user.name %>"
-            />
-            <input
-              type="hidden"
-              name="bname"
-              id="bname"
-              value="<%= business.name %>"
-            />
-            <div class="field">
-              <input type="submit" value="Book Now" class="show-form-button" />
-            </div>
-            <span id="Confirm"></span>
-          </form>
+    <div class="navpush">
+      <div class="containerb">
+        <!-- Business details and appointment button -->
+        <div class="wrapper">
+          <div class="business-details1">
+            <h2><%= business.name %></h2>
+            <p><%= business.description %></p>
+          </div>
+          <button class="show-form-button" style="z-index: 1" onclick="showForm()">
+            Book Appointment
+          </button>
+        </div>
+        <!-- Reviews Section moved here to ensure it appears below business details -->
+        <div class="wrapper">
+          <div class="business-details2">
+            <h2>Reviews</h2>
+            <% if (reviews.length > 0) { %>
+              <% reviews.forEach(function(review) { %>
+                <div class="review">
+                  
+                  <p>
+                    <% for (let i = 0; i < review.rating; i++) { %> &#9733; <% } %>
+                    <% for (let i = review.rating; i < 5; i++) { %> &#9734; <% } %>
+                  </p>
+                  <p>Service - <%= review.service %></p></br>
+                  <p><%= review.description %></p>
+                </div>
+              <% }) %>
+            <% } else { %>
+              <p>No reviews available.</p>
+            <% } %>
+          </div>
+        </div>
+        <div id="darkOverlay" class="darken" style="display: none"></div>
+        <div class="form-wrapper" id="form-wrapper">
+          <div class="form-inner">
+            <span class="close-button" onclick="closeForm()">×</span>
+            <form action="/homesaver/business/booking" method="post" autocomplete="off">
+              <input
+                name="userId"
+                id="userId"
+                type="hidden"
+                value="<%= user._id %>"
+              />
+              <div class="field">
+                <input name="date" type="date" required />
+              </div>
+              <div class="field">
+                <textarea
+                  name="issue"
+                  rows="4"
+                  placeholder="Describe the issue"
+                  required
+                ></textarea>
+              </div>
+              <div class="field">
+                <select name="service" required>
+                  <option value="" selected>Select Service</option>
+                  <% business.services.forEach(function(service) { %>
+                  <option value="<%= service.name %>">
+                    <%= service.name %>
+                  </option>
+                  <% }); %>
+                </select>
+              </div>
+              <input
+                type="hidden"
+                name="uname"
+                id="uname"
+                value="<%= user.name %>"
+              />
+              <input
+                type="hidden"
+                name="bname"
+                id="bname"
+                value="<%= business.name %>"
+              />
+              <div class="field">
+                <input
+                  type="submit"
+                  value="Book Now"
+                  class="show-form-button"
+                />
+              </div>
+              <span id="Confirm"></span>
+
+            </form>
+          </div>
         </div>
       </div>
     </div>

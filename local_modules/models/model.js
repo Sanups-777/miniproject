@@ -39,9 +39,20 @@ const apdetailSchema = new mongoose.Schema({
   issue: String,
   accepted: Boolean,
   paid: Boolean,
+  review: Boolean,
 });
 
 const Appointments = mongoose.model("appointments", apdetailSchema);
 
-module.exports = { Usersdata, Buisnessdata, Appointments };
+const reviewsSchema = new mongoose.Schema({
+  id: mongoose.Schema.Types.ObjectId,
+  bid: mongoose.Schema.Types.ObjectId,
+  uid: mongoose.Schema.Types.ObjectId,
+  rating: Number,
+  service: String,
+  description: String,
+});
+
+const Reviews = mongoose.model("reviews", reviewsSchema);
+module.exports = { Usersdata, Buisnessdata, Appointments, Reviews };
 // module.exports=Usersdata

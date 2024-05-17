@@ -1,7 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const path = require("path");
-const { Usersdata, Buisnessdata, Appointments } = require("../models/model.js");
+const {
+  Usersdata,
+  Buisnessdata,
+  Appointments,
+  Reviews,
+} = require("../models/model.js");
 const { mail } = require("../feedback_modules/feedback.js");
 const booking = require("../appointments/appointments.js");
 const servicefun = require("../Servicesfunction/service.js");
@@ -56,9 +61,20 @@ router.get("/homepage/viewbusiness", async (req, res) => {
       // Handle user not found
       return res.status(404).send("User not found");
     }
+    const reviews = await Reviews.find({ bid: businessId }).sort({
+      rating: -1,
+    });
 
+    if (!reviews) {
+      // Handle business not found
+      return res.status(404).send("review not found");
+    }
     // Render the view template passing business data and user data
-    res.render("webpages/viewbuisness", { business: business, user: user });
+    res.render("webpages/viewbuisness", {
+      business: business,
+      user: user,
+      reviews: reviews,
+    });
   } catch (err) {
     // Handle error
     console.error(err);
@@ -94,6 +110,60 @@ router.get("/checkout", async (req, res) => {
     appointmentId: appointmentId,
     userId: userId,
   });
+});
+router.get("/review", async (req, res) => {
+  const { appointmentId, userId } = req.query;
+  const appointment = await Appointments.findById(appointmentId).exec();
+  if (!appointment) {
+    // Handle business not found
+    return res.status(404).send("appointment not found");
+  }
+  const bname = appointment.bname;
+  const business = await Buisnessdata.findOne({ name: bname });
+  res.render("webpages/reviewpage", {
+    appointmentId: appointmentId,
+    userId: userId,
+    business: business,
+  });
+});
+
+router.post("/submit-review", async (req, res) => {
+  const { businessId, userId, appointmentId } = req.query;
+  const { rating, service, description } = req.body;
+  try {
+    const newData = await Reviews.create({
+      bid: businessId,
+      uid: userId,
+      rating: rating,
+      service: service,
+      description: description,
+    });
+
+    console.log("Review Inserted Successfully:", newData._id);
+    const appointment = await Appointments.findById(appointmentId).exec();
+    appointment.review = true;
+    await appointment.save();
+    const result = await Usersdata.findById(userId).exec();
+    if (!result) {
+      // Handle business not found
+      return res.status(404).send("user not found");
+    }
+    let a = result.name;
+    let e = result.email;
+    let p = result.phno;
+    let u = result.username;
+    let i = result._id;
+    res.render("user/userp", {
+      name: a,
+      email: e,
+      phone: p,
+      uname: u,
+      id: i,
+    });
+  } catch (err) {
+    console.error("Error inserting record:", err);
+    return res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 router.post("/paid", async (req, res) => {
