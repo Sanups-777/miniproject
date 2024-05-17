@@ -1,0 +1,7 @@
+[{
+  "_id": {
+    "$oid": "6647756af7ab641a295ffa12"
+  },
+  "email": "admin1@internship.com",
+  "password": "password"
+}]
