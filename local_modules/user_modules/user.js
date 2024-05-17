@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Usersdata, Buisnessdata } = require('../models/model.js');
+const { Usersdata, Buisnessdata, Appointments } = require("../models/model.js");
 
 router.post("/reset_pass", async (req, res) => {
   const { email_reset, original_password_reset, new_password_reset } = req.body;
@@ -31,5 +31,4 @@ router.post("/reset_pass", async (req, res) => {
   }
 });
 
-
-module.exports = {router };
+module.exports = { router };

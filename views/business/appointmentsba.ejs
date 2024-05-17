@@ -61,48 +61,18 @@
             <th scope="col">Service</th>
             <th scope="col">Issue</th>
             <th scope="col">Status</th>
-            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
           <% appointmentlist.forEach(Appointment => { %> <% if
-          (Appointment.uname === user.name) { %>
+          (Appointment.bname === business.name && Appointment.accepted) { %>
           <tr>
             <td><%= Appointment.bname %></td>
             <td><%= Appointment.uname %></td>
             <td><%= Appointment.date %></td>
             <td><%= Appointment.service %></td>
             <td><%= Appointment.issue %></td>
-            <td>
-              <strong
-                ><%= Appointment.accepted ? 'Booked' : 'Unavailable' %></strong
-              >
-            </td>
-            <td>
-              <% if (Appointment.paid && Appointment.accepted &&
-              !Appointment.review) { %>
-              <a
-                href="/homesaver/review?userId=<%= user._id %>&appointmentId=<%= Appointment._id %>"
-                method="get"
-                style="display: inline"
-                class="abutton"
-                >Post a Review</a
-              >
-              <% } else if (Appointment.paid && Appointment.accepted &&
-              Appointment.review) { %>
-              <strong>Already Reviewed</strong>
-              <% } else if (!Appointment.paid && Appointment.accepted) { %>
-              <a
-                href="/homesaver/checkout?userId=<%= user._id %>&appointmentId=<%= Appointment._id %>"
-                method="get"
-                style="display: inline"
-                class="abutton"
-                >Pay Now</a
-              >
-              <% } else { %>
-              <strong>Not Available</strong>
-              <% } %>
-            </td>
+            <td>Booked</td>
           </tr>
           <% } %> <% }) %>
         </tbody>

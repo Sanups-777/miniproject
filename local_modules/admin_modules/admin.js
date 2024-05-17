@@ -76,5 +76,21 @@ router.post("/bremove", async (req, res) => {
     res.render("admin/adminp");
   }
 });
+router.post("/bverify", async (req, res) => {
+  var email = req.body.email;
+  console.log(email);
+  var result;
+
+  try {
+    result = await Buisnessdata.findOne({ email: email }); // Use Usersdata model
+    result.verify = true;
+    await result.save();
+    res.render("admin/adminp");
+  } catch (err) {
+    console.log("User does not exist");
+  }
+
+  res.render("admin/adminp");
+});
 
 module.exports = { router };

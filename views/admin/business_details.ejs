@@ -87,7 +87,9 @@
               />
               <button class="abutton" type="submit">Remove Business</button>
             </form>
-            <!-- Add the following form for verifying business -->
+            <% if (Buisnessdata.verify) { %>
+            <strong>Verified</strong>
+            <% } else { %>
             <form action="/admin/bverify" method="post" style="display: inline">
               <input
                 type="hidden"
@@ -96,6 +98,9 @@
               />
               <button class="abutton" type="submit">Verify Business</button>
             </form>
+
+            <% } %>
+            <!-- Add the following form for verifying business -->
           </td>
         </tr>
         <% }) %>

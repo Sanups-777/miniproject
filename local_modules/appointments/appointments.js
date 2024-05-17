@@ -17,6 +17,8 @@ router.post("/booking", async (req, res) => {
       service: service,
       issue: issue,
       accepted: null,
+      paid: false,
+      review: false,
     });
     console.log("Appointment Inserted Successfully:", newData._id);
     res.render("webpages/bookingsuccessful", { userId: userId });
@@ -44,6 +46,39 @@ router.get("/booking_details", async (req, res) => {
     Appointments.find({ accepted: null })
       .then((data) => {
         res.render("business/appointmentsb", {
+          appointmentlist: data,
+          business: business,
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).send("Internal Server Error");
+      });
+  } catch (err) {
+    // Handle error
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
+  //import the details from appointments over here in the meantime
+});
+router.get("/booking_detailsaccept", async (req, res) => {
+  const businessId = req.query.businessId;
+  if (!businessId) {
+    return res.status(400).send("Business ID or User ID is missing");
+  }
+
+  // Assuming blist is an array of business objects
+  try {
+    // Assuming BusinessData is your Mongoose model/schema
+    const business = await Buisnessdata.findById(businessId).exec();
+
+    if (!business) {
+      // Handle business not found
+      return res.status(404).send("Business not found");
+    }
+    Appointments.find({ accepted: true })
+      .then((data) => {
+        res.render("business/appointmentsba", {
           appointmentlist: data,
           business: business,
         });
