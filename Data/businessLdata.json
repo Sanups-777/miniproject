@@ -473,5 +473,121 @@
     ],
     "description": "CritterControl provides humane pest control solutions to protect your property from unwanted critters. Our experienced team employs safe and effective methods to ensure your space remains critter-free.",
     "verify": false
+  },
+
+  {
+    "name": "FreshNShine",
+    "email": "freshnshine@example.com",
+    "phone": "5551001029",
+    "password": "P@ssw0rd",
+    "services": [
+      {
+        "name": "cleaning",
+        "minprice": 1123,
+        "maxprice": 2714
+      }
+    ],
+    "description": "FreshNShine specializes in delivering fresh and shining spaces with our professional cleaning services. Using advanced techniques and eco-friendly products, we ensure your property is spotless and inviting.",
+    "verify": false
+  },
+  {
+    "name": "FixItFast",
+    "email": "fixitfast@example.com",
+    "phone": "5551001030",
+    "password": "P@ssw0rd",
+    "services": [
+      {
+        "name": "repairs",
+        "minprice": 1589,
+        "maxprice": 4689
+      }
+    ],
+    "description": "FixItFast offers prompt and reliable repair services to address all your property maintenance needs. Our skilled technicians deliver fast and efficient repairs, ensuring minimal disruption to your daily life.",
+    "verify": false
+  },
+  {
+    "name": "RapidMovers",
+    "email": "rapidmovers@example.com",
+    "phone": "5551001031",
+    "password": "P@ssw0rd",
+    "services": [
+      {
+        "name": "moving",
+        "minprice": 1689,
+        "maxprice": 4203
+      }
+    ],
+    "description": "RapidMovers specializes in rapid and efficient moving services for residential and commercial clients. With our experienced team and modern equipment, we ensure your move is completed swiftly and smoothly.",
+    "verify": false
+  },
+  {
+    "name": "PestBusters",
+    "email": "pestbusters@example.com",
+    "phone": "5551001032",
+    "password": "P@ssw0rd",
+    "services": [
+      {
+        "name": "pest control",
+        "minprice": 1056,
+        "maxprice": 3111
+      }
+    ],
+    "description": "PestBusters are dedicated to busting pests out of your property. Using advanced pest control techniques, we eliminate pests and prevent future infestations, ensuring your space remains pest-free.",
+    "verify": false
+  },
+  {
+    "name": "CleanSlate",
+    "email": "cleanslate@example.com",
+    "phone": "5551001033",
+    "password": "P@ssw0rd",
+    "services": [
+      {
+        "name": "cleaning",
+        "minprice": 1732,
+        "maxprice": 4874
+      },
+      {
+        "name": "moving",
+        "minprice": 1505,
+        "maxprice": 4012
+      }
+    ],
+    "description": "CleanSlate offers a fresh start for your property with our cleaning and moving services. Whether you need a thorough clean or assistance with relocation, our dedicated team ensures your space is clean and organized.",
+    "verify": false
+  },
+  {
+    "name": "FixItAll",
+    "email": "fixitall@example.com",
+    "phone": "5551001034",
+    "password": "P@ssw0rd",
+    "services": [
+      {
+        "name": "repairs",
+        "minprice": 1157,
+        "maxprice": 3456
+      },
+      {
+        "name": "moving",
+        "minprice": 1312,
+        "maxprice": 4802
+      }
+    ],
+    "description": "FixItAll is your all-in-one solution for repairs and moving services. From fixing minor issues to managing your relocation, our experienced team ensures your property needs are taken care of with efficiency and professionalism.",
+    "verify": false
+  },
+  {
+    "name": "SwiftPest",
+    "email": "swiftpest@example.com",
+    "phone": "5551001035",
+    "password": "P@ssw0rd",
+    "services": [
+      {
+        "name": "pest control",
+        "minprice": 1150,
+        "maxprice": 3125
+      }
+    ],
+    "description": "SwiftPest offers swift and effective pest control solutions for residential and commercial properties. With our experienced team and proven methods, we ensure your space remains pest-free and comfortable.",
+    "verify": false
   }
 ]
