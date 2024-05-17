@@ -25,6 +25,7 @@ const bdetailSchema = new mongoose.Schema({
     },
   ],
   description: String,
+  verify: Boolean,
 });
 
 const Buisnessdata = mongoose.model("business-ls", bdetailSchema);
