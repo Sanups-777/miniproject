@@ -2,23 +2,18 @@ const express = require("express");
 const router = express.Router();
 const { Usersdata } = require('../models/user_models');
 
-// router.post("/profile", async (req, res) => {
-//     try {
-//       var result = await Usersdata.findOne({ email: email });
-//     } catch (err) {
-//       res.status(400).json({});
-//       console.log("User does not exist");
-//     }
+const {requireAuth, checkuser}=require("../authentication_modules/token/auth.js");
+router.get('*',checkuser)
 
-//     if (result) {
-//       if (result.password == password) {
-//         let a = result.name;
-//         let e = result.email;
-//         let p = result.phno;
-//         let u = result.username;
-//         res.render("user/userp", { name: a, email: e, phone: p, uname: u });
-//       }
-//   });
+router.get("/profile", async (req, res) => {
+    
+        // let a = result.name;
+        // let e = result.email;
+        // let p = result.phno;
+        // let u = result.username;
+        res.render("user/userp");
+    
+});
 
 router.post("/reset_pass", async (req, res) => {
   const { email_reset, original_password_reset, new_password_reset } = req.body;

@@ -178,8 +178,8 @@
                   alt="Profile Picture"
                 />
               </a>
-              <h1><%=name%></h1>
-              <p><%=email%></p>
+              
+              <p><%=user.email%></p>
             </div>
             <ul class="nav nav-pills nav-stacked">
               <li class="active">
@@ -193,7 +193,7 @@
                 >
               </li>
               <li class="active">
-                <a href="/homesaver/login/homepage?id=<%=id%>">
+                <a href="/homesaver/homepage">
                   <i class="fa fa-sign-out"></i>Home Page</a
                 >
               </li>
@@ -215,7 +215,7 @@
       function loadAppointments() {
         // Load user profiles directly using EJS
         $("#profile-info").load(
-          "/homesaver/business/accepted_booking_details?userId=<%=id%>"
+          "/homesaver/business/accepted_booking_details"
         );
       }
     </script>

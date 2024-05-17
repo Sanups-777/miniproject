@@ -1,14 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const { Usersdata, Buisnessdata } = require("../models/model.js");
+const { Buisnessdata } = require("../models/model.js");
 
 router.get("/home_search", async (req, res) => {
-  const userId = req.query.userId;
-  const user = await Usersdata.findById(userId).exec();
-  if (!user) {
-    // Handle user not found
-    return res.status(404).send("User not found");
-  }
+
   try {
     const searchQuery = req.query.service;
     console.log(searchQuery);
@@ -25,7 +20,7 @@ router.get("/home_search", async (req, res) => {
       console.log("No businesses found");
     } else {
       //console.log('Businesses found:', businesses);
-      res.render("user/homepage", { blist: businesses, user: user });
+      res.render("user/homepage", { blist: businesses});
     }
   } catch (error) {
     console.error("Error searching businesses:", error);

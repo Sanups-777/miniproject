@@ -32,22 +32,21 @@ router.get("/homepage", async (req, res) => {
   const skip = (page - 1) * limit;
 
   try {
-    console.log("ceheck");
+    //console.log("ceheck");
     const data = await Buisnessdata.find({}).skip(skip).limit(limit);
 
-    res.render("webpages/homepage", { blist: data });
+    res.render("user/homepage", { blist: data });
   } catch (err) {
     console.error("Error fetching Buisnessdata collection:", err);
     res.status(500).send("Internal Server Error");
   }
 });
 
-router.get("/homepage/viewbusiness", async (req, res) => {
+router.get("/homepage/viewbusiness",requireAuth, async (req, res) => {
   // Extract the businessId and userId from the query parameters
   const businessId = req.query.businessId;
-  const userId = req.query.userId;
-  if (!businessId || !userId) {
-    return res.status(400).send("Business ID or User ID is missing");
+  if (!businessId ) {
+    return res.status(400).send("Business ID is missing");
   }
 
   // Assuming blist is an array of business objects
@@ -59,45 +58,15 @@ router.get("/homepage/viewbusiness", async (req, res) => {
       // Handle business not found
       return res.status(404).send("Business not found");
     }
-
-    // Assuming UserData is your user model/schema
-    const user = await Usersdata.findById(userId).exec();
-
-    if (!user) {
-      // Handle user not found
-      return res.status(404).send("User not found");
-    }
-
     // Render the view template passing business data and user data
-    res.render("webpages/viewbuisness", { business: business, user: user });
+    res.render("webpages/viewbuisness", { business: business });
   } catch (err) {
     // Handle error
     console.error(err);
     res.status(500).send("Internal Server Error");
   }
 });
-router.get("/login/homepage", async (req, res) => {
-  const userid = req.query.id;
-  if (!userid) {
-    return res.status(400).send("userid is missing");
-  }
-  try {
-    // Assuming BusinessData is your Mongoose model/schema
-    const user = await Usersdata.findById(userid).exec();
-    const data = await Buisnessdata.find({});
-    if (!user) {
-      // Handle business not found
-      return res.status(404).send("Business not found");
-    }
-    console.log(user);
-    // Render the view template passing business data
-    res.render("user/homepage", { user: user, blist: data });
-  } catch (err) {
-    // Handle error
-    console.error(err);
-    res.status(500).send("Internal Server Error");
-  }
-});
+
 
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxFIX RESET XXXXXXXXXXXXXXX//////////////////
 router.get("/reset", (req, res) => {
@@ -146,6 +115,7 @@ router.get("/services", async (req, res) => {
 });
 
 router.use("/business", booking.router);
+
 // router.get("/booking", (req, res) => {
 //   res.redirect("");
 // });

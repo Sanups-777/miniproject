@@ -1,25 +1,27 @@
 const express = require("express");
 const router = express.Router();
-const { Usersdata, Buisnessdata, Appointments } = require("../models/model.js");
+const {  Buisnessdata, Appointments } = require("../models/model.js");
+const{Usersdata}=require("../models/user_models.js")
+const {requireAuth, checkuser}=require("../authentication_modules/token/auth.js");
+router.get('*',checkuser)
 
 router.post("/booking", async (req, res) => {
   var bname = req.body.bname;
-  var uname = req.body.uname;
   var date = req.body.date;
   var service = req.body.service;
   var issue = req.body.issue;
-  const userId = req.body.userId;
+  var uname = res.locals.user;
   try {
     const newData = await Appointments.create({
       bname: bname,
-      uname: uname,
+      uname: userID,
       date: date,
       service: service,
       issue: issue,
       accepted: null,
     });
     console.log("Appointment Inserted Successfully:", newData._id);
-    res.render("webpages/bookingsuccessful", { userId: userId });
+    res.render("webpages/bookingsuccessful");
   } catch (err) {
     console.error("Error inserting record:", err);
     res.status(500).json({ error: "Internal server error" });
@@ -115,8 +117,11 @@ router.get("/reject_booking", async (req, res) => {
     return res.status(500).send("Internal Server Error");
   }
 });
+
 router.get("/accepted_booking_details", async (req, res) => {
-  const userId = req.query.userId;
+  
+  const userId = res.locals.user._id;
+  console.log(userId);
   if (!userId) {
     return res.status(400).send(" User ID is missing");
   }

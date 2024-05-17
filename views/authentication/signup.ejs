@@ -233,26 +233,28 @@
             autocomplete="off"
     
           >
-            <!-- <div class="field">
+            <div class="field">
               <input
                 type="text"
                 name="name"
                 id="name"
                 placeholder="Name"
+                value="sanu"
                 required
               />
-              <span id="namee" class="validation-message"></span>
-            </div> -->
-            <!-- <div class="field">
+              
+            </div>
+            <div class="field">
               <input
                 type="text"
                 id="username"
                 name="username"
                 placeholder="Username"
+                value="sanups007"
                 required
               />
-              <span id="usernamee" class="validation-message"></span>
-            </div> -->
+              
+            </div>
             <div class="field">
               <input
                 type="email"
@@ -263,16 +265,16 @@
               />
               <div class="validation-message email error"></div>
             </div>
-            <!-- <div class="field">
+            <div class="field">
               <input
                 type="tel"
-                id="phno"
-                name="phno"
+                id="phone"
+                name="phone"
                 placeholder="Phone Number"
                 required
               />
-              <span id="phnoo" class="validation-message"></span>
-            </div> -->
+              <div class="validation-message phone error"></div>
+            </div>
             <div class="field">
               <input
                 type="password"
@@ -290,7 +292,7 @@
                 placeholder="Confirm Password"
                 required
               />
-              <span id="conpasss" class="validation-message"></span>
+              <div class="validation-message conpassword error"></div>
             </div> -->
             <div class="field btn">
               <div class="btn-layer"></div>
@@ -308,19 +310,25 @@
     const form = document.querySelector('form');
     const emailE=document.querySelector('.email.error');
     const passE=document.querySelector('.password.error');
+    const conpassE=document.querySelector('.conpassword.error');
+    const phoneE=document.querySelector('.phone.error');
     let route='/signup/users'
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       emailE.textContent='';
       passE.textContent='';
+      // conpassE.textContent='';
+      phoneE.textContent='';
 
       const email = form.email.value;
       const password = form.password.value;
+      // const conpassword = form.conpassword.value;
+      const phone = form.phone.value;
       try{
         const res = await fetch(route,{
           method: 'POST',
-          body: JSON.stringify({ email , password}),
+          body: JSON.stringify({ name,username,email, phone, password}),
           headers: {'Content-Type':'application/json'}
         })
         const data =await res.json();
@@ -329,6 +337,8 @@
         {
             emailE.textContent=data.errors.email;
             passE.textContent=data.errors.password;
+            // conpassE.textContent=data.errors.conpassword;
+            phoneE.textContent=data.errors.phone;
         }
         if(data.newData)
         {
