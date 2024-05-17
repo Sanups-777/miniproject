@@ -215,60 +215,43 @@
           <div class="form-inner">
             <span class="close-button" onclick="closeForm()">×</span>
             <form action="/homesaver/business/booking" method="post" autocomplete="off">
-              <input
-                name="userId"
-                id="userId"
-                type="hidden"
-                value="<%= user._id %>"
-              />
+              <input name="userId" id="userId" type="hidden" value="<%= user._id %>" />
+              
               <div class="field">
-                <input name="date" type="date" required />
+                <input name="date" type="date" id="bookingDate" required />
               </div>
+              
               <div class="field">
-                <textarea
-                  name="issue"
-                  rows="4"
-                  placeholder="Describe the issue"
-                  required
-                ></textarea>
+                <textarea name="issue" rows="4" placeholder="Describe the issue" required></textarea>
               </div>
+              
               <div class="field">
                 <select name="service" required>
                   <option value="" selected>Select Service</option>
                   <% business.services.forEach(function(service) { %>
-                  <option value="<%= service.name %>">
-                    <%= service.name %>
-                  </option>
+                  <option value="<%= service.name %>"><%= service.name %></option>
                   <% }); %>
                 </select>
               </div>
-              <input
-                type="hidden"
-                name="uname"
-                id="uname"
-                value="<%= user.name %>"
-              />
-              <input
-                type="hidden"
-                name="bname"
-                id="bname"
-                value="<%= business.name %>"
-              />
+              
+              <input type="hidden" name="uname" id="uname" value="<%= user.name %>" />
+              <input type="hidden" name="bname" id="bname" value="<%= business.name %>" />
+              
               <div class="field">
-                <input
-                  type="submit"
-                  value="Book Now"
-                  class="show-form-button"
-                />
+                <input type="submit" value="Book Now" class="show-form-button" />
               </div>
+              
               <span id="Confirm"></span>
-
             </form>
           </div>
         </div>
       </div>
     </div>
     <script>
+       document.addEventListener('DOMContentLoaded', function () {
+    var today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+    document.getElementById('bookingDate').setAttribute('min', today); // Set the min attribute to today's date
+  });
       function showForm() {
         document.getElementById("form-wrapper").style.display = "block";
         document.getElementById("darkOverlay").style.display = "block"; // Show the dark overlay

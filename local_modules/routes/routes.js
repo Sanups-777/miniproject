@@ -61,9 +61,10 @@ router.get("/homepage/viewbusiness", async (req, res) => {
       // Handle user not found
       return res.status(404).send("User not found");
     }
-    const reviews = await Reviews.find({ bid: businessId }).sort({
-      rating: -1,
-    });
+    const limitNumber = 2;
+    const reviews = await Reviews.find({ bid: businessId })
+      .sort({ rating: -1 })
+      .limit(limitNumber);
 
     if (!reviews) {
       // Handle business not found

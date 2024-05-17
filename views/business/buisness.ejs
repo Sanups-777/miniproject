@@ -193,6 +193,11 @@
                 >
               </li>
               <li class="active">
+                <a href="#" onclick="loadBookedAppointments()">
+                  <i class="fa fa-user"></i>Accepted Appointments</a
+                >
+              </li>
+              <li class="active">
                 <a href="/homesaver/homepage">
                   <i class="fa fa-sign-out"></i>Home Page</a
                 >
@@ -216,6 +221,12 @@
         // Load user profiles directly using EJS
         $("#profile-info").load(
           "/homesaver/business/booking_details?businessId=<%=business._id%>"
+        );
+      }
+      function loadBookedAppointments() {
+        // Load user profiles directly using EJS
+        $("#profile-info").load(
+          "/homesaver/business/booking_detailsaccept?businessId=<%=business._id%>"
         );
       }
     </script>
