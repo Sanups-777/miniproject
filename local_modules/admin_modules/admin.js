@@ -83,14 +83,14 @@ router.post("/bverify", async (req, res) => {
 
   try {
     result = await Buisnessdata.findOne({ email: email }); // Use Usersdata model
-    result.verify=True;
+    result.verify = true;
     await result.save();
     res.render("admin/adminp");
   } catch (err) {
     console.log("User does not exist");
   }
-  
-    res.render("admin/adminp");
+
+  res.render("admin/adminp");
 });
 
 module.exports = { router };
