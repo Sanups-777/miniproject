@@ -122,12 +122,12 @@
 <%- include('../nav-footer/navbardisplay') %>
 <body>
   <div class="wrapper">
-    <div class="title">Checkout</div>
+    <div class="title">Check Out</div>
     <div class="form-container">
       <div class="form-inner">
         <form
           id="checkout-form"
-          action="/homesaver/paid?appoinmentId=<%=appoinmentId%>&userId=<%=userId%>"
+          action="/homesaver/paid?appointmentId=<%=appointmentId%>&userId=<%=userId%>"
           method="post"
           autocomplete="off"
           onsubmit="return validateForm()"

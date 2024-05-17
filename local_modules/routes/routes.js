@@ -88,17 +88,17 @@ router.get("/login/homepage", async (req, res) => {
   }
 });
 router.get("/checkout", async (req, res) => {
-  const { appoinmentId, userId } = req.query;
-  console.log(appoinmentId, userId);
+  const { appointmentId, userId } = req.query;
+  console.log(appointmentId, userId);
   res.render("webpages/checkout", {
-    appoinmentId: appoinmentId,
+    appointmentId: appointmentId,
     userId: userId,
   });
 });
 
 router.post("/paid", async (req, res) => {
-  const { appoinmentId, userId } = req.query;
-  if (!appoinmentId) {
+  const { appointmentId, userId } = req.query;
+  if (!appointmentId) {
     return res.status(400).send("appoinmentId is missing");
   }
   if (!userId) {
@@ -106,7 +106,7 @@ router.post("/paid", async (req, res) => {
   }
   try {
     // Assuming BusinessData is your Mongoose model/schema
-    const appoinment = await Appointments.findById(appoinmentId).exec();
+    const appoinment = await Appointments.findById(appointmentId).exec();
     if (!appoinment) {
       // Handle business not found
       return res.status(404).send("appoinment not found");
