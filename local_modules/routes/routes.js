@@ -22,7 +22,29 @@ router.get("/index", (req, res) => {
   res.render("webpages/index");
 });
 router.get("/homepage", async (req, res) => {
-  const page = req.query.page || 1;
+  const userid = req.query.id;
+  console.log(userid)
+  if(userid){
+  // if (!userid) {
+  //   return res.status(400).send("userid is missing");
+  // }
+  try {
+    // Assuming BusinessData is your Mongoose model/schema
+    const user = await Usersdata.findById(userid).exec();
+    const data = await Buisnessdata.find({});
+    if (!user) {
+      // Handle business not found
+      return res.status(404).send("Business not found");
+    }
+    console.log(user);
+    // Render the view template passing business data
+    res.render("user/homepage", { user: user, blist: data });
+  } catch (err) {
+    // Handle error
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }}
+  else{const page = req.query.page || 1;
   const limit = 20;
   const skip = (page - 1) * limit;
 
@@ -33,7 +55,7 @@ router.get("/homepage", async (req, res) => {
   } catch (err) {
     console.error("Error fetching Buisnessdata collection:", err);
     res.status(500).send("Internal Server Error");
-  }
+  }}
 });
 
 router.get("/homepage/viewbusiness", async (req, res) => {
@@ -104,6 +126,7 @@ router.get("/login/homepage", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
 router.get("/checkout", async (req, res) => {
   const { appointmentId, userId } = req.query;
   console.log(appointmentId, userId);

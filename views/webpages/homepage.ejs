@@ -211,13 +211,13 @@
           <p><strong>Phone:</strong> <%= blist[i].phone %></p>
           <p><strong>Email:</strong> <%= blist[i].email %></p>
           <p>
-            <strong>Services:</strong>
-            <strong
-              ><% blist[i].services.forEach((service, index) => { %> <%= service
-              %><% if(index < blist[i].services.length - 1) { %>,<% } %> <% });
-              %>
-            </strong>
-          </p>
+            <p><strong>Services:</strong>
+              <% blist[i].services.forEach((service, index) => { %>
+                <%= service.name %> <strong>cost estimate:</strong><%= service.minprice %> - <%= service.maxprice %>
+                <% if(index < blist[i].services.length - 1) { %>,<% } %>
+              <% }); %>
+            </p>
+            
           <a
             href="/homesaver/homepage/viewbusiness?businessId=<%= blist[i]._id %>"
             class="tile-button"
