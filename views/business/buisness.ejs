@@ -193,7 +193,7 @@
                 >
               </li>
               <li class="active">
-                <a href="/homesaver/homepage">
+                <a href="#" onclick="service()">
                   <i class="fa fa-sign-out"></i>Home Page</a
                 >
               </li>
@@ -216,6 +216,12 @@
         // Load user profiles directly using EJS
         $("#profile-info").load(
           "/homesaver/business/booking_details?businessId=<%=business._id%>"
+        );
+      }
+      function service() {
+        // Load user profiles directly using EJS
+        $("#profile-info").load(
+          "/homesaver/Business/services?businessId=<%=business._id%>"
         );
       }
     </script>

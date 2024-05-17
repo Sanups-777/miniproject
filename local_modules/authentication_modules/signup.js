@@ -4,7 +4,6 @@ const { Usersdata ,Buisnessdata } = require("../models/model");
 
 router.post("/business", async (req, res) => {
   var name = req.body.name;
-  var username = req.body.username;
   var email = req.body.email;
   var phno = req.body.phno;
   var password = req.body.password;
@@ -12,13 +11,12 @@ router.post("/business", async (req, res) => {
   try {
     const newData = await Buisnessdata.create({
       name: name,
-      username: username,
       email: email,
-      phno: phno,
+      phone: phno,
       password: password,
     });
 
-    console.log("Record Inserted Successfully:", newData._id);
+    console.log("business Inserted Successfully:", newData._id);
     res.redirect("/homesaver/login");
   } catch (err) {
     console.error("Error inserting record:", err);
@@ -42,7 +40,7 @@ router.post("/users", async (req, res) => {
       password: password,
     });
 
-    console.log("Record Inserted Successfully:", newData._id);
+    console.log("user Inserted Successfully:", newData._id);
     res.redirect("/homesaver/login");
   } catch (err) {
     console.error("Error inserting record:", err);

@@ -3,14 +3,14 @@ const router = express.Router();
 const path = require("path");
 const { Usersdata, Buisnessdata } = require("../models/model.js");
 const { mail } = require("../feedback_modules/feedback.js");
-const booking = require("../appointments/appointments.js");
+const business = require("../business_modules/business.js");
 const servicefun = require("../Servicesfunction/service.js");
 router.get("/login", (req, res) => {
   res.render("authentication/login");
 });
 
 router.get("/signup", (req, res) => {
-  res.render("authentication/signup");
+  res.render("authentication/signup",);
 });
 
 router.get("/index", (req, res) => {
@@ -155,8 +155,10 @@ router.get("/services", async (req, res) => {
     res.status(500).send("Error fetching services");
   }
 });
+const booking = require("../appointments/appointments.js");
 
 router.use("/business", booking.router);
+router.use("/Business", business.router);
 // router.get("/booking", (req, res) => {
 //   res.redirect("");
 // });
