@@ -216,7 +216,7 @@
           <div class="form-inner">
             <span class="close-button" onclick="closeForm()">×</span>
             <form action="/homesaver/business/booking" method="post" autocomplete="off">
-              <input name="userId" id="userId" type="hidden" value="<%= user===null ? null : user.name %>" />
+              <input name="userId" id="userId" type="hidden" value="<%= user===null ? null : user._id %>" />
               
               <div class="field">
                 <input name="date" type="date" id="bookingDate" required />

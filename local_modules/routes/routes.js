@@ -31,7 +31,7 @@ router.get("/homepage", async (req, res) => {
     try {
       // Assuming BusinessData is your Mongoose model/schema
       const user = await Usersdata.findById(userid).exec();
-      const data = await Buisnessdata.find({});
+      const data = await Buisnessdata.find({ verify: true });
       if (!user) {
         // Handle business not found
         return res.status(404).send("user not found");
@@ -82,7 +82,7 @@ router.get("/homepage/viewbusiness", async (req, res) => {
 
     // If a userId is provided, attempt to fetch the user
     if (userId) {
-      user = await Usersdata.findById(userId).exec();  // UserData is assumed as your user model
+      user = await Usersdata.findById(userId).exec(); // UserData is assumed as your user model
     }
 
     // Fetch the top 2 reviews based on rating
@@ -90,15 +90,15 @@ router.get("/homepage/viewbusiness", async (req, res) => {
       .sort({ rating: -1 })
       .limit(2)
       .exec();
-      if (!reviews) {
-        // Handle business not found
-        return res.status(404).send("review not found");
-      }
+    if (!reviews) {
+      // Handle business not found
+      return res.status(404).send("review not found");
+    }
     // Render the view template with business, user, and reviews data
     res.render("webpages/viewbuisness", {
       business: business,
       user: user,
-      reviews: reviews  // Check if reviews exist before sending
+      reviews: reviews, // Check if reviews exist before sending
     });
   } catch (err) {
     // Log the error and send a 500 response
