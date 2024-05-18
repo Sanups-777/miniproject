@@ -90,7 +90,7 @@ router.get("/login/homepage", async (req, res) => {
   try {
     // Assuming BusinessData is your Mongoose model/schema
     const user = await Usersdata.findById(userid).exec();
-    const data = await Buisnessdata.find({});
+    const data = await Buisnessdata.find({ verify: true });
     if (!user) {
       // Handle business not found
       return res.status(404).send("Business not found");
