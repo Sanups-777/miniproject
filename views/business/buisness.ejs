@@ -198,7 +198,7 @@
                 >
               </li>
               <li class="active">
-                <a href="#"  onclick="service()">
+                <a href="/homesaver/Business/services?bId=<%=business._id%>">
                   <i class="fa fa-user"></i>add service</a
                 >
               </li>
@@ -226,14 +226,16 @@
       function service() {
         // Load user profiles directly using EJS
         $("#profile-info").load(
-          "/homesaver/Business/services?businessId=<%=business._id%>"
+          "/homesaver/Business/services?bId=<%=business._id%>"
         );
-        console.log("check")
+        console.log("check");
       }
       function loadBookedAppointments() {
         // Load user profiles directly using EJS
         $("#profile-info").load(
-          "/homesaver/business/booking_detailsaccept?businessId=<%=business._id%>")}
+          "/homesaver/business/booking_detailsaccept?businessId=<%=business._id%>"
+        );
+      }
     </script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
