@@ -12,6 +12,24 @@ async function verification(password, res) {
   }
 }
 
+router.get("/user", async (req, res) => {
+  const userid = req.query.id;
+  console.log(userid)
+  try {
+    var data = await Usersdata.findOne({ _id: userid });
+  } catch (err) {
+    console.log("User does not exist");
+  }
+  if (data) {
+      res.render("user/userp", {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        uname: data.username,
+        id: data._id,
+      });
+}})
+
 router.post("/user", async (req, res) => {
   const { elog: email, plog: password } = req.body;
   console.log("User login attempt:", email, password);
