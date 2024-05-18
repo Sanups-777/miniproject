@@ -193,12 +193,16 @@
                 >
               </li>
               <li class="active">
+<<<<<<< HEAD
+                <a href="#" onclick="service()">
+=======
                 <a href="#" onclick="loadBookedAppointments()">
                   <i class="fa fa-user"></i>Accepted Appointments</a
                 >
               </li>
               <li class="active">
                 <a href="/homesaver/homepage">
+>>>>>>> 99d00cae23d7d819025ecf679a7b88683d26acb6
                   <i class="fa fa-sign-out"></i>Home Page</a
                 >
               </li>
@@ -223,12 +227,16 @@
           "/homesaver/business/booking_details?businessId=<%=business._id%>"
         );
       }
+      function service() {
+        // Load user profiles directly using EJS
+        $("#profile-info").load(
+          "/homesaver/Business/services?businessId=<%=business._id%>"
+        );
+      }
       function loadBookedAppointments() {
         // Load user profiles directly using EJS
         $("#profile-info").load(
-          "/homesaver/business/booking_detailsaccept?businessId=<%=business._id%>"
-        );
-      }
+          "/homesaver/business/booking_detailsaccept?businessId=<%=business._id%>")}
     </script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
