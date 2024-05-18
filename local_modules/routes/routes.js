@@ -104,28 +104,6 @@ router.get("/homepage/viewbusiness", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
-router.get("/login/homepage", async (req, res) => {
-  const userid = req.query.id;
-  if (!userid) {
-    return res.status(400).send("userid is missing");
-  }
-  try {
-    // Assuming BusinessData is your Mongoose model/schema
-    const user = await Usersdata.findById(userid).exec();
-    const data = await Buisnessdata.find({});
-    if (!user) {
-      // Handle business not found
-      return res.status(404).send("Business not found");
-    }
-    console.log(user);
-    // Render the view template passing business data
-    res.render("user/homepage", { user: user, blist: data });
-  } catch (err) {
-    // Handle error
-    console.error(err);
-    res.status(500).send("Internal Server Error");
-  }
-});
 
 router.get("/checkout", async (req, res) => {
   const { appointmentId, userId } = req.query;
