@@ -19,6 +19,7 @@ router.get("/home_search", async (req, res) => {
     }
 
     const businesses = await Buisnessdata.find({
+      verify: true,
       "services.name": { $regex: searchQuery, $options: "i" },
     });
 
