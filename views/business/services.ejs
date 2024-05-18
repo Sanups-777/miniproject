@@ -108,7 +108,7 @@
         <div class="form-inner">
           <form action="/homesaver/Business/acceptservice" method="post">
             <div class="field">
-              <input type="hidden" id="email" name="id" value="<%=bId%>" />
+              <input type="hidden" id="email" name="id" value="<%= bId %>" />
             </div>
             <div class="field">
               <input
@@ -137,6 +137,26 @@
                 required
               />
             </div>
+            <% if (!business.description) { %>
+            <div class="field">
+              <input
+                type="text"
+                id="description"
+                name="description"
+                placeholder="Enter Description"
+                required
+              />
+            </div>
+            <% } else { %>
+            <div class="field">
+              <input
+                type="hidden"
+                id="description"
+                name="description"
+                value="null"
+              />
+            </div>
+            <% } %>
             <div class="field btn">
               <input class="show-form-button" type="submit" value="Enter" />
             </div>
