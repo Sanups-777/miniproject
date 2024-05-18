@@ -54,49 +54,25 @@
     <div class="container">
       <h3>services provided</h3>
       <table class="table">
-      <form action="/homesaver/Business/service" method="post">
-
-        <div class="field">
-          <input
-            type="hidden"
-            id="email"
-            name="id"
-            value="<%=bId%>"
-          />
-        </div>
-        <div class="field">
-          <input
-            type="text"
-            id="email"
-            name="service"
-            placeholder="Enter service provided"
-            required
-          />
-        </div>
-        <div class="field">
-          <input
-            type="number"
-            id="email"
-            name="minprice"
-            placeholder="Enter minprice"
-            required
-          />
-        </div>
-        <div class="field">
-          <input
-            type="number"
-            id="email"
-            name="maxprice"
-            placeholder="Enter maxprice "
-            required
-          />
-        </div>
-        <div class="field btn">
-          <div class="btn-layer"></div>
-          <input type="submit" value="enter" />
-        </div>
-
-      </form>
+        <form action="/homesaver/Business/service" method="post">
+          <div class="field">
+            <input type="hidden" id="email" name="id" value="<%= bId %>" />
+          </div>
+          <div class="field">
+            <input type="text" id="service" name="service" placeholder="Enter service provided" required />
+          </div>
+          <div class="field">
+            <input type="number" id="minprice" name="minprice" placeholder="Enter minprice" required />
+          </div>
+          <div class="field">
+            <input type="number" id="maxprice" name="maxprice" placeholder="Enter maxprice" required />
+          </div>
+          <div class="field btn">
+            <div class="btn-layer"></div>
+            <input type="submit" value="Enter" />
+          </div>
+        </form>
+        
           
         </tbody>
       </table>
