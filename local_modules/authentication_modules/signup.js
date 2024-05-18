@@ -14,6 +14,7 @@ router.post("/business", async (req, res) => {
       email: email,
       phone: phno,
       password: password,
+      verify: false,
     });
 
     console.log("business Inserted Successfully:", newData._id);
