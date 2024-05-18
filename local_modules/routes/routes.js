@@ -34,7 +34,7 @@ router.get("/homepage", async (req, res) => {
       const data = await Buisnessdata.find({});
       if (!user) {
         // Handle business not found
-        return res.status(404).send("Business not found");
+        return res.status(404).send("user not found");
       }
       console.log(user);
       // Render the view template passing business data
@@ -72,8 +72,8 @@ router.get("/homepage/viewbusiness", async (req, res) => {
 
     if (!user) {
       // Handle user not found
-      return res.status(404).send("User not found");
-    }}else{user=null}
+      user=null
+    }}
   // Assuming blist is an array of business objects
   try {
     // Assuming BusinessData is your Mongoose model/schema
