@@ -64,10 +64,16 @@ router.get("/homepage/viewbusiness", async (req, res) => {
   // Extract the businessId and userId from the query parameters
   const businessId = req.query.businessId;
   const userId = req.query.userId;
-  if (!businessId || !userId) {
+  if (!businessId) {
     return res.status(400).send("Business ID or User ID is missing");
   }
+  if(userId)
+    {const user = await Usersdata.findById(userId).exec();
 
+    if (!user) {
+      // Handle user not found
+      return res.status(404).send("User not found");
+    }}else{user=null}
   // Assuming blist is an array of business objects
   try {
     // Assuming BusinessData is your Mongoose model/schema
@@ -76,14 +82,6 @@ router.get("/homepage/viewbusiness", async (req, res) => {
     if (!business) {
       // Handle business not found
       return res.status(404).send("Business not found");
-    }
-
-    // Assuming UserData is your user model/schema
-    const user = await Usersdata.findById(userId).exec();
-
-    if (!user) {
-      // Handle user not found
-      return res.status(404).send("User not found");
     }
     const limitNumber = 2;
     const reviews = await Reviews.find({ bid: businessId })
