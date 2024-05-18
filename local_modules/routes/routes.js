@@ -64,43 +64,45 @@ router.get("/homepage/viewbusiness", async (req, res) => {
   // Extract the businessId and userId from the query parameters
   const businessId = req.query.businessId;
   const userId = req.query.userId;
+
+  // Ensure the businessId is provided
   if (!businessId) {
-    return res.status(400).send("Business ID or User ID is missing");
+    return res.status(400).send("Business ID is required.");
   }
-  if(userId)
-    {const user = await Usersdata.findById(userId).exec();
 
-    if (!user) {
-      // Handle user not found
-      user=null
-    }}
-  // Assuming blist is an array of business objects
   try {
-    // Assuming BusinessData is your Mongoose model/schema
+    // Fetch the business details
     const business = await Buisnessdata.findById(businessId).exec();
-
     if (!business) {
-      // Handle business not found
       return res.status(404).send("Business not found");
     }
-    const limitNumber = 2;
+
+    // Initialize user as null
+    let user = null;
+
+    // If a userId is provided, attempt to fetch the user
+    if (userId) {
+      user = await Usersdata.findById(userId).exec();  // UserData is assumed as your user model
+    }
+
+    // Fetch the top 2 reviews based on rating
     const reviews = await Reviews.find({ bid: businessId })
       .sort({ rating: -1 })
-      .limit(limitNumber);
-
-    if (!reviews) {
-      // Handle business not found
-      return res.status(404).send("review not found");
-    }
-    // Render the view template passing business data and user data
+      .limit(2)
+      .exec();
+      if (!reviews) {
+        // Handle business not found
+        return res.status(404).send("review not found");
+      }
+    // Render the view template with business, user, and reviews data
     res.render("webpages/viewbuisness", {
       business: business,
       user: user,
-      reviews: reviews,
+      reviews: reviews  // Check if reviews exist before sending
     });
   } catch (err) {
-    // Handle error
-    console.error(err);
+    // Log the error and send a 500 response
+    console.error("Error: ", err);
     res.status(500).send("Internal Server Error");
   }
 });
