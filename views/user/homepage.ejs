@@ -197,10 +197,10 @@
         </div>
         <!-- End Search Container -->
         <ul class="nav-links">
-          <li><a href="/homesaver/homepage?id=<%=user.id%>">Home</a></li>
+          <li><a href="/homesaver/homepage?id=<%=user._id%>">Home</a></li>
           <li><a href="/homesaver/services">Services</a></li>
           <li><a href="#">About</a></li>
-          <!-- <li><a href="/login/user?id=<%=user.id%>"><%=user.name%></a></li> -->
+          <li><a href="/login/user?id=<%=user._id%>"><%=user.name%></a></li>
         </ul>
       </div>
     </nav>
@@ -218,11 +218,8 @@
               ><% if (blist[i].services && blist[i].services.length > 0) { %> <%
               blist[i].services.forEach(function(service, index) { %> <%=
               service.name %>:
-              <!-- Displaying each service's name -->
               ₹<%= service.minprice %>-₹<%= service.maxprice %>
-              <!-- Displaying min and max prices -->
               <% if (index < blist[i].services.length - 1) { %> ,
-              <!-- Add comma if not the last service -->
               <% } %> <% }); %> <% } else { %> Error: Service data not found. <%
               } %></strong
             >

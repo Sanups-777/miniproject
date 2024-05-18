@@ -213,7 +213,7 @@
           <p>
             <p><strong>Services:</strong>
               <% blist[i].services.forEach((service, index) => { %>
-                <%= service.name %> <strong>cost estimate:</strong><%= service.minprice %> - <%= service.maxprice %>
+                <%= service.name %> ₹<%= service.minprice %>-₹<%= service.maxprice %>
                 <% if(index < blist[i].services.length - 1) { %>,<% } %>
               <% }); %>
             </p>
