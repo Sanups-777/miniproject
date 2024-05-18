@@ -185,9 +185,10 @@
             <h2><%= business.name %></h2>
             <p><%= business.description %></p>
           </div>
+          <%if(user){%>
           <button class="show-form-button" style="z-index: 1" onclick="showForm()">
             Book Appointment
-          </button>
+          </button><%}%>
         </div>
         <!-- Reviews Section moved here to ensure it appears below business details -->
         <div class="wrapper">
