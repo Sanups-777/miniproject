@@ -21,25 +21,26 @@ const router = express.Router();
       appoinment.paid = true;
       await appoinment.save();
       console.log(appoinment.paid);
+      res.redirect("/homesaver/payment/paid");
       // Render the view template passing business data
   
-      const result = await Usersdata.findById(userId).exec();
-      if (!result) {
-        // Handle business not found
-        return res.status(404).send("user not found");
-      }
-      let a = result.name;
-      let e = result.email;
-      let p = result.phno;
-      let u = result.username;
-      let i = result._id;
-      res.render("user/userp", {
-        name: a,
-        email: e,
-        phone: p,
-        uname: u,
-        id: i,
-      });
+    //   const result = await Usersdata.findById(userId).exec();
+    //   if (!result) {
+    //     // Handle business not found
+    //     return res.status(404).send("user not found");
+    //   }
+    //   let a = result.name;
+    //   let e = result.email;
+    //   let p = result.phno;
+    //   let u = result.username;
+    //   let i = result._id;
+    //   res.render("user/userp", {
+    //     name: a,
+    //     email: e,
+    //     phone: p,
+    //     uname: u,
+    //     id: i,
+    //   });
     } catch (err) {
       // Handle error
       console.error(err);
