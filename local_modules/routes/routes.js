@@ -106,15 +106,9 @@ router.get("/homepage/viewbusiness", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+const pay=require('../user_modules/pay.js')
+router.use("/payment",pay.router)
 
-router.get("/checkout", async (req, res) => {
-  const { appointmentId, userId } = req.query;
-  console.log(appointmentId, userId);
-  res.render("webpages/checkout", {
-    appointmentId: appointmentId,
-    userId: userId,
-  });
-});
 router.get("/review", async (req, res) => {
   const { appointmentId, userId } = req.query;
   const appointment = await Appointments.findById(appointmentId).exec();
@@ -170,90 +164,10 @@ router.post("/submit-review", async (req, res) => {
   }
 });
 
-router.post("/paid", async (req, res) => {
-  const { appointmentId, userId } = req.query;
-  if (!appointmentId) {
-    return res.status(400).send("appoinmentId is missing");
-  }
-  if (!userId) {
-    return res.status(400).send(" User ID is missing");
-  }
-  try {
-    // Assuming BusinessData is your Mongoose model/schema
-    const appoinment = await Appointments.findById(appointmentId).exec();
-    if (!appoinment) {
-      // Handle business not found
-      return res.status(404).send("appoinment not found");
-    }
-    appoinment.paid = true;
-    await appoinment.save();
-    console.log(appoinment.paid);
-    // Render the view template passing business data
-
-    const result = await Usersdata.findById(userId).exec();
-    if (!result) {
-      // Handle business not found
-      return res.status(404).send("user not found");
-    }
-    let a = result.name;
-    let e = result.email;
-    let p = result.phno;
-    let u = result.username;
-    let i = result._id;
-    res.render("user/userp", {
-      name: a,
-      email: e,
-      phone: p,
-      uname: u,
-      id: i,
-    });
-  } catch (err) {
-    // Handle error
-    console.error(err);
-    res.status(500).send("Internal Server Error");
-  }
-});
-router.get("/reset", (req, res) => {
-  res.render("user/reset");
-});
-
-router.post("/reset_pass", (req, res) => {
-  const { email_reset, original_password, new_password, cpreset } = req.body;
-
-  if (new_password !== cpreset) {
-    return res.status(400).send("New passwords do not match");
-  }
-
-  Usersdata.findOne({ email: email_reset })
-    .then((user) => {
-      if (!user) {
-        return res.status(404).send("User not found");
-      }
-
-      if (user.password !== original_password) {
-        return res.status(401).send("Original password is incorrect");
-      }
-
-      user.password = new_password; // Directly assigning the new password
-      console.log("Password reset successfully");
-      return user.save();
-    })
-    .then(() => {
-      res.render("authentication/login");
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send("Internal Server Error");
-    });
-});
-
 router.get("/nav", (req, res) => {
   res.render("nav-footer/navbardisplay");
 });
 
-router.get("/checkout", (req, res) => {
-  res.render("webpages/checkout");
-});
 router.get("/index", (req, res) => {
   res.render("authentication/login");
 });

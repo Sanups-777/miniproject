@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code for UPI Payment</title>
+    <style>
+        .abutton {
+            display: block;
+            margin-bottom: 10px; /* Adjust as needed for spacing */
+            text-decoration: none;
+            padding: 10px;
+            background-color: #007BFF; /* Button background color */
+            color: white; /* Button text color */
+            text-align: center;
+            border-radius: 5px; /* Optional: for rounded corners */
+        }
+        .qr-code {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<%- include('../../nav-footer/navbardisplay') %>
+
+<body >
+    <table style="padding-top: 10%;">
+        <tr>
+            <td>
+                    
+                <a href="/homesaver/payment/credit?userId=<%= user._id %>&appointmentId=<%= appointment._id %>"
+                    class="abutton"
+                >Pay Credit Card</a>
+                <div class="qr-code">
+                    <img src="<%= qrCodeUrl %>" alt="QR Code for UPI Payment">
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

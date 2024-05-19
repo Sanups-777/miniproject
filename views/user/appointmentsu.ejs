@@ -93,12 +93,18 @@
               <strong>Already Reviewed</strong>
               <% } else if (!Appointment.paid && Appointment.accepted) { %>
               <a
-                href="/homesaver/checkout?userId=<%= user._id %>&appointmentId=<%= Appointment._id %>"
+                href="/homesaver/payment/upi?userId=<%= user._id %>&appointmentId=<%= Appointment._id %>"
                 method="get"
                 style="display: inline"
                 class="abutton"
-                >Pay Now</a
-              >
+                >UPI</a>
+              <br><br>
+              <a
+              href="/homesaver/payment/credit?userId=<%= user._id %>&appointmentId=<%= Appointment._id %>"
+              method="get"
+              style="display: inline"
+              class="abutton"
+              >Credit Card</a>
               <% } else { %>
               <strong>Not Available</strong>
               <% } %>

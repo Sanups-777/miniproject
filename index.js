@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const app = express();
+const QRCode = require('qrcode');
 
 // Set the view engine to use EJS
 app.set("view engine", "ejs");
