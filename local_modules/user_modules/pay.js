@@ -21,7 +21,7 @@ const router = express.Router();
       appoinment.paid = true;
       await appoinment.save();
       console.log(appoinment.paid);
-      res.redirect("/homesaver/payment/paid");
+      paid(userId,res)
     } catch (err) {
       // Handle error
       console.error(err);
@@ -47,7 +47,7 @@ const router = express.Router();
       await appoinment.save();
       console.log(appoinment.paid);
       // Render the view template passing business data
-      res.redirect("/homesaver/payment/paid");
+      paid(userId,res)
     
     } catch (err) {
       // Handle error
@@ -88,8 +88,8 @@ const router = express.Router();
   });
 
   
-router.get("/paid",async(req,res)=>{
-    const { userId } = req.query;
+function paid(userId,res){
+    
     res.render('webpages/payment/paid',{userId});
-})
+}
 module.exports={router}

@@ -5,6 +5,7 @@ router.get("/reset", (req, res) => {
   res.render("user/reset");
 });
 
+
 router.post("/reset_pass", (req, res) => {
   const { email_reset, original_password, new_password, cpreset } = req.body;
 

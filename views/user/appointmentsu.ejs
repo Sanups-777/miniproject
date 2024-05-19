@@ -90,7 +90,13 @@
               >
               <% } else if (Appointment.paid && Appointment.accepted &&
               Appointment.review) { %>
-              <strong>Already Reviewed</strong>
+                <a
+                href="/homesaver/review?userId=<%= user._id %>&appointmentId=<%= Appointment._id %>"
+                method="get"
+                style="display: inline"
+                class="abutton"
+                >Edit Review</a
+              >
               <% } else if (!Appointment.paid && Appointment.accepted) { %>
               <a
                 href="/homesaver/payment/upi?userId=<%= user._id %>&appointmentId=<%= Appointment._id %>"

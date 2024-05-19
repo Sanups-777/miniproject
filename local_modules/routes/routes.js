@@ -128,7 +128,33 @@ router.get("/review", async (req, res) => {
 router.post("/submit-review", async (req, res) => {
   const { businessId, userId, appointmentId } = req.query;
   const { rating, service, description } = req.body;
-  try {
+  const appointment = await Appointments.findById(appointmentId).exec();
+  if(appointment.review){
+    console.log("rereview check");
+    const review=await Reviews.findOne({ _id: appointment.review_id});
+    review.rating= rating;
+    review.service= service;
+    review.description= description;
+    await review.save();
+    const result = await Usersdata.findById(userId).exec();
+    if (!result) {
+      // Handle business not found
+      return res.status(404).send("user not found");
+    }
+    let a = result.name;
+    let e = result.email;
+    let p = result.phno;
+    let u = result.username;
+    let i = result._id;
+    res.render("user/userp", {
+      name: a,
+      email: e,
+      phone: p,
+      uname: u,
+      id: i,
+    });
+  }else
+  {try {
     const newData = await Reviews.create({
       bid: businessId,
       uid: userId,
@@ -138,8 +164,9 @@ router.post("/submit-review", async (req, res) => {
     });
 
     console.log("Review Inserted Successfully:", newData._id);
-    const appointment = await Appointments.findById(appointmentId).exec();
+    
     appointment.review = true;
+    appointment.review_id = newData._id;
     await appointment.save();
     const result = await Usersdata.findById(userId).exec();
     if (!result) {
@@ -161,7 +188,7 @@ router.post("/submit-review", async (req, res) => {
   } catch (err) {
     console.error("Error inserting record:", err);
     return res.status(500).json({ error: "Internal server error" });
-  }
+  }}
 });
 
 router.get("/nav", (req, res) => {

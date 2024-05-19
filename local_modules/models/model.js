@@ -40,6 +40,7 @@ const apdetailSchema = new mongoose.Schema({
   accepted: Boolean,
   paid: Boolean,
   review: Boolean,
+  review_id:mongoose.Schema.Types.ObjectId,
 });
 
 const Appointments = mongoose.model("appointments", apdetailSchema);
