@@ -225,14 +225,29 @@
         class="business"
         method="post"
         autocomplete="off"
-        class="login"
-        id="formm"
+        onsubmit="return validation()"
       >
+        
         <div class="field">
-          <input name="elog" type="text" placeholder="Email Address" required />
+          <input
+            type="email"
+            id="email"
+            name="elog"
+            placeholder="Email Address"
+            required
+          />
+          <span id="emaill" class="validation-message"></span>
         </div>
+       
         <div class="field">
-          <input name="plog" type="password" placeholder="Password" required />
+          <input
+            type="password"
+            id="password"
+            name="plog"
+            placeholder="Password"
+            required
+          />
+          <span id="passs" class="validation-message"></span>
         </div>
         <div class="field btn">
           <div class="btn-layer"></div>
@@ -262,4 +277,55 @@
       form.action = "/login/business";
     }
   }
+  function validation() {
+        
+        var pass = document.getElementById("password").value;
+
+        var email = document.getElementById("email").value;
+      
+      
+        
+        if (pass == "") {
+          document.getElementById("passs").innerHTML = "Please write password";
+          return false;
+        }
+        if (pass.length < 8) {
+          document.getElementById("passs").innerHTML =
+            "Password should contain 8 characters";
+          return false;
+        }
+        if (pass.search(/[0-9]/) == -1) {
+          document.getElementById("passs").innerHTML =
+            "Password should contain a number";
+          return false;
+        }
+        if (pass.search(/[a-z]/) == -1) {
+          document.getElementById("passs").innerHTML =
+            "Password should contain a lowercase character";
+          return false;
+        }
+        if (pass.search(/[A-Z]/) == -1) {
+          document.getElementById("passs").innerHTML =
+            "Password should contain an uppercase character";
+          return false;
+        }
+        if (pass.search(/[!\@\#\$\%\^\&\*\_\+\,\-\.\<\>\?]/) == -1) {
+          document.getElementById("passs").innerHTML =
+            "Password should contain a special character";
+          return false;
+        } else {
+          document.getElementById("passs").innerHTML = "";
+        }
+        
+        
+        if (email == "") {
+          document.getElementById("emaill").innerHTML = "Please write email";
+        }
+        
+        
+      }
+      if (p) {
+          document.getElementById("passs").innerHTML = "Invalid password";
+          return false;
+        }
 </script>
