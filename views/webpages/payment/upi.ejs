@@ -179,9 +179,9 @@
                   var appointmentId = '<%= appointment._id %>';
                   window.location.href = `/homesaver/payment/credit?userId=${userId}&appointmentId=${appointmentId}`;
                 }
-        //         setTimeout(function() {
-        //     window.location.href = "/another-page"; // Replace with your target URL
-        // }, 5000); // Delay in milliseconds (5000ms = 5 seconds)
+                setTimeout(function() {
+            window.location.href = "/homesaver/payment/credit?userId=${userId}&appointmentId=${appointmentId}"; // Replace with your target URL
+        }, 5000); // Delay in milliseconds (5000ms = 5 seconds)
               </script>
           </div>
         </div>
