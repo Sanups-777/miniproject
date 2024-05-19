@@ -127,6 +127,7 @@ const router = express.Router();
     }
   });
 router.get("/paid",async(req,res)=>{
-    res.render('webpages/payment/paid');
+    const { userId } = req.query;
+    res.render('webpages/payment/paid',{userId});
 })
 module.exports={router}
