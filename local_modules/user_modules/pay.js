@@ -22,25 +22,6 @@ const router = express.Router();
       await appoinment.save();
       console.log(appoinment.paid);
       res.redirect("/homesaver/payment/paid");
-      // Render the view template passing business data
-  
-    //   const result = await Usersdata.findById(userId).exec();
-    //   if (!result) {
-    //     // Handle business not found
-    //     return res.status(404).send("user not found");
-    //   }
-    //   let a = result.name;
-    //   let e = result.email;
-    //   let p = result.phno;
-    //   let u = result.username;
-    //   let i = result._id;
-    //   res.render("user/userp", {
-    //     name: a,
-    //     email: e,
-    //     phone: p,
-    //     uname: u,
-    //     id: i,
-    //   });
     } catch (err) {
       // Handle error
       console.error(err);
@@ -66,24 +47,8 @@ const router = express.Router();
       await appoinment.save();
       console.log(appoinment.paid);
       // Render the view template passing business data
-  
-      const result = await Usersdata.findById(userId).exec();
-      if (!result) {
-        // Handle business not found
-        return res.status(404).send("user not found");
-      }
-      let a = result.name;
-      let e = result.email;
-      let p = result.phno;
-      let u = result.username;
-      let i = result._id;
-      res.render("user/userp", {
-        name: a,
-        email: e,
-        phone: p,
-        uname: u,
-        id: i,
-      });
+      res.redirect("/homesaver/payment/paid");
+    
     } catch (err) {
       // Handle error
       console.error(err);
@@ -102,11 +67,6 @@ const router = express.Router();
 
   router.get("/upi", async (req, res) => {
     const { appointmentId, userId } = req.query;
-    // console.log(appointmentId, userId);
-    // res.render("webpages/payment/upi", {
-    //   appointmentId: appointmentId,
-    //   userId: userId,
-    // });
     const appointment = await Appointments.findById(appointmentId).exec();
       if (!appointment) {
         // Handle business not found
@@ -120,12 +80,14 @@ const router = express.Router();
     try {
         const upiUrl = `/homesaver/checkout?userId=${userId}&appointmentId=${appointmentId}`;
         const qrCodeUrl = await QRCode.toDataURL(upiUrl);
-        res.render('webpages/payment/upi', { user, appointment, qrCodeUrl });
+        res.render('webpages/payment/upi', { userId:user._id, appointmentId:appointment._id, qrCodeUrl });
     } catch (err) {
         console.error('Error generating QR code', err);
         res.status(500).send('Error generating QR code');
     }
   });
+
+  
 router.get("/paid",async(req,res)=>{
     const { userId } = req.query;
     res.render('webpages/payment/paid',{userId});

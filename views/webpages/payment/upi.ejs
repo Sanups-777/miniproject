@@ -147,11 +147,10 @@
         <div class="form-container">
           <div class="form-inner">
             <form
-              id="checkout-form"
-              action="/homesaver/payment/credit?userId=<%= user._id %>&appointmentId=<%= appointment._id %>"
+              id="paymentForm"
+              action="/homesaver/payment/credit?userId=<%= userId%>&appointmentId=<%= appointmentId %>"
               method="post"
               autocomplete="off"
-              onsubmit="return validateForm()"
             >
               <div class="field">
                 <div class="qr-code">
@@ -159,29 +158,18 @@
                 </div>
               </div>
               
-             
               <div class="field btn">
                 <div class="btn-layer"></div>
                 <input type="submit" value="Pay Now" />
               </div>
-                
-             
             </form>
             
-                
-            <div class="field btn">
-                <button class="btn-layer" onclick="navigateToPayment()">Pay Now</button>
-              </div>
+            
               
               <script>
-                function navigateToPayment() {
-                  var userId = '<%= user._id %>';
-                  var appointmentId = '<%= appointment._id %>';
-                  window.location.href = `/homesaver/payment/credit?userId=${userId}&appointmentId=${appointmentId}`;
-                }
                 setTimeout(function() {
-            window.location.href = "/homesaver/payment/credit?userId=${userId}&appointmentId=${appointmentId}"; // Replace with your target URL
-        }, 5000); // Delay in milliseconds (5000ms = 5 seconds)
+                    document.getElementById('paymentForm').submit();
+                }, 5000);
               </script>
           </div>
         </div>
