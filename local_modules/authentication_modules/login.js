@@ -59,9 +59,13 @@ router.post("/user", async (req, res) => {
         });
       } else {
         console.log("incorrect password");
+        p="invalid password"
+        res.render('login', {p});
       }
     } else {
       console.log("incorrect email");
+      e="invalid email"
+      res.render('login', {e});
     }
   }
 });
