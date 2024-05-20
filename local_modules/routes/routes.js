@@ -11,9 +11,13 @@ const { mail } = require("../feedback_modules/feedback.js");
 const business = require("../business_modules/business.js");
 const servicefun = require("../Servicesfunction/service.js");
 router.get("/login",async(req, res) => {
+  try{
   const user= await Usersdata.find({})
   const business= await Buisnessdata.find({})
   res.render("authentication/login",{user,business});
+  }catch(err){
+    console.log(err);
+  }
 });
 
 router.get("/signup", (req, res) => {

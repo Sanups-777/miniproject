@@ -37,28 +37,26 @@ router.post("/user", async (req, res) => {
     verification(password, res);
     return 0;
   } else {
-    try {
-      var result = await Usersdata.findOne({ email: email });
-    } catch (err) {
-      console.log("User does not exist");
-    }
 
-    if (result) {
-      if (result.password == password) {
-        let a = result.name;
-        let e = result.email;
-        let p = result.phno;
-        let u = result.username;
-        let i = result._id;
-        res.render("user/userp", {
-          name: a,email: e,phone: p,uname: u,id: i,
-        });
+      var data = await Usersdata.findOne({ email: email });
+      if(data){
+        if (data.password === password) {
+          res.render("user/userp", {
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+            uname: data.username,
+            id: data._id,
+          });
+          
+        } else {
+          // Simulate unsuccessful login
+          res.status(401).json({ error: 'Incorrect password' });
+        }
       } else {
-        console.log("incorrect password");
+        // Simulate unsuccessful login
+        res.status(401).json({ error: 'Incorrect email ' });
       }
-    } else {
-      console.log("incorrect email");
-    }
   }
 });
 

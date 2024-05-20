@@ -221,20 +221,19 @@
     </div>
     <div class="form-inner">
       <form
-        id="loginForm"
         action="/login/user"
         class="business"
         method="post"
         autocomplete="off"
+        onsubmit="return validation()"
       >
         
         <div class="field">
           <input
             type="email"
             id="email"
-            name="email"
+            name="elog"
             placeholder="Email Address"
-            onkeyup="evalidation()"
             required
           />
           <span id="emaill" class="validation-message"></span>
@@ -244,9 +243,8 @@
           <input
             type="password"
             id="password"
-            name="password"
+            name="plog"
             placeholder="Password"
-            onkeyup="pvalidation()"
             required
           />
           <span id="passs" class="validation-message"></span>
@@ -272,48 +270,98 @@
         break;
       }
     }
-    var form = document.getElementById("loginForm");
+    var form = document.querySelector("form");
     if (userType === "login") {
       form.action = "/login/user";
     } else if (userType === "signup") {
       form.action = "/login/business";
     }
   }
-  function pvalidation() {
-    var pass = document.getElementById("password").value;
-    var passMessage = document.getElementById("passs");
+  function validation() {
+        
+        var pass = document.getElementById("password").value;
+
+        var email = document.getElementById("email").value;
+      
+      
+        
+        if (pass == "") {
+          document.getElementById("passs").innerHTML = "Please write password";
+          return false;
+        }
+        if (pass.length < 8) {
+          document.getElementById("passs").innerHTML =
+            "Password should contain 8 characters";
+          return false;
+        }
+        if (pass.search(/[0-9]/) == -1) {
+          document.getElementById("passs").innerHTML =
+            "Password should contain a number";
+          return false;
+        }
+        if (pass.search(/[a-z]/) == -1) {
+          document.getElementById("passs").innerHTML =
+            "Password should contain a lowercase character";
+          return false;
+        }
+        if (pass.search(/[A-Z]/) == -1) {
+          document.getElementById("passs").innerHTML =
+            "Password should contain an uppercase character";
+          return false;
+        }
+        if (pass.search(/[!\@\#\$\%\^\&\*\_\+\,\-\.\<\>\?]/) == -1) {
+          document.getElementById("passs").innerHTML =
+            "Password should contain a special character";
+          return false;
+        } else {
+          document.getElementById("passs").innerHTML = "";
+        }
+        
+        
+        if (email == "") {
+          document.getElementById("emaill").innerHTML = "Please write email";
+        }
+      }
+
+      document.getElementById("authForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
     
-    if (pass === "") {
-      passMessage.innerHTML = "Please write password";
-      return false;
-    } else if (pass.length < 8) {
-      passMessage.innerHTML = "Password should contain 8 characters";
-      return false;
-    } else if (pass.search(/[0-9]/) === -1) {
-      passMessage.innerHTML = "Password should contain a number";
-      return false;
-    } else if (pass.search(/[a-z]/) === -1) {
-      passMessage.innerHTML = "Password should contain a lowercase character";
-      return false;
-    } else if (pass.search(/[A-Z]/) === -1) {
-      passMessage.innerHTML = "Password should contain an uppercase character";
-      return false;
-    } else if (pass.search(/[!\@\#\$\%\^\&\*\_\+\,\-\.\<\>\?]/) === -1) {
-      passMessage.innerHTML = "Password should contain a special character";
-      return false;
-    } else {
-      passMessage.innerHTML = "";
-      return true;
+    // Clear previous validation messages
+    document.getElementById("emaill").textContent = "";
+    document.getElementById("passs").textContent = "";
+
+    // Form data
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    // Client-side validation
+    if (!validateForm(email, password)) {
+      return;
     }
-  }
-  function evalidation() {
-    var email = document.getElementById("email").value;
-    var emailMessage = document.getElementById("emaill");
-    
-    if (email === "") {
-      emailMessage.innerHTML = "Please write email";
-    } else {
-      emailMessage.innerHTML = "";
+
+    // Submit the form data via fetch
+    try {
+      const res = await fetch(this.action, {
+        method: 'POST',
+        body: JSON.stringify({ email, password }),
+        headers: { 'Content-Type': 'application/json' }
+      });
+
+      const data = await res.json();
+        console.log(data)
+      if (res.ok) {
+        // If login is successful
+        if (data.newData) {
+         const userID = data.userID; // Extract userID from response
+    window.location.assign(`/homesaver/index?userID=${userID}`);
+        }
+      } else {
+        // If login is unsuccessful, show an alert
+        alert('Incorrect email or password');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred. Please try again later.');
     }
-  }
+  });
 </script>

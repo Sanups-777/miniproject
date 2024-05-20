@@ -8,7 +8,18 @@ const udetailSchema = new mongoose.Schema({
   phno: String,
   password: { type: String, required: true },
 });
-
+udetailSchema.statics.login = async function(email, password){
+  console.log(email,password);
+  const user = await this.findOne({ email});
+  if (user){
+    if(user.password===password){
+      return user;
+    }
+    throw Error('incorrect password');
+  }
+    throw Error('incorrect email')
+ }
+ 
 const Usersdata = mongoose.model("users", udetailSchema);
 
 const bdetailSchema = new mongoose.Schema({
@@ -55,5 +66,9 @@ const reviewsSchema = new mongoose.Schema({
 });
 
 const Reviews = mongoose.model("reviews", reviewsSchema);
+
+
+
+
 module.exports = { Usersdata, Buisnessdata, Appointments, Reviews };
 // module.exports=Usersdata
