@@ -221,19 +221,20 @@
     </div>
     <div class="form-inner">
       <form
+        id="loginForm"
         action="/login/user"
         class="business"
         method="post"
         autocomplete="off"
-        onsubmit="return validation()"
       >
         
         <div class="field">
           <input
             type="email"
             id="email"
-            name="elog"
+            name="email"
             placeholder="Email Address"
+            onkeyup="evalidation()"
             required
           />
           <span id="emaill" class="validation-message"></span>
@@ -243,8 +244,9 @@
           <input
             type="password"
             id="password"
-            name="plog"
+            name="password"
             placeholder="Password"
+            onkeyup="pvalidation()"
             required
           />
           <span id="passs" class="validation-message"></span>
@@ -270,62 +272,48 @@
         break;
       }
     }
-    var form = document.querySelector("form");
+    var form = document.getElementById("loginForm");
     if (userType === "login") {
       form.action = "/login/user";
     } else if (userType === "signup") {
       form.action = "/login/business";
     }
   }
-  function validation() {
-        
-        var pass = document.getElementById("password").value;
-
-        var email = document.getElementById("email").value;
-      
-      
-        
-        if (pass == "") {
-          document.getElementById("passs").innerHTML = "Please write password";
-          return false;
-        }
-        if (pass.length < 8) {
-          document.getElementById("passs").innerHTML =
-            "Password should contain 8 characters";
-          return false;
-        }
-        if (pass.search(/[0-9]/) == -1) {
-          document.getElementById("passs").innerHTML =
-            "Password should contain a number";
-          return false;
-        }
-        if (pass.search(/[a-z]/) == -1) {
-          document.getElementById("passs").innerHTML =
-            "Password should contain a lowercase character";
-          return false;
-        }
-        if (pass.search(/[A-Z]/) == -1) {
-          document.getElementById("passs").innerHTML =
-            "Password should contain an uppercase character";
-          return false;
-        }
-        if (pass.search(/[!\@\#\$\%\^\&\*\_\+\,\-\.\<\>\?]/) == -1) {
-          document.getElementById("passs").innerHTML =
-            "Password should contain a special character";
-          return false;
-        } else {
-          document.getElementById("passs").innerHTML = "";
-        }
-        
-        
-        if (email == "") {
-          document.getElementById("emaill").innerHTML = "Please write email";
-        }
-        
-        
-      }
-      if (p) {
-          document.getElementById("passs").innerHTML = "Invalid password";
-          return false;
-        }
+  function pvalidation() {
+    var pass = document.getElementById("password").value;
+    var passMessage = document.getElementById("passs");
+    
+    if (pass === "") {
+      passMessage.innerHTML = "Please write password";
+      return false;
+    } else if (pass.length < 8) {
+      passMessage.innerHTML = "Password should contain 8 characters";
+      return false;
+    } else if (pass.search(/[0-9]/) === -1) {
+      passMessage.innerHTML = "Password should contain a number";
+      return false;
+    } else if (pass.search(/[a-z]/) === -1) {
+      passMessage.innerHTML = "Password should contain a lowercase character";
+      return false;
+    } else if (pass.search(/[A-Z]/) === -1) {
+      passMessage.innerHTML = "Password should contain an uppercase character";
+      return false;
+    } else if (pass.search(/[!\@\#\$\%\^\&\*\_\+\,\-\.\<\>\?]/) === -1) {
+      passMessage.innerHTML = "Password should contain a special character";
+      return false;
+    } else {
+      passMessage.innerHTML = "";
+      return true;
+    }
+  }
+  function evalidation() {
+    var email = document.getElementById("email").value;
+    var emailMessage = document.getElementById("emaill");
+    
+    if (email === "") {
+      emailMessage.innerHTML = "Please write email";
+    } else {
+      emailMessage.innerHTML = "";
+    }
+  }
 </script>

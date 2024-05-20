@@ -51,21 +51,13 @@ router.post("/user", async (req, res) => {
         let u = result.username;
         let i = result._id;
         res.render("user/userp", {
-          name: a,
-          email: e,
-          phone: p,
-          uname: u,
-          id: i,
+          name: a,email: e,phone: p,uname: u,id: i,
         });
       } else {
         console.log("incorrect password");
-        p="invalid password"
-        res.render('login', {p});
       }
     } else {
       console.log("incorrect email");
-      e="invalid email"
-      res.render('login', {e});
     }
   }
 });

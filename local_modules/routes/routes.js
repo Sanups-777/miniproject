@@ -10,8 +10,10 @@ const {
 const { mail } = require("../feedback_modules/feedback.js");
 const business = require("../business_modules/business.js");
 const servicefun = require("../Servicesfunction/service.js");
-router.get("/login", (req, res) => {
-  res.render("authentication/login");
+router.get("/login",async(req, res) => {
+  const user= await Usersdata.find({})
+  const business= await Buisnessdata.find({})
+  res.render("authentication/login",{user,business});
 });
 
 router.get("/signup", (req, res) => {
