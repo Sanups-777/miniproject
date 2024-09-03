@@ -6,9 +6,6 @@ npm run start
 
 
 
-mongodb+srv://mongodb:gr74mongo@cluster0.mg8xlkx.mongodb.net/userdata
-
-
 
 
 
